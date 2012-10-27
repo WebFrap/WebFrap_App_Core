@@ -1,0 +1,71 @@
+<?php
+/*******************************************************************************
+* @lang en
+* @version 1.0
+*******************************************************************************/
+$this->l['wbfsys.message_log.label']['Message Log'] = 'Message Log';
+$this->l['wbfsys.message_log.label']['Message Logs'] = 'Message Logs';
+$this->l['wbfsys.message_log.label']['Show'] = 'Show';
+$this->l['wbfsys.message_log.label']['Add'] = 'Add';
+$this->l['wbfsys.message_log.label']['Edit'] = 'Edit';
+$this->l['wbfsys.message_log.label']['Rights'] = 'Rights';
+$this->l['wbfsys.message_log.label']['Delete'] = 'Delete';
+$this->l['wbfsys.message_log.label']['Table Message Log'] = 'Table Message Log';
+$this->l['wbfsys.message_log.label']['Create New Message Log'] = 'Create New Message Log';
+$this->l['wbfsys.message_log.label']['Show Message Log'] = 'Show Message Log';
+$this->l['wbfsys.message_log.label']['Edit Message Log'] = 'Edit Message Log';
+$this->l['wbfsys.message_log.label']['Delete Message Log'] = 'Delete Message Log';
+$this->l['wbfsys.message_log.label']['Create a new Message Log'] = 'Create a new Message Log';
+$this->l['wbfsys.message_log.label']['Edit: Message Log {@text@} '] = 'Edit: Message Log {@text@} ';
+$this->l['wbfsys.message_log.label']['Selection Message Log'] = 'Selection Message Log';
+$this->l['wbfsys.message_log.label']['The field: E-Mail contains errors'] = 'The field: E-Mail contains errors';
+$this->l['wbfsys.message_log.label']['The value of the field: E-Mail is invalid'] = 'The value of the field: E-Mail is invalid';
+$this->l['wbfsys.message_log.label']['The value of the field: E-Mail is to small'] = 'The value of the field: E-Mail is to small';
+$this->l['wbfsys.message_log.label']['The value of the field: E-Mail is to big'] = 'The value of the field: E-Mail is to big';
+$this->l['wbfsys.message_log.label']['The field E-Mail is required'] = 'The field: E-Mail must not be empty';
+$this->l['wbfsys.message_log.label']['Enter here the value for E-Mail'] = 'Enter here the value for E-Mail';
+$this->l['wbfsys.message_log.label']['Insert value for E-Mail (Message Log)'] = 'Insert value for E-Mail (Message Log)';
+$this->l['wbfsys.message_log.label']['Search for E-Mail'] = 'Search for E-Mail';
+$this->l['wbfsys.message_log.label']['Search for E-Mail (Message Log)'] = 'Search for E-Mail (Message Log)';
+$this->l['wbfsys.message_log.label']['E-Mail'] = 'E-Mail';
+$this->l['wbfsys.message_log.label']['The field: Title contains errors'] = 'The field: Title contains errors';
+$this->l['wbfsys.message_log.label']['The value of the field: Title is invalid'] = 'The value of the field: Title is invalid';
+$this->l['wbfsys.message_log.label']['The value of the field: Title is to small'] = 'The value of the field: Title is to small';
+$this->l['wbfsys.message_log.label']['The value of the field: Title is to big'] = 'The value of the field: Title is to big';
+$this->l['wbfsys.message_log.label']['The field Title is required'] = 'The field: Title must not be empty';
+$this->l['wbfsys.message_log.label']['Enter here the value for Title'] = 'Enter here the value for Title';
+$this->l['wbfsys.message_log.label']['Insert value for Title (Message Log)'] = 'Insert value for Title (Message Log)';
+$this->l['wbfsys.message_log.label']['Search for Title'] = 'Search for Title';
+$this->l['wbfsys.message_log.label']['Search for Title (Message Log)'] = 'Search for Title (Message Log)';
+$this->l['wbfsys.message_log.label']['Title'] = 'Title';
+$this->l['wbfsys.message_log.label']['The field: Rowid contains errors'] = 'The field: Rowid contains errors';
+$this->l['wbfsys.message_log.label']['The value of the field: Rowid is invalid'] = 'The value of the field: Rowid is invalid';
+$this->l['wbfsys.message_log.label']['The value of the field: Rowid is to small'] = 'The value of the field: Rowid is to small';
+$this->l['wbfsys.message_log.label']['The value of the field: Rowid is to big'] = 'The value of the field: Rowid is to big';
+$this->l['wbfsys.message_log.label']['The field Rowid is required'] = 'The field: Rowid must not be empty';
+$this->l['wbfsys.message_log.label']['Enter here the value for Rowid'] = 'Enter here the value for Rowid';
+$this->l['wbfsys.message_log.label']['Insert value for Rowid (Message Log)'] = 'Insert value for Rowid (Message Log)';
+$this->l['wbfsys.message_log.label']['Search for Rowid'] = 'Search for Rowid';
+$this->l['wbfsys.message_log.label']['Search for Rowid (Message Log)'] = 'Search for Rowid (Message Log)';
+$this->l['wbfsys.message_log.label']['Rowid'] = 'Rowid';
+$this->l['wbfsys.message_log.label']['The field: Time Created contains errors'] = 'The field: Time Created contains errors';
+$this->l['wbfsys.message_log.label']['The value of the field: Time Created is invalid'] = 'The value of the field: Time Created is invalid';
+$this->l['wbfsys.message_log.label']['The value of the field: Time Created is to small'] = 'The value of the field: Time Created is to small';
+$this->l['wbfsys.message_log.label']['The value of the field: Time Created is to big'] = 'The value of the field: Time Created is to big';
+$this->l['wbfsys.message_log.label']['The field Time Created is required'] = 'The field: Time Created must not be empty';
+$this->l['wbfsys.message_log.label']['Enter here the value for Time Created'] = 'Enter here the value for Time Created';
+$this->l['wbfsys.message_log.label']['Insert value for Time Created (Message Log)'] = 'Insert value for Time Created (Message Log)';
+$this->l['wbfsys.message_log.label']['Search for Time Created'] = 'Search for Time Created';
+$this->l['wbfsys.message_log.label']['Search for Time Created (Message Log)'] = 'Search for Time Created (Message Log)';
+$this->l['wbfsys.message_log.label']['Time Created'] = 'Time Created';
+$this->l['wbfsys.message_log.label']['The field: Role Create contains errors'] = 'The field: Role Create contains errors';
+$this->l['wbfsys.message_log.label']['The value of the field: Role Create is invalid'] = 'The value of the field: Role Create is invalid';
+$this->l['wbfsys.message_log.label']['The value of the field: Role Create is to small'] = 'The value of the field: Role Create is to small';
+$this->l['wbfsys.message_log.label']['The value of the field: Role Create is to big'] = 'The value of the field: Role Create is to big';
+$this->l['wbfsys.message_log.label']['The field Role Create is required'] = 'The field: Role Create must not be empty';
+$this->l['wbfsys.message_log.label']['Enter here the value for Role Create'] = 'Enter here the value for Role Create';
+$this->l['wbfsys.message_log.label']['Insert value for Role Create (Message Log)'] = 'Insert value for Role Create (Message Log)';
+$this->l['wbfsys.message_log.label']['Search for Role Create'] = 'Search for Role Create';
+$this->l['wbfsys.message_log.label']['Search for Role Create (Message Log)'] = 'Search for Role Create (Message Log)';
+$this->l['wbfsys.message_log.label']['Role Create'] = 'Role Create';
+

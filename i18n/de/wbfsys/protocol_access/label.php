@@ -1,0 +1,74 @@
+<?php
+/*******************************************************************************
+* @lang de
+* @version 1.0
+*******************************************************************************/
+$this->l['wbfsys.protocol_access.label']['Protocol Access'] = 'Protocol Access';
+$this->l['wbfsys.protocol_access.label']['Show'] = 'Protocol Access anzeigen';
+$this->l['wbfsys.protocol_access.label']['Edit'] = 'Protocol Access editieren';
+$this->l['wbfsys.protocol_access.label']['Rights'] = 'Rechte';
+$this->l['wbfsys.protocol_access.label']['Delete'] = 'Löschen';
+$this->l['wbfsys.protocol_access.label']['Add'] = 'Neu';
+$this->l['wbfsys.protocol_access.label']['Table Protocol Access'] = 'Tabelle Protocol Access';
+$this->l['wbfsys.protocol_access.label']['Create new Protocol Access'] = 'Ein neues Protocol Access erstellen';
+$this->l['wbfsys.protocol_access.label']['Edit Protocol Access'] = 'Protocol Access bearbeiten';
+$this->l['wbfsys.protocol_access.label']['Show Protocol Access'] = 'Protocol Access anzeigen';
+$this->l['wbfsys.protocol_access.label']['Delete Protocol Access'] = 'Protocol Access löschen';
+$this->l['wbfsys.protocol_access.label']['Overview Protocol Access'] = 'Übersicht Protocol Access';
+$this->l['wbfsys.protocol_access.label']['The value of field .VID is invalid'] = 'Die Daten in Feld: VID sind fehlerhaft';
+$this->l['wbfsys.protocol_access.label']['The value of field VID is not allowed'] = 'Der Inhalt für das Feld: VID ist nicht zulässig';
+$this->l['wbfsys.protocol_access.label']['The value of field VID is to small'] = 'Der Inhalt für das Feld: VID ist zu klein';
+$this->l['wbfsys.protocol_access.label']['The value of field VID is to big'] = 'Der Inhalt für das Feld: VID ist zu groß';
+$this->l['wbfsys.protocol_access.label']['The field VID is required'] = 'Das Feld: VID darf nicht leer sein';
+$this->l['wbfsys.protocol_access.label']['Insert the value for VID'] = 'Hier den Wert für VID eintragen';
+$this->l['wbfsys.protocol_access.label']['VID'] = 'VID';
+$this->l['wbfsys.protocol_access.label']['The value of field .Label is invalid'] = 'Die Daten in Feld: Label sind fehlerhaft';
+$this->l['wbfsys.protocol_access.label']['The value of field Label is not allowed'] = 'Der Inhalt für das Feld: Label ist nicht zulässig';
+$this->l['wbfsys.protocol_access.label']['The value of field Label is to small'] = 'Der Inhalt für das Feld: Label ist zu klein';
+$this->l['wbfsys.protocol_access.label']['The value of field Label is to big'] = 'Der Inhalt für das Feld: Label ist zu groß';
+$this->l['wbfsys.protocol_access.label']['The field Label is required'] = 'Das Feld: Label darf nicht leer sein';
+$this->l['wbfsys.protocol_access.label']['Insert the value for Label'] = 'Hier den Wert für Label eintragen';
+$this->l['wbfsys.protocol_access.label']['Label'] = 'Label';
+$this->l['wbfsys.protocol_access.label']['The value of field .Mask is invalid'] = 'Die Daten in Feld: Mask sind fehlerhaft';
+$this->l['wbfsys.protocol_access.label']['The value of field Mask is not allowed'] = 'Der Inhalt für das Feld: Mask ist nicht zulässig';
+$this->l['wbfsys.protocol_access.label']['The value of field Mask is to small'] = 'Der Inhalt für das Feld: Mask ist zu klein';
+$this->l['wbfsys.protocol_access.label']['The value of field Mask is to big'] = 'Der Inhalt für das Feld: Mask ist zu groß';
+$this->l['wbfsys.protocol_access.label']['The field Mask is required'] = 'Das Feld: Mask darf nicht leer sein';
+$this->l['wbfsys.protocol_access.label']['Insert the value for Mask'] = 'Hier den Wert für Mask eintragen';
+$this->l['wbfsys.protocol_access.label']['Mask'] = 'Mask';
+$this->l['wbfsys.protocol_access.label']['The value of field .Counter is invalid'] = 'Die Daten in Feld: Zähler sind fehlerhaft';
+$this->l['wbfsys.protocol_access.label']['The value of field Counter is not allowed'] = 'Der Inhalt für das Feld: Zähler ist nicht zulässig';
+$this->l['wbfsys.protocol_access.label']['The value of field Counter is to small'] = 'Der Inhalt für das Feld: Zähler ist zu klein';
+$this->l['wbfsys.protocol_access.label']['The value of field Counter is to big'] = 'Der Inhalt für das Feld: Zähler ist zu groß';
+$this->l['wbfsys.protocol_access.label']['The field Counter is required'] = 'Das Feld: Zähler darf nicht leer sein';
+$this->l['wbfsys.protocol_access.label']['Insert the value for Counter'] = 'Hier den Wert für Zähler eintragen';
+$this->l['wbfsys.protocol_access.label']['Counter'] = 'Zähler';
+$this->l['wbfsys.protocol_access.label']['The value of field .Entity is invalid'] = 'Die Daten in Feld: Entity sind fehlerhaft';
+$this->l['wbfsys.protocol_access.label']['The value of field Entity is not allowed'] = 'Der Inhalt für das Feld: Entity ist nicht zulässig';
+$this->l['wbfsys.protocol_access.label']['The value of field Entity is to small'] = 'Der Inhalt für das Feld: Entity ist zu klein';
+$this->l['wbfsys.protocol_access.label']['The value of field Entity is to big'] = 'Der Inhalt für das Feld: Entity ist zu groß';
+$this->l['wbfsys.protocol_access.label']['The field Entity is required'] = 'Das Feld: Entity darf nicht leer sein';
+$this->l['wbfsys.protocol_access.label']['Insert the value for Entity'] = 'Hier den Wert für Entity eintragen';
+$this->l['wbfsys.protocol_access.label']['Entity'] = 'Entity';
+$this->l['wbfsys.protocol_access.label']['The value of field .Rowid is invalid'] = 'Die Daten in Feld: Rowid sind fehlerhaft';
+$this->l['wbfsys.protocol_access.label']['The value of field Rowid is not allowed'] = 'Der Inhalt für das Feld: Rowid ist nicht zulässig';
+$this->l['wbfsys.protocol_access.label']['The value of field Rowid is to small'] = 'Der Inhalt für das Feld: Rowid ist zu klein';
+$this->l['wbfsys.protocol_access.label']['The value of field Rowid is to big'] = 'Der Inhalt für das Feld: Rowid ist zu groß';
+$this->l['wbfsys.protocol_access.label']['The field Rowid is required'] = 'Das Feld: Rowid darf nicht leer sein';
+$this->l['wbfsys.protocol_access.label']['Insert the value for Rowid'] = 'Hier den Wert für Rowid eintragen';
+$this->l['wbfsys.protocol_access.label']['Rowid'] = 'Rowid';
+$this->l['wbfsys.protocol_access.label']['The value of field .Time Created is invalid'] = 'Die Daten in Feld: Time Created sind fehlerhaft';
+$this->l['wbfsys.protocol_access.label']['The value of field Time Created is not allowed'] = 'Der Inhalt für das Feld: Time Created ist nicht zulässig';
+$this->l['wbfsys.protocol_access.label']['The value of field Time Created is to small'] = 'Der Inhalt für das Feld: Time Created ist zu klein';
+$this->l['wbfsys.protocol_access.label']['The value of field Time Created is to big'] = 'Der Inhalt für das Feld: Time Created ist zu groß';
+$this->l['wbfsys.protocol_access.label']['The field Time Created is required'] = 'Das Feld: Time Created darf nicht leer sein';
+$this->l['wbfsys.protocol_access.label']['Insert the value for Time Created'] = 'Hier den Wert für Time Created eintragen';
+$this->l['wbfsys.protocol_access.label']['Time Created'] = 'Time Created';
+$this->l['wbfsys.protocol_access.label']['The value of field .Role Create is invalid'] = 'Die Daten in Feld: Role Create sind fehlerhaft';
+$this->l['wbfsys.protocol_access.label']['The value of field Role Create is not allowed'] = 'Der Inhalt für das Feld: Role Create ist nicht zulässig';
+$this->l['wbfsys.protocol_access.label']['The value of field Role Create is to small'] = 'Der Inhalt für das Feld: Role Create ist zu klein';
+$this->l['wbfsys.protocol_access.label']['The value of field Role Create is to big'] = 'Der Inhalt für das Feld: Role Create ist zu groß';
+$this->l['wbfsys.protocol_access.label']['The field Role Create is required'] = 'Das Feld: Role Create darf nicht leer sein';
+$this->l['wbfsys.protocol_access.label']['Insert the value for Role Create'] = 'Hier den Wert für Role Create eintragen';
+$this->l['wbfsys.protocol_access.label']['Role Create'] = 'Role Create';
+

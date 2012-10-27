@@ -1,0 +1,2098 @@
+<?php 
+/*//////////////////////////////////////////////////////////////////////////////
+// create the metadata for entity: wbfsys_event_status
+//////////////////////////////////////////////////////////////////////////////*/
+
+    // first clean the entity
+    $entity = null;
+
+    if( !$entity = $orm->getByKey( 'WbfsysEntity', 'wbfsys_event_status' ) )
+    {
+      $entity = new WbfsysEntity_Entity();
+      $entity->access_key = 'wbfsys_event_status';
+    }
+    
+    $entity->upgrade( 'name', 'Event Status' );
+    $entity->upgrade( 'id_module', $orm->getByKey( 'WbfsysModule', 'wbfsys'  ) );
+    $entity->upgrade( 'description', 'event Status' );
+    $entity->upgrade( 'flag_index', false );
+    $entity->upgrade( 'default_create', 'Wbfsys.EventStatus.create' );
+    $entity->upgrade( 'default_edit', 'Wbfsys.EventStatus.edit' );
+    $entity->upgrade( 'default_show', 'Wbfsys.EventStatus.show' );
+    $entity->upgrade( 'default_list', 'Wbfsys.EventStatus.listing' );
+    $entity->upgrade( 'default_selection', 'Wbfsys.EventStatus.selection' );
+    $entity->upgrade( 'relevance', 'd-3' );
+    
+    
+    $entity->revision    = $deployRevision;
+    
+    try
+    {
+      if( $entity->isNew() )
+      {
+      
+        $orm->insert( $entity );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status',
+          'WbfsysEntity',
+          'Sucessfully created new Entity wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$entity->getSynchronized() )
+        {
+          $orm->update( $entity );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status',
+            'WbfsysEntity',
+            'Sucessfully updated Entity wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysEntity',
+        'Failed to sync Entity wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status';
+
+      $secArea->label     = 'Entity: Event Status';
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+
+    }
+
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'mod-wbfsys' ) );
+    $secArea->upgrade( 'parent_key', 'mod-wbfsys' );
+    $secArea->upgrade( 'vid', $entity ); 
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity' ) );
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity' ) );
+    $secArea->upgrade( 'type_key', 'entity' );
+    $secArea->upgrade( 'description', "Security Area for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'mod-wbfsys',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'mod-wbfsys',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'mod-wbfsys',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for category: wbfsys_event_status::default
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$category = $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-default' ) )
+    {
+      $category = new WbfsysEntityCategory_Entity();
+      $category->access_key  = 'wbfsys_event_status-default';
+    }
+    
+    $category->upgrade( 'name', 'default' );
+    $category->upgrade( 'id_entity', $entity );
+    $category->revision    = $deployRevision;
+    
+    try
+    {
+      if( $category->isNew() )
+      {
+      
+        $orm->insert( $category );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-default',
+          'WbfsysEntityCategory',
+          'Sucessfully created new WbfsysEntityCategory wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$category->getSynchronized() )
+        {
+          $orm->update( $category );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-default',
+            'WbfsysEntityCategory',
+            'Sucessfully updated WbfsysEntityCategory wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-default',
+        'WbfsysEntityCategory',
+        'Failed to sync WbfsysEntityCategory wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    $secArea = null;
+    $secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-cat-default' );
+
+    if( !$secArea )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-cat-default';
+
+      $secArea->label     = 'Cat: default';
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+
+    }
+
+    $secArea->upgrade( 'm_parent', $orm->get( 'WbfsysSecurityArea', "upper(access_key)=upper('entity-wbfsys_event_status')" ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $category );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_category' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_category' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_category' ); 
+    $secArea->upgrade( 'description', "Category: default for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-cat-default',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-cat-default',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'entity-wbfsys_event_status-cat-default',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for category: wbfsys_event_status::description
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$category = $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-description' ) )
+    {
+      $category = new WbfsysEntityCategory_Entity();
+      $category->access_key  = 'wbfsys_event_status-description';
+    }
+    
+    $category->upgrade( 'name', 'description' );
+    $category->upgrade( 'id_entity', $entity );
+    $category->revision    = $deployRevision;
+    
+    try
+    {
+      if( $category->isNew() )
+      {
+      
+        $orm->insert( $category );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-description',
+          'WbfsysEntityCategory',
+          'Sucessfully created new WbfsysEntityCategory wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$category->getSynchronized() )
+        {
+          $orm->update( $category );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-description',
+            'WbfsysEntityCategory',
+            'Sucessfully updated WbfsysEntityCategory wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-description',
+        'WbfsysEntityCategory',
+        'Failed to sync WbfsysEntityCategory wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    $secArea = null;
+    $secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-cat-description' );
+
+    if( !$secArea )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-cat-description';
+
+      $secArea->label     = 'Cat: description';
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+
+    }
+
+    $secArea->upgrade( 'm_parent', $orm->get( 'WbfsysSecurityArea', "upper(access_key)=upper('entity-wbfsys_event_status')" ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $category );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_category' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_category' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_category' ); 
+    $secArea->upgrade( 'description', "Category: description for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-cat-description',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-cat-description',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'entity-wbfsys_event_status-cat-description',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for category: wbfsys_event_status::meta
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$category = $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-meta' ) )
+    {
+      $category = new WbfsysEntityCategory_Entity();
+      $category->access_key  = 'wbfsys_event_status-meta';
+    }
+    
+    $category->upgrade( 'name', 'meta' );
+    $category->upgrade( 'id_entity', $entity );
+    $category->revision    = $deployRevision;
+    
+    try
+    {
+      if( $category->isNew() )
+      {
+      
+        $orm->insert( $category );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-meta',
+          'WbfsysEntityCategory',
+          'Sucessfully created new WbfsysEntityCategory wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$category->getSynchronized() )
+        {
+          $orm->update( $category );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-meta',
+            'WbfsysEntityCategory',
+            'Sucessfully updated WbfsysEntityCategory wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-meta',
+        'WbfsysEntityCategory',
+        'Failed to sync WbfsysEntityCategory wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    $secArea = null;
+    $secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-cat-meta' );
+
+    if( !$secArea )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-cat-meta';
+
+      $secArea->label     = 'Cat: meta';
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+
+    }
+
+    $secArea->upgrade( 'm_parent', $orm->get( 'WbfsysSecurityArea', "upper(access_key)=upper('entity-wbfsys_event_status')" ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $category );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_category' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_category' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_category' ); 
+    $secArea->upgrade( 'description', "Category: meta for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-cat-meta',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-cat-meta',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'entity-wbfsys_event_status-cat-meta',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::name
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-name' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-name';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'varchar' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: varchar" );
+    	Debug::console( "Missing attr type: varchar" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Name' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-default' ) );
+    $attribute->upgrade( 'description', 'the Name of the event status' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-name',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-name',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-name',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-name' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-name';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Name' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Name for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-name',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-name',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::access_key
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-access_key' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-access_key';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'varchar' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: varchar" );
+    	Debug::console( "Missing attr type: varchar" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Access Key' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-default' ) );
+    $attribute->upgrade( 'description', 'Access Key for event status' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-access_key',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-access_key',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-access_key',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-access_key' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-access_key';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Access Key' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Access Key for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-access_key',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-access_key',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::description
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-description' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-description';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'text' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: text" );
+    	Debug::console( "Missing attr type: text" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Description' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-description' ) );
+    $attribute->upgrade( 'description', 'Description for event status' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-description',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-description',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-description',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-description' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-description';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Description' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Description for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-description',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-description',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::m_order
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-m_order' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-m_order';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'integer' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: integer" );
+    	Debug::console( "Missing attr type: integer" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Order' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-meta' ) );
+    $attribute->upgrade( 'description', 'Order for event status' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-m_order',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-m_order',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-m_order',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-m_order' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-m_order';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Order' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Order for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-m_order',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-m_order',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::rowid
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-rowid' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-rowid';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'bigint' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: bigint" );
+    	Debug::console( "Missing attr type: bigint" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Rowid' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-meta' ) );
+    $attribute->upgrade( 'description', '' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-rowid',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-rowid',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-rowid',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-rowid' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-rowid';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Rowid' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Rowid for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-rowid',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-rowid',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::m_time_created
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-m_time_created' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-m_time_created';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'timestamp' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: timestamp" );
+    	Debug::console( "Missing attr type: timestamp" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Time Created' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-meta' ) );
+    $attribute->upgrade( 'description', '' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-m_time_created',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-m_time_created',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-m_time_created',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-m_time_created' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-m_time_created';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Time Created' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Time Created for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-m_time_created',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-m_time_created',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::m_role_create
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-m_role_create' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-m_role_create';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'bigint' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: bigint" );
+    	Debug::console( "Missing attr type: bigint" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Role Create' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-meta' ) );
+    $attribute->upgrade( 'description', '' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-m_role_create',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-m_role_create',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-m_role_create',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-m_role_create' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-m_role_create';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Role Create' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Role Create for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-m_role_create',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-m_role_create',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::m_time_changed
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-m_time_changed' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-m_time_changed';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'timestamp' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: timestamp" );
+    	Debug::console( "Missing attr type: timestamp" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Time Changed' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-meta' ) );
+    $attribute->upgrade( 'description', '' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-m_time_changed',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-m_time_changed',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-m_time_changed',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-m_time_changed' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-m_time_changed';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Time Changed' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Time Changed for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-m_time_changed',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-m_time_changed',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::m_role_change
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-m_role_change' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-m_role_change';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'bigint' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: bigint" );
+    	Debug::console( "Missing attr type: bigint" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Role Change' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-meta' ) );
+    $attribute->upgrade( 'description', '' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-m_role_change',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-m_role_change',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-m_role_change',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-m_role_change' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-m_role_change';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Role Change' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Role Change for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-m_role_change',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-m_role_change',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::m_version
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-m_version' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-m_version';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'integer' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: integer" );
+    	Debug::console( "Missing attr type: integer" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Version' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-meta' ) );
+    $attribute->upgrade( 'description', '' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-m_version',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-m_version',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-m_version',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-m_version' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-m_version';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Version' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Version for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-m_version',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-m_version',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+/*//////////////////////////////////////////////////////////////////////////////
+// manage the metadata for attribute: wbfsys_event_status::m_uuid
+//////////////////////////////////////////////////////////////////////////////*/
+
+    if( !$attribute = $orm->getByKey( 'WbfsysEntityAttribute', 'wbfsys_event_status-m_uuid' ) )
+    {
+      $attribute = new WbfsysEntityAttribute_Entity();
+      $attribute->access_key  = 'wbfsys_event_status-m_uuid';
+    }
+		
+    $typeId = 0;
+    $typeNode = $orm->getByKey( 'WbfsysEntityAttributeType', 'uuid' );
+    
+    if( $typeNode )
+    {
+    	$typeId = $typeNode->getId();
+    }
+    else
+    {
+    	Log::warn( "Missing attr type: uuid" );
+    	Debug::console( "Missing attr type: uuid" );
+    }
+    
+    $attribute->upgrade( 'id_type', $typeId );
+
+    $attribute->upgrade( 'id_entity', $entity );
+    $attribute->upgrade( 'name', 'Uuid' );
+
+    $attribute->upgrade( 'id_category', $orm->getByKey( 'WbfsysEntityCategory', 'wbfsys_event_status-meta' ) );
+    $attribute->upgrade( 'description', '' );
+    $attribute->revision    = $deployRevision;
+    
+    try
+    {
+      if( $attribute->isNew() )
+      {
+      
+        $orm->insert( $attribute );
+        $this->protocol(array(
+          'insert',
+          'wbfsys_event_status-m_uuid',
+          'WbfsysEntityAttribute',
+          'Sucessfully created new WbfsysEntityAttribute wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$attribute->getSynchronized() )
+        {
+          $orm->update( $attribute );
+          $this->protocol(array(
+            'update',
+            'wbfsys_event_status-m_uuid',
+            'WbfsysEntityAttribute',
+            'Sucessfully updated WbfsysEntityAttribute wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status-m_uuid',
+        'WbfsysEntityAttribute',
+        'Failed to sync WbfsysEntityAttribute wbfsys_event_status '.$e->getMessage()
+      ));
+    }
+
+    
+    
+    $secArea = null;
+
+    if( !$secArea = $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status-attr-m_uuid' ) )
+    {
+      $secArea = new WbfsysSecurityArea_Entity();
+      $secArea->access_key = 'entity-wbfsys_event_status-attr-m_uuid';
+
+      
+      $secArea->id_level_listing = 90;
+      $secArea->id_level_access = 90;
+      $secArea->id_level_insert = 90;
+      $secArea->id_level_update = 90;
+      $secArea->id_level_delete = 90;
+      $secArea->id_level_admin  = 90;
+
+      $secArea->id_ref_listing = 90;
+      $secArea->id_ref_access  = 90;
+      $secArea->id_ref_insert  = 90;
+      $secArea->id_ref_update  = 90;
+      $secArea->id_ref_delete  = 90;
+      $secArea->id_ref_admin   = 90;
+    }
+
+    $secArea->upgrade( 'label', 'Attr: Uuid' );
+    $secArea->upgrade( 'm_parent', $orm->getByKey( 'WbfsysSecurityArea', 'entity-wbfsys_event_status' ) );
+    $secArea->upgrade( 'parent_key', 'entity-wbfsys_event_status' );
+    $secArea->upgrade( 'vid', $attribute );
+    $secArea->upgrade( 'id_vid_entity', $orm->getByKey( 'WbfsysEntity', 'wbfsys_entity_attribute' ) ); 
+    $secArea->upgrade( 'id_type', $orm->getByKey( 'WbfsysSecurityAreaType', 'entity_attribute' ) ); 
+    $secArea->upgrade( 'type_key', 'entity_attribute' ); 
+    $secArea->upgrade( 'description', "Attribute: Uuid for Entity: Event Status" );
+    $secArea->revision    = $deployRevision;
+    
+    try
+    {
+      if( $secArea->isNew() )
+      {
+      
+        $orm->insert( $secArea );
+        $this->protocol(array(
+          'insert',
+          'entity-wbfsys_event_status-attr-m_uuid',
+          'WbfsysSecurityArea',
+          'Sucessfully created new SecurityArea wbfsys_event_status'
+        ));
+      }
+      else
+      {
+        
+        if( !$secArea->getSynchronized() )
+        {
+          $orm->update( $secArea );
+          $this->protocol(array(
+            'update',
+            'entity-wbfsys_event_status-attr-m_uuid',
+            'WbfsysSecurityArea',
+            'Sucessfully updated SecurityArea wbfsys_event_status'
+          ));
+        }
+      
+      }
+    }
+    catch( Exception $e )
+    {
+      $this->protocol(array(
+        'error',
+        'wbfsys_event_status',
+        'WbfsysSecurityArea',
+        'Failed to sync SecurityArea wbfsys_event_status '.$e->getMessage()
+      ));
+    }

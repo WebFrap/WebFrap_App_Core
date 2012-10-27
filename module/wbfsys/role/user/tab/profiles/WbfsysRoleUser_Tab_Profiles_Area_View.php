@@ -1,0 +1,116 @@
+<?php 
+/*******************************************************************************
+*
+* @author      : Dominik Bonsch <dominik.bonsch@webfrap.net>
+* @date        :
+* @copyright   : Webfrap Developer Network <contact@webfrap.net>
+* @project     : Webfrap Web Frame Application
+* @projectUrl  : http://webfrap.net
+*
+* @licence     : BSD License see: LICENCE/BSD Licence.txt
+* 
+* @version: @package_version@  Revision: @package_revision@
+*
+* Changes:
+*
+*******************************************************************************/
+
+/**
+ * Read before change:
+ * It's not recommended to change this file inside a Mod or App Project.
+ * If you want to change it copy it to a custom project.
+
+ *
+ * @package WebFrap
+ * @subpackage ModWbfsys
+ * @author Dominik Bonsch <dominik.bonsch@s-db.de>
+ * @copyright Softwareentwicklung Dominik Bonsch <contact@webfrap.de>
+ * @licence WebFrap.net
+ */
+class WbfsysRoleUser_Tab_Profiles_Area_View
+  extends LibTemplateAreaView
+{
+ /**
+  * add the table item
+  * add the search field elements
+  *
+  * @param int $objid the id of the reference dataset
+  * @param TFlag $params
+  * @return boolean
+  */
+  public function displayTab( $objid, $params )
+  {
+    
+    /* @var $acl LibAclAdapter_Db */
+    $acl = $this->getAcl();
+
+    // set the tab template
+    $this->setTemplate( 'wbfsys/role_user/tabs/profiles' );
+
+    $this->addVar( 'objid', $objid );
+
+    $params->saveFormId = 'wgt-form-wbfsys_role_user-edit-'.$objid;
+
+//##############################################################################
+// code block reference user_profiles
+//##############################################################################
+    
+    // reference user_profiles
+    $paramsUserProfiles = $params->paramsUserProfiles;
+
+
+    $params->refIdUserProfiles = $objid;
+    $paramsUserProfiles->refId = $objid;
+    $paramsUserProfiles->refIdUserProfiles = $objid;
+
+
+    // create the form action
+    $paramsUserProfiles->searchFormAction = 'ajax.php?c=Wbfsys.RoleUser_Ref_UserProfiles.search&amp;objid='.$objid;
+
+    // add the id to the form
+    $paramsUserProfiles->searchFormId = 'wgt-form-table-wbfsys_role_user-ref-user_profiles-search-'.$objid;
+
+    // if a table id is given use it for the table
+    $paramsUserProfiles->targetId = 'wgt_table-wbfsys_role_user-ref-user_profiles-'.$objid;
+
+    // fill the relevant data for the search form
+    $this->setSearchFormData( $paramsUserProfiles, 'UserProfiles' );
+
+    $model = $this->getModel( 'WbfsysRoleUser_Ref_UserProfiles_Table' );
+
+    $ui = $this->loadUi( 'WbfsysRoleUser_Ref_UserProfiles_Table' );
+    $ui->setModel( $model );
+
+    $data = $model->search
+    ( 
+      $objid, 
+      $paramsUserProfiles->access, 
+      $paramsUserProfiles 
+    );
+
+    // inject the table item in the template system
+    $ui->createListItem
+    (
+      $objid,
+      $data,
+      $paramsUserProfiles->access,
+      $paramsUserProfiles
+    );
+
+    // inject the search fields for the table context to the template system
+    $ui->searchForm
+    (
+      $objid,
+      $model,
+      $paramsUserProfiles
+    );
+
+
+
+    // ok gab scheins kein fehler
+    return null;
+
+  }//end public function displayTab */
+
+}//end class WbfsysRoleUser_Tab_Profiles_Area_View
+

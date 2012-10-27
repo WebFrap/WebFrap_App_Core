@@ -1,0 +1,288 @@
+<?php 
+/*******************************************************************************
+*
+* @author      : Dominik Bonsch <dominik.bonsch@webfrap.net>
+* @date        :
+* @copyright   : Webfrap Developer Network <contact@webfrap.net>
+* @project     : Webfrap Web Frame Application
+* @projectUrl  : http://webfrap.net
+*
+* @licence     : BSD License see: LICENCE/BSD Licence.txt
+* 
+* @version: @package_version@  Revision: @package_revision@
+*
+* Changes:
+*
+*******************************************************************************/
+
+/**
+ * Acl Rechte Container über den alle Berechtigungen geladen werden
+ *
+ * @package WebFrap
+ * @subpackage ModWbfsys
+ * @author Dominik Bonsch <dominik.bonsch@s-db.de>
+ * @copyright Softwareentwicklung Dominik Bonsch <contact@webfrap.de>
+ * @licence WebFrap.net
+ */
+class WbfsysDesktop_Ref_MainTree_Treetable_Access
+  extends LibAclPermissionTree
+{
+  /**
+   * @param TFlag $params
+   * @param Entity: wbfsys_menu_entry Attributes: m_parent; label; icon; http_url; access_key; id_menu; description; mimetype; rowid; m_time_created; m_role_create; m_time_changed; m_role_change; m_version; m_uuid_Entity $entity
+   */
+  public function loadDefault( $params, $entity = null )
+  {
+
+    // laden der benötigten Resource Objekte
+    /* @var $acl LibAclAdapter_Db */
+    $acl = $this->getAcl();
+
+    // da wir die zugriffsrechte mehr als nur einmal brauchen holen wir uns
+    // direkt das zugriffslevel
+    $acl->getPathPermission
+    (
+      $params->aclRoot,     // key des root knotens
+      $params->aclRootId,  // rowid des root knotens
+      $params->aclLevel,    // tiefe
+      $params->aclKey,      // acl key des vaterknotens
+      $params->refId,      // die rowid des vaterknotens
+      'mod-wbfsys-cat-core_data-ref-main_tree', // der aktuelle knotenpunkt
+      null,
+      false,  // die rechte des nächsten levels nicht mitladen
+      $this  // sich selbst als container mit übergeben
+    );
+
+    // checken ob rechte über den rootcontainer bis hier her vereerbt 
+    // werden sollen
+    try 
+    {
+      $rootContainer = $acl->getRootContainer( $params->aclRoot );
+      
+      $rootPerm = $rootContainer->getRefAccess( $params->aclRootId, $params->aclLevel, 'mod-wbfsys-cat-core_data-ref-main_tree' );
+      
+      if( $rootPerm )
+      {
+        if( !$this->defLevel || $rootPerm['level'] > $this->defLevel )
+        {
+          $this->defLevel = $rootPerm['level'];
+        }
+      }
+      
+      if( $rootPerm )
+      {
+        if( !$this->level || $rootPerm['level'] > $this->level )
+        {
+          $this->level = $rootPerm['level'];
+        }
+      }
+      
+      if( $rootPerm['roles'] )
+      {
+        $this->roles = array_merge( $this->roles, $rootPerm['roles'] );
+      }
+      
+    }
+    catch ( LibAcl_Exception $e )
+    {
+      
+    }
+    
+  }//end public function loadDefault */
+
+  /**
+   * @param WbfsysDesktop_Ref_MainTree_Treetable_Query $query
+   * @param string $condition
+   * @param TFlag $params
+   */
+  public function fetchListTreetableDefault( $query, $condition, $params )
+  {
+
+    // laden der benötigten Resource Objekte
+    $acl  = $this->getAcl();
+    $user = $this->getUser();
+    $orm  = $this->getDb()->getOrm();
+
+    $userId    = $user->getId();
+
+    // erstellen der Acl criteria und befüllen mit den relevanten cols
+    $criteria  = $orm->newCriteria( 'inner_acl' );
+    
+    $envelop = $orm->newCriteria( );
+    $envelop->subQuery = $criteria;
+    $envelop->select(array(
+      'inner_acl.rowid',
+      'max( inner_acl."acl-level" ) as "acl-level"'
+    ));
+    $query->injectLimit( $envelop, $params );
+    $envelop->groupBy( 'inner_acl.rowid' );
+
+    $criteria->select( array( 'wbfsys_menu_entry.rowid as rowid' )  );
+
+    if( !$this->defLevel )
+    {
+    
+      $greatest = <<<SQL
+
+  acls."acl-level"
+
+SQL;
+
+      $joinType = ' ';
+
+    }
+    else
+    {
+
+      $greatest = <<<SQL
+
+  greatest
+  (
+    {$this->defLevel},
+    acls."acl-level"
+  ) as "acl-level"
+
+SQL;
+
+      $joinType = ' LEFT ';
+      
+    }
+
+    $criteria->selectAlso( $greatest  );
+
+    $query->setTables( $criteria );
+    $query->appendConditions( $criteria, $condition, $params );
+    $query->injectAclOrder( $criteria, $envelop, $params );
+    $query->appendFilter( $criteria, $condition, $params );
+
+    $criteria->join
+    (
+      " {$joinType} JOIN
+        {$acl->sourceRelation} as acls
+        ON
+          UPPER(acls.\"acl-area\") IN( UPPER('mod-wbfsys'), UPPER('mgmt-wbfsys_menu_entry') )
+            AND acls.\"acl-user\" = {$userId}
+            AND acls.\"acl-vid\" = wbfsys_menu_entry.rowid ",
+      'acls'
+    );
+    
+    $tmp         = $orm->select( $envelop );
+    $ids       = array();
+    $this->ids = array();
+    
+    foreach( $tmp as $row )
+    {
+      $ids[$row['rowid']] = (int)$row['acl-level'];
+      $this->ids[] = $row['rowid'];
+    }
+    
+    $this->ids = array_keys($ids);
+    
+    $query->setCalcQuery( $criteria, $params );
+    
+    return $ids;
+
+  }//end public function fetchListTreetableDefault */
+
+  /**
+   * @param WbfsysMenuEntry_Ref_MainTree_Treetable_Query $query
+   * @param array $parentIds
+   * @param string $condition
+   * @param TFlag $params
+   */
+  public function fetchChildrenTreetableDefault( $query, $parentIds, $condition, $params )
+  {
+  
+    // direkt einen leere aray zurückgeben wenn keine ids datensätze geladen
+    // werden sollen
+    if( !$parentIds )
+      return array();
+
+    // laden der benötigten Resource Objekte
+    $acl  = $this->getAcl();
+    $user = $this->getUser();
+    $orm  = $this->getDb()->getOrm();
+
+    $userId    = $user->getId();
+
+    // erstellen der Acl criteria und befüllen mit den relevanten cols
+    $criteria  = $orm->newCriteria( 'inner_acl' );
+    
+    $envelop = $orm->newCriteria( );
+    $envelop->subQuery = $criteria;
+    $envelop->select(array(
+      'inner_acl.rowid',
+      'max( inner_acl."acl-level" ) as "acl-level"'
+    ));
+    
+    $pLimit         = new TFlag();
+    $pLimit->qsize  = '-1';
+    
+    $query->injectLimit( $envelop, $pLimit );
+    $envelop->groupBy( 'inner_acl.rowid' );
+
+    $criteria->select( array( 'wbfsys_menu_entry.rowid as rowid' )  );
+
+    if( !$this->defLevel )
+    {
+    
+      $greatest = <<<SQL
+
+  acls."acl-level"
+
+SQL;
+
+      $joinType = ' ';
+
+    }
+    else
+    {
+
+      $greatest = <<<SQL
+
+  greatest
+  (
+    {$this->defLevel},
+    acls."acl-level"
+  ) as "acl-level"
+
+SQL;
+
+      $joinType = ' LEFT ';
+      
+    }
+
+    $criteria->selectAlso( $greatest  );
+
+    $query->setTables( $criteria );
+    //$query->appendConditions( $criteria, $condition, $params );
+    $query->injectAclOrder( $criteria, $envelop, $params );
+    $query->appendFilter( $criteria, $condition, $params );
+
+    $criteria->join
+    (
+      " {$joinType} JOIN
+        {$acl->sourceRelation} as acls
+        ON
+          UPPER(acls.\"acl-area\") IN( UPPER('mod-wbfsys'), UPPER('mgmt-wbfsys_menu_entry') )
+            AND acls.\"acl-user\" = {$userId}
+            AND acls.\"acl-vid\" = wbfsys_menu_entry.rowid ",
+      'acls'
+    );
+    
+    $criteria->where('wbfsys_menu_entry.m_parent in('.implode(',',$parentIds).')');
+    
+    $tmp         = $orm->select( $envelop );
+    $ids       = array();
+    
+    foreach( $tmp as $row )
+    {
+      $ids[$row['rowid']] = (int)$row['acl-level'];
+    }
+
+    return $ids;
+
+  }//end public function fetchChildrenTreetableDefault */
+
+}//end class WbfsysDesktop_Ref_MainTree_Treetable_Access
+

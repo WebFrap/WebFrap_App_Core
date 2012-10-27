@@ -1,0 +1,75 @@
+<?php
+/*******************************************************************************
+* @lang de
+* @version 1.0
+*******************************************************************************/
+$this->l['wbfsys.protocol_message.label']['Protocol Message'] = 'Protocol Message';
+$this->l['wbfsys.protocol_message.label']['Protocol Messages'] = 'Protocol Messages';
+$this->l['wbfsys.protocol_message.label']['Show'] = 'Protocol Message anzeigen';
+$this->l['wbfsys.protocol_message.label']['Edit'] = 'Protocol Message editieren';
+$this->l['wbfsys.protocol_message.label']['Rights'] = 'Rechte';
+$this->l['wbfsys.protocol_message.label']['Delete'] = 'Löschen';
+$this->l['wbfsys.protocol_message.label']['Add'] = 'Neu';
+$this->l['wbfsys.protocol_message.label']['Table Protocol Message'] = 'Tabelle Protocol Message';
+$this->l['wbfsys.protocol_message.label']['Create new Protocol Message'] = 'Ein neues Protocol Message erstellen';
+$this->l['wbfsys.protocol_message.label']['Edit Protocol Message'] = 'Protocol Message bearbeiten';
+$this->l['wbfsys.protocol_message.label']['Show Protocol Message'] = 'Protocol Message anzeigen';
+$this->l['wbfsys.protocol_message.label']['Delete Protocol Message'] = 'Protocol Message löschen';
+$this->l['wbfsys.protocol_message.label']['Overview Protocol Message'] = 'Übersicht Protocol Message';
+$this->l['wbfsys.protocol_message.label']['The value of field .VID is invalid'] = 'Die Daten in Feld: VID sind fehlerhaft';
+$this->l['wbfsys.protocol_message.label']['The value of field VID is not allowed'] = 'Der Inhalt für das Feld: VID ist nicht zulässig';
+$this->l['wbfsys.protocol_message.label']['The value of field VID is to small'] = 'Der Inhalt für das Feld: VID ist zu klein';
+$this->l['wbfsys.protocol_message.label']['The value of field VID is to big'] = 'Der Inhalt für das Feld: VID ist zu groß';
+$this->l['wbfsys.protocol_message.label']['The field VID is required'] = 'Das Feld: VID darf nicht leer sein';
+$this->l['wbfsys.protocol_message.label']['Insert the value for VID'] = 'Hier den Wert für VID eintragen';
+$this->l['wbfsys.protocol_message.label']['VID'] = 'VID';
+$this->l['wbfsys.protocol_message.label']['The value of field .Message is invalid'] = 'Die Daten in Feld: Message sind fehlerhaft';
+$this->l['wbfsys.protocol_message.label']['The value of field Message is not allowed'] = 'Der Inhalt für das Feld: Message ist nicht zulässig';
+$this->l['wbfsys.protocol_message.label']['The value of field Message is to small'] = 'Der Inhalt für das Feld: Message ist zu klein';
+$this->l['wbfsys.protocol_message.label']['The value of field Message is to big'] = 'Der Inhalt für das Feld: Message ist zu groß';
+$this->l['wbfsys.protocol_message.label']['The field Message is required'] = 'Das Feld: Message darf nicht leer sein';
+$this->l['wbfsys.protocol_message.label']['Insert the value for Message'] = 'Hier den Wert für Message eintragen';
+$this->l['wbfsys.protocol_message.label']['Message'] = 'Message';
+$this->l['wbfsys.protocol_message.label']['The value of field .Context is invalid'] = 'Die Daten in Feld: Context sind fehlerhaft';
+$this->l['wbfsys.protocol_message.label']['The value of field Context is not allowed'] = 'Der Inhalt für das Feld: Context ist nicht zulässig';
+$this->l['wbfsys.protocol_message.label']['The value of field Context is to small'] = 'Der Inhalt für das Feld: Context ist zu klein';
+$this->l['wbfsys.protocol_message.label']['The value of field Context is to big'] = 'Der Inhalt für das Feld: Context ist zu groß';
+$this->l['wbfsys.protocol_message.label']['The field Context is required'] = 'Das Feld: Context darf nicht leer sein';
+$this->l['wbfsys.protocol_message.label']['Insert the value for Context'] = 'Hier den Wert für Context eintragen';
+$this->l['wbfsys.protocol_message.label']['Context'] = 'Context';
+$this->l['wbfsys.protocol_message.label']['The value of field .mask is invalid'] = 'Die Daten in Feld: Mask sind fehlerhaft';
+$this->l['wbfsys.protocol_message.label']['The value of field mask is not allowed'] = 'Der Inhalt für das Feld: Mask ist nicht zulässig';
+$this->l['wbfsys.protocol_message.label']['The value of field mask is to small'] = 'Der Inhalt für das Feld: Mask ist zu klein';
+$this->l['wbfsys.protocol_message.label']['The value of field mask is to big'] = 'Der Inhalt für das Feld: Mask ist zu groß';
+$this->l['wbfsys.protocol_message.label']['The field mask is required'] = 'Das Feld: Mask darf nicht leer sein';
+$this->l['wbfsys.protocol_message.label']['Insert the value for mask'] = 'Hier den Wert für Mask eintragen';
+$this->l['wbfsys.protocol_message.label']['mask'] = 'Mask';
+$this->l['wbfsys.protocol_message.label']['The value of field .Entity is invalid'] = 'Die Daten in Feld: Entity sind fehlerhaft';
+$this->l['wbfsys.protocol_message.label']['The value of field Entity is not allowed'] = 'Der Inhalt für das Feld: Entity ist nicht zulässig';
+$this->l['wbfsys.protocol_message.label']['The value of field Entity is to small'] = 'Der Inhalt für das Feld: Entity ist zu klein';
+$this->l['wbfsys.protocol_message.label']['The value of field Entity is to big'] = 'Der Inhalt für das Feld: Entity ist zu groß';
+$this->l['wbfsys.protocol_message.label']['The field Entity is required'] = 'Das Feld: Entity darf nicht leer sein';
+$this->l['wbfsys.protocol_message.label']['Insert the value for Entity'] = 'Hier den Wert für Entity eintragen';
+$this->l['wbfsys.protocol_message.label']['Entity'] = 'Entity';
+$this->l['wbfsys.protocol_message.label']['The value of field .Rowid is invalid'] = 'Die Daten in Feld: Rowid sind fehlerhaft';
+$this->l['wbfsys.protocol_message.label']['The value of field Rowid is not allowed'] = 'Der Inhalt für das Feld: Rowid ist nicht zulässig';
+$this->l['wbfsys.protocol_message.label']['The value of field Rowid is to small'] = 'Der Inhalt für das Feld: Rowid ist zu klein';
+$this->l['wbfsys.protocol_message.label']['The value of field Rowid is to big'] = 'Der Inhalt für das Feld: Rowid ist zu groß';
+$this->l['wbfsys.protocol_message.label']['The field Rowid is required'] = 'Das Feld: Rowid darf nicht leer sein';
+$this->l['wbfsys.protocol_message.label']['Insert the value for Rowid'] = 'Hier den Wert für Rowid eintragen';
+$this->l['wbfsys.protocol_message.label']['Rowid'] = 'Rowid';
+$this->l['wbfsys.protocol_message.label']['The value of field .Time Created is invalid'] = 'Die Daten in Feld: Time Created sind fehlerhaft';
+$this->l['wbfsys.protocol_message.label']['The value of field Time Created is not allowed'] = 'Der Inhalt für das Feld: Time Created ist nicht zulässig';
+$this->l['wbfsys.protocol_message.label']['The value of field Time Created is to small'] = 'Der Inhalt für das Feld: Time Created ist zu klein';
+$this->l['wbfsys.protocol_message.label']['The value of field Time Created is to big'] = 'Der Inhalt für das Feld: Time Created ist zu groß';
+$this->l['wbfsys.protocol_message.label']['The field Time Created is required'] = 'Das Feld: Time Created darf nicht leer sein';
+$this->l['wbfsys.protocol_message.label']['Insert the value for Time Created'] = 'Hier den Wert für Time Created eintragen';
+$this->l['wbfsys.protocol_message.label']['Time Created'] = 'Time Created';
+$this->l['wbfsys.protocol_message.label']['The value of field .Role Create is invalid'] = 'Die Daten in Feld: Role Create sind fehlerhaft';
+$this->l['wbfsys.protocol_message.label']['The value of field Role Create is not allowed'] = 'Der Inhalt für das Feld: Role Create ist nicht zulässig';
+$this->l['wbfsys.protocol_message.label']['The value of field Role Create is to small'] = 'Der Inhalt für das Feld: Role Create ist zu klein';
+$this->l['wbfsys.protocol_message.label']['The value of field Role Create is to big'] = 'Der Inhalt für das Feld: Role Create ist zu groß';
+$this->l['wbfsys.protocol_message.label']['The field Role Create is required'] = 'Das Feld: Role Create darf nicht leer sein';
+$this->l['wbfsys.protocol_message.label']['Insert the value for Role Create'] = 'Hier den Wert für Role Create eintragen';
+$this->l['wbfsys.protocol_message.label']['Role Create'] = 'Role Create';
+
