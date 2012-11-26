@@ -342,7 +342,7 @@ class WbfsysProcessState_Crud_Create_Form
           'name'      => 'wbfsys_process_state[label]',
           'id'        => 'wgt-input-wbfsys_process_state_label'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_required medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Label', 'src' => 'Process State' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'label', 'src' => 'Process State' ) ),
           'maxlength' => $this->entity->maxSize( 'label' ),
         )
       );
@@ -351,7 +351,7 @@ class WbfsysProcessState_Crud_Create_Form
       $inputLabel->setReadonly( $this->fieldReadOnly( 'wbfsys_process_state', 'label' ) );
       $inputLabel->setRequired( $this->fieldRequired( 'wbfsys_process_state', 'label' ) );
       $inputLabel->setData( $this->entity->getSecure('label') );
-      $inputLabel->setLabel( $i18n->l( 'Label', 'wbfsys.process_state.label' ) );
+      $inputLabel->setLabel( $i18n->l( 'label', 'wbfsys.process_state.label' ) );
 
       $inputLabel->refresh           = $this->refresh;
       $inputLabel->serializeElement  = $this->sendElement;
@@ -640,7 +640,7 @@ class WbfsysProcessState_Crud_Create_Form
           'name'      => 'wbfsys_process_state[bg_color]',
           'id'        => 'wgt-input-wbfsys_process_state_bg_color'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Bg color', 'src' => 'Process State' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'bg color', 'src' => 'Process State' ) ),
           'maxlength' => $this->entity->maxSize( 'bg_color' ),
         )
       );
@@ -649,7 +649,7 @@ class WbfsysProcessState_Crud_Create_Form
       $inputBgColor->setReadonly( $this->fieldReadOnly( 'wbfsys_process_state', 'bg_color' ) );
       $inputBgColor->setRequired( $this->fieldRequired( 'wbfsys_process_state', 'bg_color' ) );
       $inputBgColor->setData( $this->entity->getSecure( 'bg_color' ) );
-      $inputBgColor->setLabel( $i18n->l( 'Bg color', 'wbfsys.process_state.label' ) );
+      $inputBgColor->setLabel( $i18n->l( 'bg color', 'wbfsys.process_state.label' ) );
 
       $inputBgColor->refresh           = $this->refresh;
       $inputBgColor->serializeElement  = $this->sendElement;
@@ -683,7 +683,7 @@ class WbfsysProcessState_Crud_Create_Form
           'name'      => 'wbfsys_process_state[text_color]',
           'id'        => 'wgt-input-wbfsys_process_state_text_color'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Text color', 'src' => 'Process State' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'text color', 'src' => 'Process State' ) ),
           'maxlength' => $this->entity->maxSize( 'text_color' ),
         )
       );
@@ -692,7 +692,7 @@ class WbfsysProcessState_Crud_Create_Form
       $inputTextColor->setReadonly( $this->fieldReadOnly( 'wbfsys_process_state', 'text_color' ) );
       $inputTextColor->setRequired( $this->fieldRequired( 'wbfsys_process_state', 'text_color' ) );
       $inputTextColor->setData( $this->entity->getSecure( 'text_color' ) );
-      $inputTextColor->setLabel( $i18n->l( 'Text color', 'wbfsys.process_state.label' ) );
+      $inputTextColor->setLabel( $i18n->l( 'text color', 'wbfsys.process_state.label' ) );
 
       $inputTextColor->refresh           = $this->refresh;
       $inputTextColor->serializeElement  = $this->sendElement;
@@ -726,7 +726,7 @@ class WbfsysProcessState_Crud_Create_Form
           'name'      => 'wbfsys_process_state[border_color]',
           'id'        => 'wgt-input-wbfsys_process_state_border_color'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Border color', 'src' => 'Process State' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'border color', 'src' => 'Process State' ) ),
           'maxlength' => $this->entity->maxSize( 'border_color' ),
         )
       );
@@ -735,7 +735,7 @@ class WbfsysProcessState_Crud_Create_Form
       $inputBorderColor->setReadonly( $this->fieldReadOnly( 'wbfsys_process_state', 'border_color' ) );
       $inputBorderColor->setRequired( $this->fieldRequired( 'wbfsys_process_state', 'border_color' ) );
       $inputBorderColor->setData( $this->entity->getSecure( 'border_color' ) );
-      $inputBorderColor->setLabel( $i18n->l( 'Border color', 'wbfsys.process_state.label' ) );
+      $inputBorderColor->setLabel( $i18n->l( 'border color', 'wbfsys.process_state.label' ) );
 
       $inputBorderColor->refresh           = $this->refresh;
       $inputBorderColor->serializeElement  = $this->sendElement;

@@ -99,7 +99,12 @@ class CoreNameType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-core_name_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'core_name_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class CoreNameType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Core.NameType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

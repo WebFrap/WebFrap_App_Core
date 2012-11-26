@@ -460,7 +460,7 @@ class WbfsysLanguage_Crud_Edit_Form
           'name'      => 'wbfsys_language[key3]',
           'id'        => 'wgt-input-wbfsys_language_key3'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_cname medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Key3', 'src' => 'Language' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'key3', 'src' => 'Language' ) ),
           'maxlength' => $this->entity->maxSize( 'key3' ),
         )
       );
@@ -469,7 +469,7 @@ class WbfsysLanguage_Crud_Edit_Form
       $inputKey3->setReadonly( $this->fieldReadOnly( 'wbfsys_language', 'key3' ) );
       $inputKey3->setRequired( $this->fieldRequired( 'wbfsys_language', 'key3' ) );
       $inputKey3->setData( $this->entity->getSecure('key3') );
-      $inputKey3->setLabel( $i18n->l( 'Key3', 'wbfsys.language.label' ) );
+      $inputKey3->setLabel( $i18n->l( 'key3', 'wbfsys.language.label' ) );
 
       $inputKey3->refresh           = $this->refresh;
       $inputKey3->serializeElement  = $this->sendElement;
@@ -546,7 +546,7 @@ class WbfsysLanguage_Crud_Edit_Form
           'name'      => 'wbfsys_language[key_rfc1766]',
           'id'        => 'wgt-input-wbfsys_language_key_rfc1766'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_cname medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Key rfc1766', 'src' => 'Language' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'key rfc1766', 'src' => 'Language' ) ),
           'maxlength' => $this->entity->maxSize( 'key_rfc1766' ),
         )
       );
@@ -555,7 +555,7 @@ class WbfsysLanguage_Crud_Edit_Form
       $inputKeyRfc1766->setReadonly( $this->fieldReadOnly( 'wbfsys_language', 'key_rfc1766' ) );
       $inputKeyRfc1766->setRequired( $this->fieldRequired( 'wbfsys_language', 'key_rfc1766' ) );
       $inputKeyRfc1766->setData( $this->entity->getSecure('key_rfc1766') );
-      $inputKeyRfc1766->setLabel( $i18n->l( 'Key rfc1766', 'wbfsys.language.label' ) );
+      $inputKeyRfc1766->setLabel( $i18n->l( 'key rfc1766', 'wbfsys.language.label' ) );
 
       $inputKeyRfc1766->refresh           = $this->refresh;
       $inputKeyRfc1766->serializeElement  = $this->sendElement;
@@ -589,7 +589,7 @@ class WbfsysLanguage_Crud_Edit_Form
           'name'      => 'wbfsys_language[short]',
           'id'        => 'wgt-input-wbfsys_language_short'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Short', 'src' => 'Language' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'short', 'src' => 'Language' ) ),
           'maxlength' => $this->entity->maxSize( 'short' ),
         )
       );
@@ -598,7 +598,7 @@ class WbfsysLanguage_Crud_Edit_Form
       $inputShort->setReadonly( $this->fieldReadOnly( 'wbfsys_language', 'short' ) );
       $inputShort->setRequired( $this->fieldRequired( 'wbfsys_language', 'short' ) );
       $inputShort->setData( $this->entity->getSecure('short') );
-      $inputShort->setLabel( $i18n->l( 'Short', 'wbfsys.language.label' ) );
+      $inputShort->setLabel( $i18n->l( 'short', 'wbfsys.language.label' ) );
 
       $inputShort->refresh           = $this->refresh;
       $inputShort->serializeElement  = $this->sendElement;

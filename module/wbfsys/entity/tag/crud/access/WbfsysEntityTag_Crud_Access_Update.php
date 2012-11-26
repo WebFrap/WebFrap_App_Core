@@ -129,7 +129,7 @@ class WbfsysEntityTag_Crud_Access_Update
   }//end public function loadDefault */
 
   /**
-   * @param TFlag $params
+   * @param Context $params
    * @param WbfsysEntityTag_Entity $entity
    */
   public function loadDefReferences( $params, $entity = null )

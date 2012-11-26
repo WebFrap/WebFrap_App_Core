@@ -334,7 +334,8 @@ class WbfsysManagement_Table_Model
     $query->extendedConditions = $extendedConditions;
 
 
-    if( $params->dynFilters )
+
+		if( $params->dynFilters )
     {
       foreach( $params->dynFilters as $dynFilter  )
       {
@@ -355,6 +356,7 @@ class WbfsysManagement_Table_Model
 
       }
     }
+
 
     // per exclude können regeln übergeben werden um bestimmte datensätze
     // auszublenden

@@ -42,29 +42,37 @@ class WbfsysIssue_Table_MyCreatedIssued_Filter_Postgresql
   {
 
     $acl       = $this->getAcl();
+    $subCheck = array();
+    
     
     $user = $this->getUser();
     
     $join = <<<SQL
 
-  JOIN
+  LEFT JOIN
     {$acl->sourceRelation} as acls_my_created_issued
     ON
       upper(acls_my_created_issued."acl-area") IN( UPPER('mod-wbfsys'), UPPER('mgmt-wbfsys_issue') )
         AND acls_my_created_issued."acl-user" = {$user->getId()}
         AND acls_my_created_issued."acl-vid" = wbfsys_issue.rowid 
   
-  JOIN
+  LEFT JOIN
     wbfsys_role_group as acls_group_my_created_issued
       ON
       acls_group_my_created_issued.rowid = acls_my_created_issued."acl-group"
-        AND upper(acls_group_my_created_issued.access_key) IN( upper('owner') )
-      
+
 SQL;
 
+		$subCheck[] = <<<SQL
+	upper(acls_group_my_created_issued.access_key) IN( upper('owner') )
+SQL;
 
     $criteria->join( $join );
     
+
+		
+		if( $subCheck )
+			$criteria->where( "(".implode( ' OR ', $subCheck ).")" ); 
 
     return $criteria;
 

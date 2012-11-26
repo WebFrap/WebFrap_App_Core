@@ -151,6 +151,7 @@ class WbfsysDesktop_Table_Ui
       $searchElement->searchKey = 'wbfsys_desktop';
       $searchElement->advancedSearch = true;
       $searchElement->focus = true;
+      $searchElement->context = 'table';
       
 
     }
@@ -337,6 +338,61 @@ JSCODE;
     $view->addJsCode($code);
 
   }//end public function removeListEntry */
+
+  /**
+   * Entfernen eines eintrags aus einem listenelement über die id des datensatzes
+   * und der htmlid des listen elements
+   * Logik wird in javascript implementiert und über das ajax interface
+   * zum client transportiert
+   *
+   * @param string $key die rowid des zu entfernende listeitrags
+   * @param string $itemId die HTML id des listen elements
+   *
+   * @return void
+   */
+  public function removeListEntries( $ids, $itemId  )
+  {
+
+  	$numEntries = count( $ids );
+  	
+  	// combine the ids to one big selector
+  	$selector = "#{$itemId}-table tr.node-".implode( ",#{$itemId}-table tr.node-{$key}", $ids );
+  
+    $view = $this->getView();
+
+    $code = <<<JSCODE
+
+    \$S('{$selector}').fadeOut(100,function(){\$S('{$selector}').remove();});
+    \$S('#{$itemId}-table').grid( 'decEntries', $numEntries );
+JSCODE;
+
+    // logik wird direkt in die view gekippt
+    $view->addJsCode( $code );
+
+  }//end public function removeListEntries */
+
+  /**
+   * Remove all entries from the list
+   *
+   * @param string $itemId die HTML id des listen elements
+   *
+   * @return void
+   */
+  public function cleanListBody( $itemId  )
+  {
+
+    $view = $this->getView();
+
+    $code = <<<JSCODE
+
+    \$S('#{$itemId}-table tr').remove();
+    \$S('#{$itemId}-table').grid('setNumEntries', 0)
+JSCODE;
+
+    // logik wird direkt in die view gekippt
+    $view->addJsCode( $code );
+
+  }//end public function cleanListBody */
 
   /**
    * de:

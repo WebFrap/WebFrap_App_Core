@@ -99,7 +99,12 @@ class WbfsysSecurityAreaType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_security_area_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_security_area_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysSecurityAreaType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.SecurityAreaType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

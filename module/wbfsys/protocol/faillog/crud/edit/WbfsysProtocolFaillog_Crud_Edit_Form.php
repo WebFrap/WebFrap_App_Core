@@ -257,7 +257,7 @@ class WbfsysProtocolFaillog_Crud_Edit_Form
           'name'      => 'wbfsys_protocol_faillog[user_name]',
           'id'        => 'wgt-input-wbfsys_protocol_faillog_user_name'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'User name', 'src' => 'Protocol Faillog' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'user name', 'src' => 'Protocol Faillog' ) ),
           'maxlength' => $this->entity->maxSize( 'user_name' ),
         )
       );
@@ -266,7 +266,7 @@ class WbfsysProtocolFaillog_Crud_Edit_Form
       $inputUserName->setReadonly( $this->fieldReadOnly( 'wbfsys_protocol_faillog', 'user_name' ) );
       $inputUserName->setRequired( $this->fieldRequired( 'wbfsys_protocol_faillog', 'user_name' ) );
       $inputUserName->setData( $this->entity->getSecure('user_name') );
-      $inputUserName->setLabel( $i18n->l( 'User name', 'wbfsys.protocol_faillog.label' ) );
+      $inputUserName->setLabel( $i18n->l( 'user name', 'wbfsys.protocol_faillog.label' ) );
 
       $inputUserName->refresh           = $this->refresh;
       $inputUserName->serializeElement  = $this->sendElement;

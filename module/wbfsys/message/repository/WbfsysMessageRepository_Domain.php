@@ -99,7 +99,12 @@ class WbfsysMessageRepository_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_message_repository'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_message_repository'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysMessageRepository_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.MessageRepository_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

@@ -75,12 +75,13 @@ class WbfsysRoleGroup_Ref_Access_Table_Modal_View
       $params->refId = $objid;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'index.php?c=Wbfsys.RoleGroup_Ref_Access.search&amp;objid='.$params->refId;
+    $params->searchFormAction = 'index.php?c=Wbfsys.RoleGroup_Ref_Access.search&amp;objid='.$params->refId;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_role_group-ref-access-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_role_group-ref-access-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-access-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'Access' );

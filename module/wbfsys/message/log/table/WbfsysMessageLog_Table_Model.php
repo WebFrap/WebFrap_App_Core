@@ -294,10 +294,10 @@ class WbfsysMessageLog_Table_Model
 
       $adjustment = $httpRequest->param( 'order-wbfsys_message_log', Validator::CNAME, 'm_time_created' );
       if( $adjustment )
-        $params->order[] = 'wbfsys_message_log.m_time_created '.('asc' == $adjustment?'asc':'desc');
+        $params->order['wbfsys_message_log-m_time_created'] = ('asc' == $adjustment?'asc':'desc');
 
       else
-        $params->order[] = 'wbfsys_message_log.m_time_created desc';
+        $params->order['wbfsys_message_log-m_time_created'] = 'desc';
 
 
 
@@ -307,7 +307,8 @@ class WbfsysMessageLog_Table_Model
     $query->extendedConditions = $extendedConditions;
 
 
-    if( $params->dynFilters )
+
+		if( $params->dynFilters )
     {
       foreach( $params->dynFilters as $dynFilter  )
       {
@@ -328,6 +329,7 @@ class WbfsysMessageLog_Table_Model
 
       }
     }
+
 
     // per exclude können regeln übergeben werden um bestimmte datensätze
     // auszublenden

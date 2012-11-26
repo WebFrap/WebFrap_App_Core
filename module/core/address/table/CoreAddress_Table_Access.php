@@ -146,7 +146,7 @@ class CoreAddress_Table_Access
 
     $criteria->select( array( 'core_address.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

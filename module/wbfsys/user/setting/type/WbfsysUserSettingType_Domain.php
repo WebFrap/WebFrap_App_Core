@@ -99,7 +99,12 @@ class WbfsysUserSettingType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_user_setting_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_user_setting_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysUserSettingType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.UserSettingType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

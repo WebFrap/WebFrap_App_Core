@@ -424,7 +424,7 @@ class WbfsysAudioVariant_Crud_Create_Form
           'name'      => 'wbfsys_audio_variant[id_audio_codec]',
           'id'        => 'wgt-input-wbfsys_audio_variant_id_audio_codec'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Audio codec', 'src' => 'Audio Variant' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'audio codec', 'src' => 'Audio Variant' ) ),
         )
       );
       $inputIdAudioCodec->setWidth( 'medium' );
@@ -438,7 +438,7 @@ class WbfsysAudioVariant_Crud_Create_Form
       $inputIdAudioCodec->setRequired( $this->fieldRequired( 'wbfsys_audio_variant', 'id_audio_codec' ) );
 
 
-      $inputIdAudioCodec->setLabel( $i18n->l( 'Audio codec', 'wbfsys.audio_variant.label' ) );
+      $inputIdAudioCodec->setLabel( $i18n->l( 'audio codec', 'wbfsys.audio_variant.label' ) );
 
 
       $acl = $this->getAcl();
@@ -450,7 +450,7 @@ class WbfsysAudioVariant_Crud_Create_Form
         $inputIdAudioCodec->editUrl = 'index.php?c=Wbfsys.AudioCodec.listing&amp;target='.$this->namespace.'&amp;field=id_audio_codec&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_audio_variant_id_audio_codec'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdAudioCodec->setFirstFree( 'No Audio codec selected' );
+      $inputIdAudioCodec->setFirstFree( 'No audio codec selected' );
 
       
       $queryIdAudioCodec = null;

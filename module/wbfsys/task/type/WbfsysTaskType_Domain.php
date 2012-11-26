@@ -99,7 +99,12 @@ class WbfsysTaskType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_task_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_task_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysTaskType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.TaskType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

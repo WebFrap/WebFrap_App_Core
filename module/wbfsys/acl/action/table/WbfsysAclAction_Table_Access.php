@@ -146,7 +146,7 @@ class WbfsysAclAction_Table_Access
 
     $criteria->select( array( 'wbfsys_acl_action.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

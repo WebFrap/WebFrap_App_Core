@@ -420,6 +420,15 @@ class MyWbfsysTask_Treetable_Postgresql_Query
   public function checkConditions( $criteria, array $condition )
   {
   
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_task.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -524,17 +533,15 @@ class MyWbfsysTask_Treetable_Postgresql_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_task.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_task.title' );
+      $criteria->selectAlso( 'wbfsys_task.title as "wbfsys_task-title-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -583,22 +590,13 @@ class MyWbfsysTask_Treetable_Postgresql_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_task.title' );
       $criteria->selectAlso( 'wbfsys_task.title as "wbfsys_task-title-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -616,17 +614,7 @@ class MyWbfsysTask_Treetable_Postgresql_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_task.title' );
       $criteria->selectAlso( 'wbfsys_task.title as "wbfsys_task-title-order"' );
@@ -637,8 +625,6 @@ class MyWbfsysTask_Treetable_Postgresql_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

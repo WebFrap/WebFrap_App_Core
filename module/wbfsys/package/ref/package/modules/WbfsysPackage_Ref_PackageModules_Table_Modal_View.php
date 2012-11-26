@@ -71,12 +71,13 @@ class WbfsysPackage_Ref_PackageModules_Table_Modal_View
     $access = $params->accessPackageModules;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'ajax.php?c=Wbfsys.Package_Ref_PackageModules.search&amp;objid='.$objid;
+    $params->searchFormAction = 'ajax.php?c=Wbfsys.Package_Ref_PackageModules.search&amp;objid='.$objid;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_package-ref-package_modules-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_package-ref-package_modules-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-package_modules-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'PackageModules' );

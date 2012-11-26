@@ -129,7 +129,7 @@ class WbfsysSecurityArea_Table_Element
       (
         Wgt::ACTION_BUTTON_GET,
         'Rights',
-        'maintab.php?c=Wbfsys.SecurityArea_Acl_Dset.listing&amp;objid=',
+        'maintab.php?c=Acl.Mgmt_Dset.listing&amp;dkey=wbfsys_security_area&amp;objid=',
         'control/rights.png',
         '',
         'wbfsys.security_area.label',
@@ -185,7 +185,8 @@ class WbfsysSecurityArea_Table_Element
       $this->html .= '<div id="'.$this->id.'" class="wgt-grid" >'.NL;
       $this->html .= '<var id="'.$this->id.'-table-cfg-grid" >{
         "height":"'.$this->bodyHeight.'",
-        "search_form":"'.$this->searchForm.'"
+        "search_form":"'.$this->searchForm.'",
+        "select_able":"true"
       }</var>';
       $this->html .= $this->buildPanel();
 
@@ -213,7 +214,7 @@ class WbfsysSecurityArea_Table_Element
 
 
 
-      $this->html .= '<script type="text/javascript" >'.NL;
+      $this->html .= '<script type="application/javascript" >'.NL;
       $this->html .= $this->buildJavascript();
       $this->html .= '</script>'.NL;
 
@@ -311,19 +312,19 @@ class WbfsysSecurityArea_Table_Element
       // doubcle click open
       $accessActionKey = $this->hasEditRights( $row )?'edit':'show';
  
-      $rowWcm       = '';
+      $rowWcm      = '';
       $rowParams   = '';
-      $dsUrl        = null;
+      $dsUrl       = null;
       // check if the row has 
       if( $dsUrl = $this->getActionUrl( $objid, $row ) )
       {
-        $rowWcm     .= ' wcm_control_access_dataset';
+        $rowWcm     .= ' wcm wcm_control_access_dataset';
         $rowParams .= ' wgt_url="'.$dsUrl.'" ';
       }
 
 
       
-      $body .= '<tr class="wcm wcm_ui_highlight '.$rowWcm.$classContext.' row'.$num.' node-'.$objid.'" '
+      $body .= '<tr class="'.$rowWcm.$classContext.' row'.$num.' node-'.$objid.'" '
 
         .' wgt_context_menu="'.$this->id.'-cmenu" ' 
         .$menuActions
@@ -337,9 +338,9 @@ class WbfsysSecurityArea_Table_Element
 
 
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.SecurityArea.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_security_area_label']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.SecurityArea.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_security_area_label'])).'</a></td>'.NL;
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_ajax" href="maintab.php?c=Wbfsys.SecurityAreaType.listing" >'.Validator::sanitizeHtml($row['wbfsys_security_area_type_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_ajax" href="maintab.php?c=Wbfsys.SecurityAreaType.listing" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_security_area_type_name'])).'</a></td>'.NL;
 
 
 
@@ -466,8 +467,8 @@ class WbfsysSecurityArea_Table_Element
     );
     $accessActionKey = $this->hasEditRights( $row )?'edit':'show';
     
-    $dsUrl        = null;
-    $rowWcm       = '';
+    $dsUrl       = null;
+    $rowWcm      = '';
     $rowParams   = '';
     $menuActions = '';
     
@@ -480,7 +481,7 @@ class WbfsysSecurityArea_Table_Element
     // check if the row has 
     if( $dsUrl = $this->getActionUrl( $objid, $row ) )
     {
-      $rowWcm     .= ' wcm_control_access_dataset';
+      $rowWcm    .= ' wcm_control_access_dataset';
       $rowParams .= ' wgt_url="'.$dsUrl.'" ';
     }
     
@@ -501,7 +502,7 @@ class WbfsysSecurityArea_Table_Element
         .' wgt_eid="'.$objid.'" '
         .$rowParams
         .' wgt_context_menu="'.$this->id.'-cmenu" '
-        .' class="wcm wcm_ui_highlight wcm_control_access_dataset '.$classContext.' node-'.$objid.'" >'.NL;
+        .' class="wcm wcm_ui_highlight '.$rowWcm .$classContext.' node-'.$objid.'" >'.NL;
     }
     else
     {
@@ -513,9 +514,9 @@ class WbfsysSecurityArea_Table_Element
 
 
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.SecurityArea.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_security_area_label']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.SecurityArea.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_security_area_label'])).'</a></td>'.NL;
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_ajax" href="maintab.php?c=Wbfsys.SecurityAreaType.listing" >'.Validator::sanitizeHtml($row['wbfsys_security_area_type_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_ajax" href="maintab.php?c=Wbfsys.SecurityAreaType.listing" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_security_area_type_name'])).'</a></td>'.NL;
 
 
     if( $this->enableNav )
@@ -560,42 +561,50 @@ class WbfsysSecurityArea_Table_Element
   	$iconClean = $this->icon( 'control/clean.png', 'Clean' );
   	$iconDelete = $this->icon( 'control/delete.png', 'Delete Selection' );
   	$iconExport = $this->icon( 'control/export.png', 'Export' );
+  	
+  	
+  	$iconSelectAll = $this->icon( 'control/select_all.png', 'Select All' );
+  	$iconDeselectAll = $this->icon( 'control/deselect_all.png', 'Deselect All' );
 
     $html = '<div class="wgt-panel wgt-border-top" >'.NL;
     $html .= ' <div class="right menu"  >';
     $html .=     $this->menuTableSize();
     $html .= ' </div>';
-    $html .= ' <div class="menu" style="float:left;" style="width:150px;" >';
-    
-    if( WBF_SHOW_MOCKUP )
-    {
-    
+    $html .= ' <div class="menu" style="float:left;" style="width:200px;" >';
+
     $html .=   <<<HTML
     
- <div id="{$this->id}-list-action" >
+ <div class="wgt-panel-control" id="{$this->id}-list-action" >
 	<button 
 		class="wcm wcm_control_dropmenu wgt-button" id="{$this->id}-list-action-cntrl" 
 		wgt_drop_box="{$this->id}-list-action-menu" >{$iconListMenu} List Menu</button>
   </div>
   <div class="wgt-dropdownbox" id="{$this->id}-list-action-menu" >
+    
     <ul>
-      <li><a>{$iconDelete} Delete Selection</a></li>
-      <li><a>{$iconClean} Clear Data</a></li>
-      <li><a class="deeplink" >{$iconExport} Export</a>
-      	<span>
-      		<ul>
-      			<li><a>Export 1</a></li>
-      			<li><a>Export 2</a></li>
-      		</ul>
-      	</span>
-      </li>
+      <li><a
+      	class="wcm wcm_req_del_selection"
+      	href="ajax.php?c=Wbfsys.SecurityArea_Multi.deleteSelection"
+      	wgt_elem="table#{$this->id}-table"
+      	title="Please confirm that you want to delete the selected Security Areas." >{$iconDelete} Delete selected Security Areas</a></li>
+      <li><a 
+      	class="wcm wcm_req_del"
+      	title="You are going to delete ALL! Security Areas. Please confirm that you really want to do that."
+      	href="ajax.php?c=Wbfsys.SecurityArea_Multi.deleteAll" >{$iconClean} Delete all Security Areas</a></li>
   	</ul>
  	</div>
   <var id="{$this->id}-list-action-cntrl-cfg-dropmenu"  >{"align":"left","valign":"top"}</var>
+  
+  <div class="wgt-panel-control" >
+  	<button 
+  		onclick="\$S('table#{$this->id}-table').grid('deSelectAll');" 
+  		class="wcm wcm_ui_tip wgt-button"
+  		tooltip="Deselect all entries" >
+  			{$iconDeselectAll}</button>
+  </div>
 
 HTML;
 
-	}
 
     $html .= ' </div>';
     $html .= ' <div class="menu"  style="text-align:center;margin:0px auto;" >';

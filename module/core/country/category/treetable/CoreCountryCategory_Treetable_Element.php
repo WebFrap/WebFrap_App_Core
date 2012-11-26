@@ -105,7 +105,7 @@ class CoreCountryCategory_Treetable_Element
       (
         Wgt::ACTION_BUTTON_GET,
         'Rights',
-        'maintab.php?c=_Dset.listing&amp;objid=',
+        'maintab.php?c=Acl.Mgmt_Dset.listing&amp;dkey=core_country_category&amp;objid=',
         'control/rights.png',
         '',
         'core.country_category.label',
@@ -170,7 +170,8 @@ class CoreCountryCategory_Treetable_Element
       $this->html .= '<div id="'.$this->id.'" class="wgt-grid" >'.NL;
       $this->html .= '<var id="'.$this->id.'-table-cfg-grid" >{
         "height":"'.$this->bodyHeight.'",
-        "search_form":"'.$this->searchForm.'"
+        "search_form":"'.$this->searchForm.'",
+        "select_able":"true"
       }</var>';
       $this->html .= $this->buildPanel();
       $this->html .= '<table id="'.$this->id
@@ -198,7 +199,7 @@ class CoreCountryCategory_Treetable_Element
       
 
 
-      $this->html .= '<script type="text/javascript" >'.NL;
+      $this->html .= '<script type="application/javascript" >'.NL;
       $this->html .= $this->buildJavascript();
       $this->html .= '</script>'.NL;
 
@@ -309,9 +310,9 @@ class CoreCountryCategory_Treetable_Element
       $body .= '<td valign="top" class="pos" name="slct['.$objid.']" style="text-align:right;" >'.$pos.'</td>'.NL;
         
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Core.CountryCategory.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['core_country_category_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Core.CountryCategory.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['core_country_category_name'])).'</a></td>'.NL;
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['core_country_category_title']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['core_country_category_title'])).'</td>'.NL;
 
       $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['core_country_category_description']).'</td>'.NL;
 
@@ -417,9 +418,9 @@ class CoreCountryCategory_Treetable_Element
       $body .= '<td valign="top" class="pos" name="slct['.$objid.']" style="text-align:right;" >'.$parentPos.'.'.$pos.'</td>'.NL;
         
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Core.CountryCategory.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['core_country_category_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Core.CountryCategory.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['core_country_category_name'])).'</a></td>'.NL;
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['core_country_category_title']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['core_country_category_title'])).'</td>'.NL;
 
       $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['core_country_category_description']).'</td>'.NL;
 
@@ -619,9 +620,9 @@ class CoreCountryCategory_Treetable_Element
     $body .= '<td valign="top" class="pos" name="slct['.$objid.']" style="text-align:right;" >'.$prePos.'1</td>'.NL;
         
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Core.CountryCategory.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['core_country_category_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Core.CountryCategory.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['core_country_category_name'])).'</a></td>'.NL;
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['core_country_category_title']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['core_country_category_title'])).'</td>'.NL;
 
       $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['core_country_category_description']).'</td>'.NL;
 

@@ -75,12 +75,13 @@ class WbfsysManagement_Ref_Mask_Table_Modal_View
       $params->refId = $objid;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'index.php?c=Wbfsys.Management_Ref_Mask.search&amp;objid='.$params->refId;
+    $params->searchFormAction = 'index.php?c=Wbfsys.Management_Ref_Mask.search&amp;objid='.$params->refId;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_management-ref-mask-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_management-ref-mask-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-mask-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'Mask' );

@@ -131,6 +131,7 @@ class WbfsysTask_Treetable_Ui
       $searchElement->searchKey = 'wbfsys_task';
       $searchElement->advancedSearch = true;
       $searchElement->focus = true;
+      $searchElement->context = 'treetable';
       
 
     }

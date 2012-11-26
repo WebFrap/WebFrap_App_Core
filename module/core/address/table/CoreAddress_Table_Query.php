@@ -376,6 +376,15 @@ class CoreAddress_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'core_address.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -445,17 +454,15 @@ class CoreAddress_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'core_address.rowid' );
+      $criteria->selectAlso( 'core_address.rowid as "core_address-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -504,22 +511,13 @@ class CoreAddress_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'core_address.rowid' );
       $criteria->selectAlso( 'core_address.rowid as "core_address-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -537,17 +535,7 @@ class CoreAddress_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'core_address.rowid' );
       $criteria->selectAlso( 'core_address.rowid as "core_address-rowid-order"' );
@@ -558,8 +546,6 @@ class CoreAddress_Table_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

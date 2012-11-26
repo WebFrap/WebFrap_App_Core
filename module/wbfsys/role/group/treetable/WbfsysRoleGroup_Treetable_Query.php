@@ -432,6 +432,15 @@ class WbfsysRoleGroup_Treetable_Query
   public function checkConditions( $criteria, array $condition )
   {
   
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_role_group.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -583,17 +592,15 @@ class WbfsysRoleGroup_Treetable_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_role_group.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_role_group.name' );
+      $criteria->selectAlso( 'wbfsys_role_group.name as "wbfsys_role_group-name-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -642,22 +649,13 @@ class WbfsysRoleGroup_Treetable_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_role_group.name' );
       $criteria->selectAlso( 'wbfsys_role_group.name as "wbfsys_role_group-name-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -675,17 +673,7 @@ class WbfsysRoleGroup_Treetable_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_role_group.name' );
       $criteria->selectAlso( 'wbfsys_role_group.name as "wbfsys_role_group-name-order"' );
@@ -696,8 +684,6 @@ class WbfsysRoleGroup_Treetable_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

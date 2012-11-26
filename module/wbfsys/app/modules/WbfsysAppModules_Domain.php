@@ -99,7 +99,12 @@ class WbfsysAppModules_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_app_modules'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_app_modules'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysAppModules_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.AppModules_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

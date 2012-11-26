@@ -562,7 +562,7 @@ class WbfsysKnowHowNode_Crud_Show_Form
           'name'  => 'wbfsys_know_how_node[raw_content]',
           'id'    => 'wgt-input-wbfsys_know_how_node_raw_content'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip full large-height'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title' => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Raw content', 'src' => 'Know How Node' ) ),
+          'title' => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'raw content', 'src' => 'Know How Node' ) ),
         )
       );
       $inputRawContent->setWidth( 'full' );
@@ -573,7 +573,7 @@ class WbfsysKnowHowNode_Crud_Show_Form
       $inputRawContent->setData( $this->entity->getData( 'raw_content' ) );
       $inputRawContent->setReadonly( $this->fieldReadOnly( 'wbfsys_know_how_node', 'raw_content' ) );
       $inputRawContent->setRequired( $this->fieldRequired( 'wbfsys_know_how_node', 'raw_content' ) );
-      $inputRawContent->setLabel( $i18n->l( 'Raw content', 'wbfsys.know_how_node.label' ) );
+      $inputRawContent->setLabel( $i18n->l( 'raw content', 'wbfsys.know_how_node.label' ) );
 
       $inputRawContent->refresh           = $this->refresh;
       $inputRawContent->serializeElement  = $this->sendElement;

@@ -44,7 +44,7 @@ class WbfsysRoleUser_Crud_Selection_Maintab_Menu
     $user    = $this->getUser();
     $access   = $params->access;
 
-    $iconClose         = $this->view->icon('control/close.png'      ,'Close');
+    $iconClose         = $this->view->icon('control/close_tab.png'      ,'Close');
 
 
     $entries = new TArray();
@@ -102,9 +102,11 @@ HTML;
             href="modal.php?c=Webfrap.Docu.open&amp;key=wbfsys_role_user-table" >{$iconHelp} {$this->view->i18n->l('Help','wbf.label')}</a></li>
 
 
+					<!--
           <li><a 
             class="wcm wcm_req_ajax" 
             href="modal.php?c=Wbfsys.Issue.create&amp;context=table" >{$iconBug} {$this->view->i18n->l('Bug','wbf.label')}</a></li>
+					-->
 
 
 

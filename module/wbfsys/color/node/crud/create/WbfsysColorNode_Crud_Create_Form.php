@@ -611,7 +611,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[display_color]',
           'id'        => 'wgt-input-wbfsys_color_node_display_color'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Display color', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'display color', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'display_color' ),
         )
       );
@@ -620,7 +620,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputDisplayColor->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'display_color' ) );
       $inputDisplayColor->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'display_color' ) );
       $inputDisplayColor->setData( $this->entity->getSecure( 'display_color' ) );
-      $inputDisplayColor->setLabel( $i18n->l( 'Display color', 'wbfsys.color_node.label' ) );
+      $inputDisplayColor->setLabel( $i18n->l( 'display color', 'wbfsys.color_node.label' ) );
 
       $inputDisplayColor->refresh           = $this->refresh;
       $inputDisplayColor->serializeElement  = $this->sendElement;
@@ -654,7 +654,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[bg_default]',
           'id'        => 'wgt-input-wbfsys_color_node_bg_default'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Bg default', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'bg default', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'bg_default' ),
         )
       );
@@ -663,7 +663,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputBgDefault->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'bg_default' ) );
       $inputBgDefault->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'bg_default' ) );
       $inputBgDefault->setData( $this->entity->getSecure( 'bg_default' ) );
-      $inputBgDefault->setLabel( $i18n->l( 'Bg default', 'wbfsys.color_node.label' ) );
+      $inputBgDefault->setLabel( $i18n->l( 'bg default', 'wbfsys.color_node.label' ) );
 
       $inputBgDefault->refresh           = $this->refresh;
       $inputBgDefault->serializeElement  = $this->sendElement;
@@ -697,7 +697,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[font_default]',
           'id'        => 'wgt-input-wbfsys_color_node_font_default'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Font default', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'font default', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'font_default' ),
         )
       );
@@ -706,7 +706,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputFontDefault->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'font_default' ) );
       $inputFontDefault->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'font_default' ) );
       $inputFontDefault->setData( $this->entity->getSecure( 'font_default' ) );
-      $inputFontDefault->setLabel( $i18n->l( 'Font default', 'wbfsys.color_node.label' ) );
+      $inputFontDefault->setLabel( $i18n->l( 'font default', 'wbfsys.color_node.label' ) );
 
       $inputFontDefault->refresh           = $this->refresh;
       $inputFontDefault->serializeElement  = $this->sendElement;
@@ -740,7 +740,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[border_default]',
           'id'        => 'wgt-input-wbfsys_color_node_border_default'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Border default', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'border default', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'border_default' ),
         )
       );
@@ -749,7 +749,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputBorderDefault->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'border_default' ) );
       $inputBorderDefault->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'border_default' ) );
       $inputBorderDefault->setData( $this->entity->getSecure( 'border_default' ) );
-      $inputBorderDefault->setLabel( $i18n->l( 'Border default', 'wbfsys.color_node.label' ) );
+      $inputBorderDefault->setLabel( $i18n->l( 'border default', 'wbfsys.color_node.label' ) );
 
       $inputBorderDefault->refresh           = $this->refresh;
       $inputBorderDefault->serializeElement  = $this->sendElement;
@@ -783,7 +783,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[bg_hover]',
           'id'        => 'wgt-input-wbfsys_color_node_bg_hover'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Bg hover', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'bg hover', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'bg_hover' ),
         )
       );
@@ -792,7 +792,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputBgHover->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'bg_hover' ) );
       $inputBgHover->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'bg_hover' ) );
       $inputBgHover->setData( $this->entity->getSecure( 'bg_hover' ) );
-      $inputBgHover->setLabel( $i18n->l( 'Bg hover', 'wbfsys.color_node.label' ) );
+      $inputBgHover->setLabel( $i18n->l( 'bg hover', 'wbfsys.color_node.label' ) );
 
       $inputBgHover->refresh           = $this->refresh;
       $inputBgHover->serializeElement  = $this->sendElement;
@@ -826,7 +826,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[font_hover]',
           'id'        => 'wgt-input-wbfsys_color_node_font_hover'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Font hover', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'font hover', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'font_hover' ),
         )
       );
@@ -835,7 +835,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputFontHover->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'font_hover' ) );
       $inputFontHover->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'font_hover' ) );
       $inputFontHover->setData( $this->entity->getSecure( 'font_hover' ) );
-      $inputFontHover->setLabel( $i18n->l( 'Font hover', 'wbfsys.color_node.label' ) );
+      $inputFontHover->setLabel( $i18n->l( 'font hover', 'wbfsys.color_node.label' ) );
 
       $inputFontHover->refresh           = $this->refresh;
       $inputFontHover->serializeElement  = $this->sendElement;
@@ -869,7 +869,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[border_hover]',
           'id'        => 'wgt-input-wbfsys_color_node_border_hover'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Border hover', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'border hover', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'border_hover' ),
         )
       );
@@ -878,7 +878,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputBorderHover->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'border_hover' ) );
       $inputBorderHover->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'border_hover' ) );
       $inputBorderHover->setData( $this->entity->getSecure( 'border_hover' ) );
-      $inputBorderHover->setLabel( $i18n->l( 'Border hover', 'wbfsys.color_node.label' ) );
+      $inputBorderHover->setLabel( $i18n->l( 'border hover', 'wbfsys.color_node.label' ) );
 
       $inputBorderHover->refresh           = $this->refresh;
       $inputBorderHover->serializeElement  = $this->sendElement;
@@ -912,7 +912,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[bg_active]',
           'id'        => 'wgt-input-wbfsys_color_node_bg_active'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Bg active', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'bg active', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'bg_active' ),
         )
       );
@@ -921,7 +921,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputBgActive->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'bg_active' ) );
       $inputBgActive->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'bg_active' ) );
       $inputBgActive->setData( $this->entity->getSecure( 'bg_active' ) );
-      $inputBgActive->setLabel( $i18n->l( 'Bg active', 'wbfsys.color_node.label' ) );
+      $inputBgActive->setLabel( $i18n->l( 'bg active', 'wbfsys.color_node.label' ) );
 
       $inputBgActive->refresh           = $this->refresh;
       $inputBgActive->serializeElement  = $this->sendElement;
@@ -955,7 +955,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[font_active]',
           'id'        => 'wgt-input-wbfsys_color_node_font_active'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Font active', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'font active', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'font_active' ),
         )
       );
@@ -964,7 +964,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputFontActive->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'font_active' ) );
       $inputFontActive->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'font_active' ) );
       $inputFontActive->setData( $this->entity->getSecure( 'font_active' ) );
-      $inputFontActive->setLabel( $i18n->l( 'Font active', 'wbfsys.color_node.label' ) );
+      $inputFontActive->setLabel( $i18n->l( 'font active', 'wbfsys.color_node.label' ) );
 
       $inputFontActive->refresh           = $this->refresh;
       $inputFontActive->serializeElement  = $this->sendElement;
@@ -998,7 +998,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[border_active]',
           'id'        => 'wgt-input-wbfsys_color_node_border_active'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Border active', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'border active', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'border_active' ),
         )
       );
@@ -1007,7 +1007,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputBorderActive->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'border_active' ) );
       $inputBorderActive->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'border_active' ) );
       $inputBorderActive->setData( $this->entity->getSecure( 'border_active' ) );
-      $inputBorderActive->setLabel( $i18n->l( 'Border active', 'wbfsys.color_node.label' ) );
+      $inputBorderActive->setLabel( $i18n->l( 'border active', 'wbfsys.color_node.label' ) );
 
       $inputBorderActive->refresh           = $this->refresh;
       $inputBorderActive->serializeElement  = $this->sendElement;
@@ -1041,7 +1041,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[bg_inactive]',
           'id'        => 'wgt-input-wbfsys_color_node_bg_inactive'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Bg inactive', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'bg inactive', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'bg_inactive' ),
         )
       );
@@ -1050,7 +1050,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputBgInactive->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'bg_inactive' ) );
       $inputBgInactive->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'bg_inactive' ) );
       $inputBgInactive->setData( $this->entity->getSecure( 'bg_inactive' ) );
-      $inputBgInactive->setLabel( $i18n->l( 'Bg inactive', 'wbfsys.color_node.label' ) );
+      $inputBgInactive->setLabel( $i18n->l( 'bg inactive', 'wbfsys.color_node.label' ) );
 
       $inputBgInactive->refresh           = $this->refresh;
       $inputBgInactive->serializeElement  = $this->sendElement;
@@ -1084,7 +1084,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[font_inactive]',
           'id'        => 'wgt-input-wbfsys_color_node_font_inactive'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Font inactive', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'font inactive', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'font_inactive' ),
         )
       );
@@ -1093,7 +1093,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputFontInactive->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'font_inactive' ) );
       $inputFontInactive->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'font_inactive' ) );
       $inputFontInactive->setData( $this->entity->getSecure( 'font_inactive' ) );
-      $inputFontInactive->setLabel( $i18n->l( 'Font inactive', 'wbfsys.color_node.label' ) );
+      $inputFontInactive->setLabel( $i18n->l( 'font inactive', 'wbfsys.color_node.label' ) );
 
       $inputFontInactive->refresh           = $this->refresh;
       $inputFontInactive->serializeElement  = $this->sendElement;
@@ -1127,7 +1127,7 @@ class WbfsysColorNode_Crud_Create_Form
           'name'      => 'wbfsys_color_node[border_inactive]',
           'id'        => 'wgt-input-wbfsys_color_node_border_inactive'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Border inactive', 'src' => 'Color Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'border inactive', 'src' => 'Color Node' ) ),
           'maxlength' => $this->entity->maxSize( 'border_inactive' ),
         )
       );
@@ -1136,7 +1136,7 @@ class WbfsysColorNode_Crud_Create_Form
       $inputBorderInactive->setReadonly( $this->fieldReadOnly( 'wbfsys_color_node', 'border_inactive' ) );
       $inputBorderInactive->setRequired( $this->fieldRequired( 'wbfsys_color_node', 'border_inactive' ) );
       $inputBorderInactive->setData( $this->entity->getSecure( 'border_inactive' ) );
-      $inputBorderInactive->setLabel( $i18n->l( 'Border inactive', 'wbfsys.color_node.label' ) );
+      $inputBorderInactive->setLabel( $i18n->l( 'border inactive', 'wbfsys.color_node.label' ) );
 
       $inputBorderInactive->refresh           = $this->refresh;
       $inputBorderInactive->serializeElement  = $this->sendElement;

@@ -390,6 +390,15 @@ class WbfsysRoleUser_Ref_AddressItem_Table_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_address_item.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -538,17 +547,15 @@ class WbfsysRoleUser_Ref_AddressItem_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_address_item.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_address_item.name' );
+      $criteria->selectAlso( 'wbfsys_address_item.name as "wbfsys_address_item-name-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -597,22 +604,13 @@ class WbfsysRoleUser_Ref_AddressItem_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_address_item.name' );
       $criteria->selectAlso( 'wbfsys_address_item.name as "wbfsys_address_item-name-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -630,17 +628,7 @@ class WbfsysRoleUser_Ref_AddressItem_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_address_item.name' );
       $criteria->selectAlso( 'wbfsys_address_item.name as "wbfsys_address_item-name-order"' );
@@ -651,8 +639,6 @@ class WbfsysRoleUser_Ref_AddressItem_Table_Query_Postgresql
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

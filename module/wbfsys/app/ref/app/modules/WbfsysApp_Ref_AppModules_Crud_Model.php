@@ -260,7 +260,7 @@ class WbfsysApp_Ref_AppModules_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysAppModules) )
+      if( !$orm->insert( $entityWbfsysAppModules ) )
       {
 
         $entityText = $entityWbfsysAppModules->text();

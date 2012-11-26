@@ -57,7 +57,7 @@ class MyMessage_Crud_Edit_Maintab_Menu
     $iconSaveUCl     = $view->icon( 'control/save_u_close.png', 'Save and Close' );
     $iconRights      = $view->icon( 'control/rights.png', 'Rights' );
     $iconBookmark    = $view->icon( 'control/bookmark.png', 'Bookmark' );
-    $iconClose       = $view->icon( 'control/close.png', 'Close' );
+    $iconClose       = $view->icon( 'control/close_tab.png', 'Close' );
     $iconBack        = $view->icon( 'arrows/arrow_up.png', 'Back to List' );
     
     $iconMgmt      = $view->icon( 'relation/management.png', 'Management' );
@@ -121,12 +121,12 @@ BUTTON;
             <ul>
               <li>
                 <a 
-                  href="maintab.php?c=My.Message_Acl_Dset.listing&amp;objid={$objid}" 
+                  href="maintab.php?c=Acl.Mgmt_Dset.listing&amp;dkey=my_message&amp;objid={$objid}" 
                   class="wcm wcm_req_ajax" >{$iconMgmt} {$view->i18n->l( 'ACLs Management', 'wbf.label' )}</a>
               </li>
               <li>
                 <a 
-                  href="maintab.php?c=Wbfsys.Message_Acl_Dset.listing&amp;objid={$objid}" 
+                  href="maintab.php?c=Acl.Mgmt_Dset.listing&amp;dkey=wbfsys_message&amp;objid={$objid}" 
                   class="wcm wcm_req_ajax" >{$iconEntity} {$view->i18n->l( 'ACLs Entity', 'wbf.label' )}</a>
               </li>
             </ul>
@@ -180,17 +180,42 @@ HTML;
   
 </div>
 
-{$customButtons}
-
 {$entries->buttonUpdate}
 
-<div class="wgt-panel-control" >
-  <button
-    class="wcm wcm_ui_button wgtac_back_to_list wcm_ui_tip-top"
-    title="Go back to the List" >{$iconBack} {$view->i18n->l('Back to the list','wbf.label')}</button>
-</div>
+{$customButtons}
 
 HTML;
+
+
+    if( $params->aclLevel && $params->aclLevel > 1  && $params->aclRootId && $params->maskRoot )
+    {
+
+    	$this->content .= <<<HTML
+
+  <div class="wgt-panel-control" >
+    <button
+      class="wcm wcm_ui_button wgtac_back_to_list wcm_ui_tip-top"
+      title="Go back to the main form" >{$iconBack} {$view->i18n->l('Back to top','wbf.label')}</button>
+  </div>
+
+HTML;
+
+    }
+    else
+    {
+
+    	$this->content .= <<<HTML
+
+  <div class="wgt-panel-control" >
+    <button
+      class="wcm wcm_ui_button wgtac_back_to_list wcm_ui_tip-top"
+      title="Go back to the My Messages list" >{$iconBack} {$view->i18n->l('Back to the list','wbf.label')}</button>
+  </div>
+
+HTML;
+
+    }
+    
 
   }//end public function buildMenu */
 
@@ -222,9 +247,11 @@ HTML;
             href="modal.php?c=Webfrap.Docu.open&amp;key=my_message-edit" >{$iconHelp} {$this->view->i18n->l('Help','wbf.label')}</a></li>
 
           
+          <!--
           <li><a 
             class="wcm wcm_req_ajax" 
             href="modal.php?c=Wbfsys.Issue.create&amp;context=edit" >{$iconBug} {$this->view->i18n->l('Bug','wbf.label')}</a></li>
+          -->
           
 
           

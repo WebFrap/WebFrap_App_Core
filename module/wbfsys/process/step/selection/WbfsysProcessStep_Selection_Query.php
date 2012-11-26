@@ -349,6 +349,15 @@ class WbfsysProcessStep_Selection_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_process_step.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -418,17 +427,15 @@ class WbfsysProcessStep_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_process_step.rowid' );
+      $criteria->selectAlso( 'wbfsys_process_step.rowid as "wbfsys_process_step-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -477,22 +484,13 @@ class WbfsysProcessStep_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_process_step.rowid' );
       $criteria->selectAlso( 'wbfsys_process_step.rowid as "wbfsys_process_step-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -510,17 +508,7 @@ class WbfsysProcessStep_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_process_step.rowid' );
       $criteria->selectAlso( 'wbfsys_process_step.rowid as "wbfsys_process_step-rowid-order"' );
@@ -531,8 +519,6 @@ class WbfsysProcessStep_Selection_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

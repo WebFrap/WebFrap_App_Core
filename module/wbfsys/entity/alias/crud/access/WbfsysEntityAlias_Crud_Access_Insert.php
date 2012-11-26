@@ -122,7 +122,7 @@ class WbfsysEntityAlias_Crud_Access_Insert
   }//end public function loadDefault */
 
   /**
-   * @param TFlag $params
+   * @param Context $params
    * @param WbfsysEntityAlias_Entity $entity
    */
   public function loadDefReferences( $params, $entity = null )

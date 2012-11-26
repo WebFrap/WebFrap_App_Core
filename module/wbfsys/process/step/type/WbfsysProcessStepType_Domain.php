@@ -99,7 +99,12 @@ class WbfsysProcessStepType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_process_step_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_process_step_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysProcessStepType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.ProcessStepType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

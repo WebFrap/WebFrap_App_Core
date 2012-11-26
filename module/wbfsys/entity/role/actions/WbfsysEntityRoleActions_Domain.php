@@ -99,7 +99,12 @@ class WbfsysEntityRoleActions_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_entity_role_actions'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_entity_role_actions'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysEntityRoleActions_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.EntityRoleActions_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

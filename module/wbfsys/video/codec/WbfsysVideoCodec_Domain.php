@@ -99,7 +99,12 @@ class WbfsysVideoCodec_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_video_codec'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_video_codec'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysVideoCodec_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.VideoCodec_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

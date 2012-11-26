@@ -146,7 +146,7 @@ class WbfsysKnowHowRepository_Table_Access
 
     $criteria->select( array( 'wbfsys_know_how_repository.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

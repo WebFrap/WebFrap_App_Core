@@ -99,7 +99,12 @@ class WbfsysMask_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_mask'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_mask'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysMask_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.Mask_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

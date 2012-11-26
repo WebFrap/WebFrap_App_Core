@@ -374,6 +374,15 @@ class WbfsysKnowHowNode_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_know_how_node.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -478,17 +487,15 @@ class WbfsysKnowHowNode_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_know_how_node.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_know_how_node.title' );
+      $criteria->selectAlso( 'wbfsys_know_how_node.title as "wbfsys_know_how_node-title-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -537,22 +544,13 @@ class WbfsysKnowHowNode_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_know_how_node.title' );
       $criteria->selectAlso( 'wbfsys_know_how_node.title as "wbfsys_know_how_node-title-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -570,17 +568,7 @@ class WbfsysKnowHowNode_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_know_how_node.title' );
       $criteria->selectAlso( 'wbfsys_know_how_node.title as "wbfsys_know_how_node-title-order"' );
@@ -591,8 +579,6 @@ class WbfsysKnowHowNode_Table_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

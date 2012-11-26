@@ -42,12 +42,18 @@ class WbfsysIssue_Table_ClosedIssues_Filter_Postgresql
   {
 
     $acl       = $this->getAcl();
+    $subCheck = array();
+    
     $criteria->filter
     ("
        NOT 
        wbfsys_process_node.access_key  IN( 'finished', 'closed', 'no_issue' )
     ");
 
+
+		
+		if( $subCheck )
+			$criteria->where( "(".implode( ' OR ', $subCheck ).")" ); 
 
     return $criteria;
 

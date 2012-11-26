@@ -49,7 +49,7 @@ class WbfsysCustomComment_Crud_Create_Maintab_View
   *
   * Zusätzlich werden soweit vorhanden dynamische Texte geladen
   *
-  * @param TFlag $params
+  * @param Context $params
   * @return Error im Fehlerfall sonst null
   */
   public function displayForm( $params )
@@ -137,7 +137,7 @@ class WbfsysCustomComment_Crud_Create_Maintab_View
   /**
    * add a drop menu to the create window
    *
-   * @param TFlag $params the named parameter object that was created in
+   * @param Context $params the named parameter object that was created in
    *   the controller
    * {
    *   string formId: the id of the form;
@@ -166,7 +166,7 @@ class WbfsysCustomComment_Crud_Create_Maintab_View
    * per default there is only one button added: save with the action
    * to save the window onclick
    *
-   * @param TFlag $params the named parameter object that was created in
+   * @param Context $params the named parameter object that was created in
    *   the controller
    * {
    *   string formId: the id of the form;

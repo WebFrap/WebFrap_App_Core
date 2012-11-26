@@ -99,7 +99,12 @@ class WbfsysTreeNode_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_tree_node'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_tree_node'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysTreeNode_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.TreeNode_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

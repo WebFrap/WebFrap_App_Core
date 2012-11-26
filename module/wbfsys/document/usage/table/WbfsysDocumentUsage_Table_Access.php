@@ -146,7 +146,7 @@ class WbfsysDocumentUsage_Table_Access
 
     $criteria->select( array( 'wbfsys_document_usage.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

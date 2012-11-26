@@ -427,6 +427,15 @@ class WbfsysProtocolUsage_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_protocol_usage.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -496,17 +505,15 @@ class WbfsysProtocolUsage_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_protocol_usage.rowid' );
+      $criteria->selectAlso( 'wbfsys_protocol_usage.rowid as "wbfsys_protocol_usage-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -555,22 +562,13 @@ class WbfsysProtocolUsage_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_protocol_usage.rowid' );
       $criteria->selectAlso( 'wbfsys_protocol_usage.rowid as "wbfsys_protocol_usage-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -588,17 +586,7 @@ class WbfsysProtocolUsage_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_protocol_usage.rowid' );
       $criteria->selectAlso( 'wbfsys_protocol_usage.rowid as "wbfsys_protocol_usage-rowid-order"' );
@@ -609,8 +597,6 @@ class WbfsysProtocolUsage_Table_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

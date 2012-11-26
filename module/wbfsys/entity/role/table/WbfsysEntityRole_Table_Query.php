@@ -373,6 +373,15 @@ class WbfsysEntityRole_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_entity_role.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -442,17 +451,15 @@ class WbfsysEntityRole_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_entity_role.rowid' );
+      $criteria->selectAlso( 'wbfsys_entity_role.rowid as "wbfsys_entity_role-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -501,22 +508,13 @@ class WbfsysEntityRole_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_entity_role.rowid' );
       $criteria->selectAlso( 'wbfsys_entity_role.rowid as "wbfsys_entity_role-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -534,17 +532,7 @@ class WbfsysEntityRole_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_entity_role.rowid' );
       $criteria->selectAlso( 'wbfsys_entity_role.rowid as "wbfsys_entity_role-rowid-order"' );
@@ -555,8 +543,6 @@ class WbfsysEntityRole_Table_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

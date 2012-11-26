@@ -99,7 +99,12 @@ class WbfsysDocuFaq_Domain
    * @var string
    */
   public $aclKey = 'mod-wbfsys-cat-core_data'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'bfsys-cat-core_data'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysDocuFaq_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Webfrap.Coredata_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

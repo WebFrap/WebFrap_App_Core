@@ -99,7 +99,12 @@ class WbfsysMessageAddresseeType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_message_addressee_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_message_addressee_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysMessageAddresseeType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.MessageAddresseeType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

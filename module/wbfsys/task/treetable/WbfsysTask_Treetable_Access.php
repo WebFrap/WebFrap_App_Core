@@ -147,7 +147,7 @@ class WbfsysTask_Treetable_Access
 
     $criteria->select( array( 'wbfsys_task.rowid as rowid' )  );
 
-    if( !$this->defLevel )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

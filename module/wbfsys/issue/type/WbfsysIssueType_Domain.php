@@ -99,7 +99,12 @@ class WbfsysIssueType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_issue_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_issue_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysIssueType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.IssueType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

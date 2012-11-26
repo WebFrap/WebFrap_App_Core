@@ -356,7 +356,7 @@ class MyWbfsysTask_Ref_Comments_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysEntityComment) )
+      if( !$orm->insert( $entityWbfsysEntityComment ) )
       {
 
         $entityText = $entityWbfsysEntityComment->text();

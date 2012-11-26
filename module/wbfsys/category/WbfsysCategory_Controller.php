@@ -128,6 +128,11 @@ class WbfsysCategory_Controller
       'method'    => array( 'DELETE' ),
       'views'      => array( 'ajax' )
     ),
+    'deleteselection' => array
+    (
+      'method'    => array( 'DELETE' ),
+      'views'      => array( 'ajax' )
+    ),
     'changeable' => array
     (
       'method'    => array( 'POST' ),
@@ -750,8 +755,18 @@ class WbfsysCategory_Controller
       // bei der Anzeige von mehreren Windows oder Tabs zu vermeiden
       $params->contextKey = 'wbfsys_category-update-'.$entityWbfsysCategory;
   
-      $access = new WbfsysCategory_Crud_Access_Update( null, null, $this );
-      $access->load( $user->getProfileName(), $params, $entityWbfsysCategory );
+      if( $request->param( 'reopen', Validator::BOOLEAN ) )
+      {
+      	// rechte für die editform neu laden
+        $access = new WbfsysCategory_Crud_Access_Edit( null, null, $this );
+        $access->load( $user->getProfileName(), $params, $entityWbfsysCategory );
+      }
+      else
+      {
+        $access = new WbfsysCategory_Crud_Access_Update( null, null, $this );
+        $access->load( $user->getProfileName(), $params, $entityWbfsysCategory );
+      }
+      $params->access = $access;
     
 
 
@@ -796,6 +811,7 @@ class WbfsysCategory_Controller
     // soll der Datensatz direkt im Edit Window geöffnet werden
     if( $request->param( 'reopen', Validator::BOOLEAN ) )
     {
+    
     	// den hauptdatensatz holen
       $this->editForm( $model->getEntity(), $model, $params );
     }
@@ -1224,6 +1240,229 @@ class WbfsysCategory_Controller
 
 
   }//end public function service_delete */
+
+ /**
+  * de:
+  * service zum löschen eines eintrags aus der datenbank
+  * der eintrag muss direkt mit der rowid adressiert werden
+  *
+  * @access DELETE ajax.php?c=Wbfsys.Category.delete&objid=123
+  *
+  * @param LibRequestHttp $request
+  * @param LibResponseHttp $response
+  * @return boolean success flag
+  */
+  public function service_deleteAll( $request, $response )
+  {
+
+    // resource laden
+    $user      = $this->getUser();
+
+    // erst mal brauchen wir das passende model
+    /* @var $model WbfsysCategory_Crud_Model */
+    $model = $this->loadModel( 'WbfsysCategory_Crud' );
+
+    // interpret the given user parameters
+    $params = $this->getCrudFlags( $request );
+
+    // der contextKey wird benötigt um potentielle Konflikte in der UI
+    // bei der Anzeige von mehreren Windows oder Tabs zu vermeiden
+    $params->contextKey = 'wbfsys_category-delete';
+
+    $access = new WbfsysCategory_Crud_Access_Delete( null, null, $this );
+    $access->load( $user->getProfileName(), $params );
+
+    // ok wenn er nichtmal lesen darf, dann ist hier direkt schluss
+    if( !$access->delete )
+    {
+    
+      // ausgabe einer fehlerseite und adieu
+      throw new InvalidRequest_Exception
+      (
+        $response->i18n->l
+        (
+          'You have no permission to access {@resource@}:{@id@}',
+          'wbf.message',
+          array
+          (
+            'resource'  => $response->i18n->l( 'issue category', 'wbfsys.category.label' ),
+            'id'        => $objid
+          )
+        ),
+        Response::FORBIDDEN
+      );
+    }
+
+    // der Access Container des Users für die Resource wird als flag übergeben
+    $params->access = $access;
+    $model->setAccess( $access );
+
+    if( !$params->ltype )
+      $params->ltype = 'table';
+
+    if( !$params->mask )
+      $params->mask = 'WbfsysCategory';
+
+    $listType = ucfirst( $params->ltype );
+
+    $error = $model->deleteAll( $params );
+
+    // try to delete the dataset
+    if( $error )
+    {
+
+
+      // hm ok irgendwas ist gerade ziemlich schief gelaufen
+      return $error;
+    }
+
+
+    // laden der angeforderten view
+    $view = $response->loadView
+    (
+      'listing_wbfsys_category',
+      $params->mask.'_'.$listType,
+      'displayDeleteAll'
+    );
+
+    // model wird benötigt
+    $view->setModel( $this->loadModel( $params->mask.'_'.$listType ) );
+
+
+
+    $view->displayDeleteAll( $params );
+
+    // Die Views geben eine Fehlerobjekt zurück, wenn ein Fehler aufgetreten
+    // ist der so schwer war, dass die View den Job abbrechen musste
+    // alle nötigen Informationen für den Enduser befinden sich in dem
+    // Objekt
+    // Standardmäßig entscheiden wir uns mal dafür diese dem User auch Zugänglich
+    // zu machen und übergeben den Fehler der ErrorPage welche sich um die
+    // korrekte Ausgabe kümmert
+    if( $error )
+    {
+
+      return $error;
+    }
+
+	
+		$response->setStatus( Response::CHANGED );
+    // wunderbar, kein fehler also melden wir einen Erfolg zurück
+    return null;
+
+
+  }//end public function service_deleteAll */
+
+ /**
+  * de:
+  * service zum löschen eines eintrags aus der datenbank
+  * der eintrag muss direkt mit der rowid adressiert werden
+  *
+  * @access DELETE ajax.php?c=Wbfsys.Category.deleteSelection&objid=123
+  *
+  * @param LibRequestHttp $request
+  * @param LibResponseHttp $response
+  * @return boolean success flag
+  */
+  public function service_deleteSelection( $request, $response )
+  {
+
+    // resource laden
+    $user      = $this->getUser();
+    $ids       = $request->param( '' );
+
+    // erst mal brauchen wir das passende model
+    /* @var $model WbfsysCategory_Crud_Model */
+    $model = $this->loadModel( 'WbfsysCategory_Crud' );
+
+    // interpret the given user parameters
+    $params = $this->getCrudFlags( $request );
+
+    // der contextKey wird benötigt um potentielle Konflikte in der UI
+    // bei der Anzeige von mehreren Windows oder Tabs zu vermeiden
+    $params->contextKey = 'wbfsys_category-delete';
+
+    $access = new WbfsysCategory_Crud_Access_Delete( null, null, $this );
+    $access->load( $user->getProfileName(), $params );
+
+    // ok wenn er nichtmal lesen darf, dann ist hier direkt schluss
+    if( !$access->delete )
+    {
+      // ausgabe einer fehlerseite und adieu
+      throw new InvalidRequest_Exception
+      (
+        $response->i18n->l
+        (
+          'You have no permission to access {@resource@}:{@id@}',
+          'wbf.message',
+          array
+          (
+            'resource'  => $response->i18n->l( 'issue category', 'wbfsys.category.label' ),
+            'id'        => $objid
+          )
+        ),
+        Response::FORBIDDEN
+      );
+    }
+
+    // der Access Container des Users für die Resource wird als flag übergeben
+    $params->access = $access;
+    $model->setAccess( $access );
+
+    if( !$params->ltype )
+      $params->ltype = 'table';
+
+    if( !$params->mask )
+      $params->mask = 'WbfsysCategory';
+
+    $listType = ucfirst( $params->ltype );
+
+
+		try
+		{
+    	$model->deleteByIds( $ids, $params );
+
+    }
+    catch( Webfrap_Exception $e )
+    {
+    	
+    }
+
+    // laden der angeforderten view
+    $view = $response->loadView
+    (
+      'listing_wbfsys_category',
+      $params->mask.'_'.$listType,
+      'displayDeleteSelection'
+    );
+
+    // model wird benötigt
+    $view->setModel( $this->loadModel( $params->mask.'_'.$listType ) );
+
+
+
+    $view->displayDeleteSelection( $params );
+
+    // Die Views geben eine Fehlerobjekt zurück, wenn ein Fehler aufgetreten
+    // ist der so schwer war, dass die View den Job abbrechen musste
+    // alle nötigen Informationen für den Enduser befinden sich in dem
+    // Objekt
+    // Standardmäßig entscheiden wir uns mal dafür diese dem User auch Zugänglich
+    // zu machen und übergeben den Fehler der ErrorPage welche sich um die
+    // korrekte Ausgabe kümmert
+    if( $error )
+    {
+
+      return $error;
+    }
+
+	
+		$response->setStatus( Response::CHANGED );
+    // wunderbar, kein fehler also melden wir einen Erfolg zurück
+    return null;
+
+
+  }//end public function service_deleteSelection */
 
 ////////////////////////////////////////////////////////////////////////////////
 // Table & List Methodes

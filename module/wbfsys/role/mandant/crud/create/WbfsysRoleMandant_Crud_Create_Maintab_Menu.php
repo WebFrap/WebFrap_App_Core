@@ -55,7 +55,7 @@ class WbfsysRoleMandant_Crud_Create_Maintab_Menu
     $iconCreate    = $view->icon('control/create.png', 'Create');
     $iconCreateCl  = $view->icon('control/create_close.png', 'Create and close');
     $iconBookmark  = $view->icon('control/bookmark.png', 'Bookmark');
-    $iconClose     = $view->icon('control/close.png', 'Close');
+    $iconClose     = $view->icon('control/close_tab.png', 'Close');
 
     $entries = new TArray();
     $entries->support  = $this->entriesSupport( $params );
@@ -165,9 +165,11 @@ HTML;
             href="modal.php?c=Webfrap.Docu.open&amp;key=wbfsys_role_mandant-create" >{$iconHelp} {$this->view->i18n->l('Help','wbf.label')}</a></li>
 
 
+					<!--
           <li><a 
             class="wcm wcm_req_ajax" 
             href="modal.php?c=Wbfsys.Issue.create&amp;context=create" >{$iconBug} {$this->view->i18n->l('Bug','wbf.label')}</a></li>
+					-->
 
 
 

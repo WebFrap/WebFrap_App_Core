@@ -384,7 +384,7 @@ class WbfsysProtocolMessage_Crud_Create_Form
           'name'      => 'wbfsys_protocol_message[mask]',
           'id'        => 'wgt-input-wbfsys_protocol_message_mask'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_cname medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Mask', 'src' => 'Protocol Message' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'mask', 'src' => 'Protocol Message' ) ),
           'maxlength' => $this->entity->maxSize( 'mask' ),
         )
       );
@@ -393,7 +393,7 @@ class WbfsysProtocolMessage_Crud_Create_Form
       $inputMask->setReadonly( $this->fieldReadOnly( 'wbfsys_protocol_message', 'mask' ) );
       $inputMask->setRequired( $this->fieldRequired( 'wbfsys_protocol_message', 'mask' ) );
       $inputMask->setData( $this->entity->getSecure('mask') );
-      $inputMask->setLabel( $i18n->l( 'Mask', 'wbfsys.protocol_message.label' ) );
+      $inputMask->setLabel( $i18n->l( 'mask', 'wbfsys.protocol_message.label' ) );
 
       $inputMask->refresh           = $this->refresh;
       $inputMask->serializeElement  = $this->sendElement;

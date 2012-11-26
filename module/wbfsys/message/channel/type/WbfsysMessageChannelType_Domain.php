@@ -99,7 +99,12 @@ class WbfsysMessageChannelType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_message_channel_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_message_channel_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysMessageChannelType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.MessageChannelType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

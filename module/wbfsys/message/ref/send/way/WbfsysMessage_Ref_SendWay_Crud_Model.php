@@ -260,7 +260,7 @@ class WbfsysMessage_Ref_SendWay_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysMessageSendway) )
+      if( !$orm->insert( $entityWbfsysMessageSendway ) )
       {
 
         $entityText = $entityWbfsysMessageSendway->text();

@@ -389,7 +389,7 @@ class WbfsysTrackSession_Crud_Show_Form
           'name'      => 'wbfsys_track_session[service]',
           'id'        => 'wgt-input-wbfsys_track_session_service'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_url medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Service', 'src' => 'Track Session' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'service', 'src' => 'Track Session' ) ),
         )
       );
       $inputService->setWidth( 'medium' );
@@ -397,7 +397,7 @@ class WbfsysTrackSession_Crud_Show_Form
       $inputService->setReadonly( $this->fieldReadOnly( 'wbfsys_track_session', 'service' ) );
       $inputService->setRequired( $this->fieldRequired( 'wbfsys_track_session', 'service' ) );
       $inputService->setData( $this->entity->getSecure( 'service' ) );
-      $inputService->setLabel( $i18n->l( 'Service', 'wbfsys.track_session.label' ) );
+      $inputService->setLabel( $i18n->l( 'service', 'wbfsys.track_session.label' ) );
 
       $inputService->refresh           = $this->refresh;
       $inputService->serializeElement  = $this->sendElement;
@@ -432,7 +432,7 @@ class WbfsysTrackSession_Crud_Show_Form
           'name'      => 'wbfsys_track_session[refer]',
           'id'        => 'wgt-input-wbfsys_track_session_refer'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_url medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Refer', 'src' => 'Track Session' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'refer', 'src' => 'Track Session' ) ),
         )
       );
       $inputRefer->setWidth( 'medium' );
@@ -440,7 +440,7 @@ class WbfsysTrackSession_Crud_Show_Form
       $inputRefer->setReadonly( $this->fieldReadOnly( 'wbfsys_track_session', 'refer' ) );
       $inputRefer->setRequired( $this->fieldRequired( 'wbfsys_track_session', 'refer' ) );
       $inputRefer->setData( $this->entity->getSecure( 'refer' ) );
-      $inputRefer->setLabel( $i18n->l( 'Refer', 'wbfsys.track_session.label' ) );
+      $inputRefer->setLabel( $i18n->l( 'refer', 'wbfsys.track_session.label' ) );
 
       $inputRefer->refresh           = $this->refresh;
       $inputRefer->serializeElement  = $this->sendElement;
@@ -559,7 +559,7 @@ class WbfsysTrackSession_Crud_Show_Form
           'name'      => 'wbfsys_track_session[session]',
           'id'        => 'wgt-input-wbfsys_track_session_session'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Session', 'src' => 'Track Session' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'session', 'src' => 'Track Session' ) ),
           'maxlength' => $this->entity->maxSize( 'session' ),
         )
       );
@@ -568,7 +568,7 @@ class WbfsysTrackSession_Crud_Show_Form
       $inputSession->setReadonly( $this->fieldReadOnly( 'wbfsys_track_session', 'session' ) );
       $inputSession->setRequired( $this->fieldRequired( 'wbfsys_track_session', 'session' ) );
       $inputSession->setData( $this->entity->getSecure('session') );
-      $inputSession->setLabel( $i18n->l( 'Session', 'wbfsys.track_session.label' ) );
+      $inputSession->setLabel( $i18n->l( 'session', 'wbfsys.track_session.label' ) );
 
       $inputSession->refresh           = $this->refresh;
       $inputSession->serializeElement  = $this->sendElement;
@@ -602,7 +602,7 @@ class WbfsysTrackSession_Crud_Show_Form
           'name'      => 'wbfsys_track_session[browser]',
           'id'        => 'wgt-input-wbfsys_track_session_browser'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Browser', 'src' => 'Track Session' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'browser', 'src' => 'Track Session' ) ),
           'maxlength' => $this->entity->maxSize( 'browser' ),
         )
       );
@@ -611,7 +611,7 @@ class WbfsysTrackSession_Crud_Show_Form
       $inputBrowser->setReadonly( $this->fieldReadOnly( 'wbfsys_track_session', 'browser' ) );
       $inputBrowser->setRequired( $this->fieldRequired( 'wbfsys_track_session', 'browser' ) );
       $inputBrowser->setData( $this->entity->getSecure('browser') );
-      $inputBrowser->setLabel( $i18n->l( 'Browser', 'wbfsys.track_session.label' ) );
+      $inputBrowser->setLabel( $i18n->l( 'browser', 'wbfsys.track_session.label' ) );
 
       $inputBrowser->refresh           = $this->refresh;
       $inputBrowser->serializeElement  = $this->sendElement;
@@ -645,7 +645,7 @@ class WbfsysTrackSession_Crud_Show_Form
           'name'      => 'wbfsys_track_session[browser_version]',
           'id'        => 'wgt-input-wbfsys_track_session_browser_version'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Browser version', 'src' => 'Track Session' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'browser version', 'src' => 'Track Session' ) ),
           'maxlength' => $this->entity->maxSize( 'browser_version' ),
         )
       );
@@ -654,7 +654,7 @@ class WbfsysTrackSession_Crud_Show_Form
       $inputBrowserVersion->setReadonly( $this->fieldReadOnly( 'wbfsys_track_session', 'browser_version' ) );
       $inputBrowserVersion->setRequired( $this->fieldRequired( 'wbfsys_track_session', 'browser_version' ) );
       $inputBrowserVersion->setData( $this->entity->getSecure('browser_version') );
-      $inputBrowserVersion->setLabel( $i18n->l( 'Browser version', 'wbfsys.track_session.label' ) );
+      $inputBrowserVersion->setLabel( $i18n->l( 'browser version', 'wbfsys.track_session.label' ) );
 
       $inputBrowserVersion->refresh           = $this->refresh;
       $inputBrowserVersion->serializeElement  = $this->sendElement;
@@ -731,7 +731,7 @@ class WbfsysTrackSession_Crud_Show_Form
           'name'      => 'wbfsys_track_session[os]',
           'id'        => 'wgt-input-wbfsys_track_session_os'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Os', 'src' => 'Track Session' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'os', 'src' => 'Track Session' ) ),
           'maxlength' => $this->entity->maxSize( 'os' ),
         )
       );
@@ -740,7 +740,7 @@ class WbfsysTrackSession_Crud_Show_Form
       $inputOs->setReadonly( $this->fieldReadOnly( 'wbfsys_track_session', 'os' ) );
       $inputOs->setRequired( $this->fieldRequired( 'wbfsys_track_session', 'os' ) );
       $inputOs->setData( $this->entity->getSecure('os') );
-      $inputOs->setLabel( $i18n->l( 'Os', 'wbfsys.track_session.label' ) );
+      $inputOs->setLabel( $i18n->l( 'os', 'wbfsys.track_session.label' ) );
 
       $inputOs->refresh           = $this->refresh;
       $inputOs->serializeElement  = $this->sendElement;
@@ -774,7 +774,7 @@ class WbfsysTrackSession_Crud_Show_Form
           'name'      => 'wbfsys_track_session[os_version]',
           'id'        => 'wgt-input-wbfsys_track_session_os_version'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Os version', 'src' => 'Track Session' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'os version', 'src' => 'Track Session' ) ),
           'maxlength' => $this->entity->maxSize( 'os_version' ),
         )
       );
@@ -783,7 +783,7 @@ class WbfsysTrackSession_Crud_Show_Form
       $inputOsVersion->setReadonly( $this->fieldReadOnly( 'wbfsys_track_session', 'os_version' ) );
       $inputOsVersion->setRequired( $this->fieldRequired( 'wbfsys_track_session', 'os_version' ) );
       $inputOsVersion->setData( $this->entity->getSecure('os_version') );
-      $inputOsVersion->setLabel( $i18n->l( 'Os version', 'wbfsys.track_session.label' ) );
+      $inputOsVersion->setLabel( $i18n->l( 'os version', 'wbfsys.track_session.label' ) );
 
       $inputOsVersion->refresh           = $this->refresh;
       $inputOsVersion->serializeElement  = $this->sendElement;

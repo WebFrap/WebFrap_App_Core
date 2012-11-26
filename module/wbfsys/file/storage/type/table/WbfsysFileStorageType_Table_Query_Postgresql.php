@@ -375,6 +375,15 @@ class WbfsysFileStorageType_Table_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_file_storage_type.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -523,18 +532,15 @@ class WbfsysFileStorageType_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
       $criteria->orderBy( 'wbfsys_file_storage_type.name ' );
 
 
-    }
+			
+      $criteria->selectAlso( 'wbfsys_file_storage_type.name as "wbfsys_file_storage_type-name-order"' );
+
+
 
     // Check the offset
     if( $params->start )
@@ -583,21 +589,13 @@ class WbfsysFileStorageType_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_file_storage_type.name ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_file_storage_type.name as "wbfsys_file_storage_type-name-order"' );
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -615,35 +613,16 @@ class WbfsysFileStorageType_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-      if( in_array( 'name', $params->order ) )
-      {
-        $criteria->selectAlso( 'wbfsys_file_storage_type.name as "wbfsys_file_storage_type-name-order"' );
-        $envelop->groupBy( 'inner_acl."wbfsys_file_storage_type-name-order"' );
-        $envelop->selectAlso( 'inner_acl."wbfsys_file_storage_type-name-order"' );
-        $envelop->orderBy( 'inner_acl."wbfsys_file_storage_type-name-order" ' );
-      }
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_file_storage_type.name ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_file_storage_type.name as "wbfsys_file_storage_type-name-order"' );
-
-      $envelop->groupBy( 'inner_acl."wbfsys_file_storage_type-name-order"' );
       $envelop->selectAlso( 'inner_acl."wbfsys_file_storage_type-name-order"' );
+      $envelop->groupBy( 'inner_acl."wbfsys_file_storage_type-name-order"' );
       $envelop->orderBy( 'inner_acl."wbfsys_file_storage_type-name-order" ' );
 
-
-    }
 
 
   }//end public function injectAclOrder */

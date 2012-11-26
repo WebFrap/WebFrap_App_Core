@@ -128,6 +128,11 @@ class MyUserProfile_Controller
       'method'    => array( 'DELETE' ),
       'views'      => array( 'ajax' )
     ),
+    'deleteselection' => array
+    (
+      'method'    => array( 'DELETE' ),
+      'views'      => array( 'ajax' )
+    ),
 
   );
 

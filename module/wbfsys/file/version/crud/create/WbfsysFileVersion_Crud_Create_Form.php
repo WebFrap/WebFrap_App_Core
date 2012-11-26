@@ -301,7 +301,7 @@ class WbfsysFileVersion_Crud_Create_Form
           'name'      => 'wbfsys_file_version[name]',
           'id'        => 'wgt-input-wbfsys_file_version_name'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium',
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Name', 'src' => 'File Version' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'name', 'src' => 'File Version' ) ),
         )
       );
       $inputName->setWidth( 'medium' );
@@ -325,7 +325,7 @@ class WbfsysFileVersion_Crud_Create_Form
         );
       }
 
-      $inputName->setLabel( $i18n->l( 'Name', 'wbfsys.file_version.label' ) );
+      $inputName->setLabel( $i18n->l( 'name', 'wbfsys.file_version.label' ) );
 
 
       // activate the category

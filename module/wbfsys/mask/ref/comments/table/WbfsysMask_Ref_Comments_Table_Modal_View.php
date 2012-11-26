@@ -71,12 +71,13 @@ class WbfsysMask_Ref_Comments_Table_Modal_View
     $access = $params->accessComments;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'ajax.php?c=Wbfsys.Mask_Ref_Comments.search&amp;objid='.$objid;
+    $params->searchFormAction = 'ajax.php?c=Wbfsys.Mask_Ref_Comments.search&amp;objid='.$objid;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_mask-ref-comments-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_mask-ref-comments-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-comments-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'Comments' );

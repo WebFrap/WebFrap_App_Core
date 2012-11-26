@@ -138,7 +138,7 @@ class WbfsysIssue_Selection_Element
       (
         Wgt::ACTION_BUTTON_GET,
         'Rights',
-        'maintab.php?c=Wbfsys.Issue_Acl_Dset.listing&amp;objid=',
+        'maintab.php?c=Acl.Mgmt_Dset.listing&amp;dkey=wbfsys_issue&amp;objid=',
         'control/rights.png',
         '',
         'wbfsys.issue.label',
@@ -194,7 +194,8 @@ class WbfsysIssue_Selection_Element
       $this->html .= '<div id="'.$this->id.'" class="wgt-grid" >'.NL;
       $this->html .= '<var id="'.$this->id.'-table-cfg-grid" >{
         "height":"'.$this->bodyHeight.'",
-        "search_form":"'.$this->searchForm.'"
+        "search_form":"'.$this->searchForm.'",
+        "select_able":"true"
       }</var>';
       $this->html .= $this->buildPanel();
 
@@ -222,7 +223,7 @@ class WbfsysIssue_Selection_Element
 
 
 
-      $this->html .= '<script type="text/javascript" >'.NL;
+      $this->html .= '<script type="application/javascript" >'.NL;
       $this->html .= $this->buildJavascript();
       $this->html .= '</script>'.NL;
 
@@ -312,7 +313,7 @@ class WbfsysIssue_Selection_Element
       }
       
       
-      $body .= '<tr class="wcm wcm_ui_highlight '.' row'.$num.' node-'.$objid.'" '
+      $body .= '<tr class="'.' row'.$num.' node-'.$objid.'" '
 
         .' id="'.$rowid.'" style="'.$style.'" >'.NL;
         
@@ -321,9 +322,9 @@ class WbfsysIssue_Selection_Element
 
 
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_issue_title']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_issue_title'])).'</td>'.NL;
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_process_node_label']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_process_node_label'])).'</td>'.NL;
 
       $body .= '<td valign="top" style="text-align:right;" >'.$row['wbfsys_process_node_bg_color'].'</td>'.NL;
 
@@ -466,8 +467,8 @@ class WbfsysIssue_Selection_Element
     );
     $accessActionKey = $this->hasEditRights( $row )?'edit':'show';
     
-    $dsUrl        = null;
-    $rowWcm       = '';
+    $dsUrl       = null;
+    $rowWcm      = '';
     $rowParams   = '';
     $menuActions = '';
     
@@ -480,7 +481,7 @@ class WbfsysIssue_Selection_Element
     // check if the row has 
     if( $dsUrl = $this->getActionUrl( $objid, $row ) )
     {
-      $rowWcm     .= ' wcm_control_access_dataset';
+      $rowWcm    .= ' wcm_control_access_dataset';
       $rowParams .= ' wgt_url="'.$dsUrl.'" ';
     }
     
@@ -501,7 +502,7 @@ class WbfsysIssue_Selection_Element
         .' wgt_eid="'.$objid.'" '
         .$rowParams
         .' wgt_context_menu="'.$this->id.'-cmenu" '
-        .' class="wcm wcm_ui_highlight wcm_control_access_dataset '.$classContext.' node-'.$objid.'" style="'.$style.'" >'.NL;
+        .' class="wcm wcm_ui_highlight '.$rowWcm .$classContext.' node-'.$objid.'" style="'.$style.'" >'.NL;
     }
     else
     {
@@ -513,9 +514,9 @@ class WbfsysIssue_Selection_Element
 
 
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_issue_title']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_issue_title'])).'</td>'.NL;
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_process_node_label']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_process_node_label'])).'</td>'.NL;
 
       $body .= '<td valign="top" style="text-align:right;" >'.$row['wbfsys_process_node_bg_color'].'</td>'.NL;
 
@@ -564,42 +565,50 @@ class WbfsysIssue_Selection_Element
   	$iconClean = $this->icon( 'control/clean.png', 'Clean' );
   	$iconDelete = $this->icon( 'control/delete.png', 'Delete Selection' );
   	$iconExport = $this->icon( 'control/export.png', 'Export' );
+  	
+  	
+  	$iconSelectAll = $this->icon( 'control/select_all.png', 'Select All' );
+  	$iconDeselectAll = $this->icon( 'control/deselect_all.png', 'Deselect All' );
 
     $html = '<div class="wgt-panel wgt-border-top" >'.NL;
     $html .= ' <div class="right menu"  >';
     $html .=     $this->menuTableSize();
     $html .= ' </div>';
-    $html .= ' <div class="menu" style="float:left;" style="width:150px;" >';
-    
-    if( WBF_SHOW_MOCKUP )
-    {
-    
+    $html .= ' <div class="menu" style="float:left;" style="width:200px;" >';
+
     $html .=   <<<HTML
     
- <div id="{$this->id}-list-action" >
+ <div class="wgt-panel-control" id="{$this->id}-list-action" >
 	<button 
 		class="wcm wcm_control_dropmenu wgt-button" id="{$this->id}-list-action-cntrl" 
 		wgt_drop_box="{$this->id}-list-action-menu" >{$iconListMenu} List Menu</button>
   </div>
   <div class="wgt-dropdownbox" id="{$this->id}-list-action-menu" >
+    
     <ul>
-      <li><a>{$iconDelete} Delete Selection</a></li>
-      <li><a>{$iconClean} Clear Data</a></li>
-      <li><a class="deeplink" >{$iconExport} Export</a>
-      	<span>
-      		<ul>
-      			<li><a>Export 1</a></li>
-      			<li><a>Export 2</a></li>
-      		</ul>
-      	</span>
-      </li>
+      <li><a
+      	class="wcm wcm_req_del_selection"
+      	href="ajax.php?c=Wbfsys.Issue_Multi.deleteSelection"
+      	wgt_elem="table#{$this->id}-table"
+      	title="Please confirm that you want to delete the selected Issues." >{$iconDelete} Delete selected Issues</a></li>
+      <li><a 
+      	class="wcm wcm_req_del"
+      	title="You are going to delete ALL! Issues. Please confirm that you really want to do that."
+      	href="ajax.php?c=Wbfsys.Issue_Multi.deleteAll" >{$iconClean} Delete all Issues</a></li>
   	</ul>
  	</div>
   <var id="{$this->id}-list-action-cntrl-cfg-dropmenu"  >{"align":"left","valign":"top"}</var>
+  
+  <div class="wgt-panel-control" >
+  	<button 
+  		onclick="\$S('table#{$this->id}-table').grid('deSelectAll');" 
+  		class="wcm wcm_ui_tip wgt-button"
+  		tooltip="Deselect all entries" >
+  			{$iconDeselectAll}</button>
+  </div>
 
 HTML;
 
-	}
 
     $html .= ' </div>';
     $html .= ' <div class="menu"  style="text-align:center;margin:0px auto;" >';

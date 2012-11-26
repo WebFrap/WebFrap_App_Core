@@ -146,7 +146,7 @@ class WbfsysVideoUsage_Table_Access
 
     $criteria->select( array( 'wbfsys_video_usage.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

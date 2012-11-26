@@ -99,7 +99,12 @@ class WbfsysAddressItemType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_address_item_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_address_item_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysAddressItemType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.AddressItemType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

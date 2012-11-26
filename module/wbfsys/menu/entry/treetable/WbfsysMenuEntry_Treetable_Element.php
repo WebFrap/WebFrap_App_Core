@@ -105,7 +105,7 @@ class WbfsysMenuEntry_Treetable_Element
       (
         Wgt::ACTION_BUTTON_GET,
         'Rights',
-        'maintab.php?c=_Dset.listing&amp;objid=',
+        'maintab.php?c=Acl.Mgmt_Dset.listing&amp;dkey=wbfsys_menu_entry&amp;objid=',
         'control/rights.png',
         '',
         'wbfsys.menu_entry.label',
@@ -170,7 +170,8 @@ class WbfsysMenuEntry_Treetable_Element
       $this->html .= '<div id="'.$this->id.'" class="wgt-grid" >'.NL;
       $this->html .= '<var id="'.$this->id.'-table-cfg-grid" >{
         "height":"'.$this->bodyHeight.'",
-        "search_form":"'.$this->searchForm.'"
+        "search_form":"'.$this->searchForm.'",
+        "select_able":"true"
       }</var>';
       $this->html .= $this->buildPanel();
       $this->html .= '<table id="'.$this->id
@@ -198,7 +199,7 @@ class WbfsysMenuEntry_Treetable_Element
       
 
 
-      $this->html .= '<script type="text/javascript" >'.NL;
+      $this->html .= '<script type="application/javascript" >'.NL;
       $this->html .= $this->buildJavascript();
       $this->html .= '</script>'.NL;
 
@@ -307,7 +308,7 @@ class WbfsysMenuEntry_Treetable_Element
       $body .= '<td valign="top" class="pos" name="slct['.$objid.']" style="text-align:right;" >'.$pos.'</td>'.NL;
         
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.MenuEntry.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_menu_entry_label']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.MenuEntry.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_menu_entry_label'])).'</a></td>'.NL;
 
 
       if( $this->enableNav )
@@ -411,7 +412,7 @@ class WbfsysMenuEntry_Treetable_Element
       $body .= '<td valign="top" class="pos" name="slct['.$objid.']" style="text-align:right;" >'.$parentPos.'.'.$pos.'</td>'.NL;
         
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.MenuEntry.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_menu_entry_label']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.MenuEntry.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_menu_entry_label'])).'</a></td>'.NL;
 
       
       $pos ++;
@@ -609,7 +610,7 @@ class WbfsysMenuEntry_Treetable_Element
     $body .= '<td valign="top" class="pos" name="slct['.$objid.']" style="text-align:right;" >'.$prePos.'1</td>'.NL;
         
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.MenuEntry.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_menu_entry_label']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.MenuEntry.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_menu_entry_label'])).'</a></td>'.NL;
 
 
     if( $this->enableNav )

@@ -99,7 +99,12 @@ class WbfsysDataLink_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_data_link'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_data_link'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysDataLink_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.DataLink_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

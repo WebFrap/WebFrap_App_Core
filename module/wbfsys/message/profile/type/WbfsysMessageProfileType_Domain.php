@@ -99,7 +99,12 @@ class WbfsysMessageProfileType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_message_profile_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_message_profile_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysMessageProfileType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.MessageProfileType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

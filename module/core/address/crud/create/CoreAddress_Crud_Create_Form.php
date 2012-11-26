@@ -326,7 +326,7 @@ class CoreAddress_Crud_Create_Form
           'name'      => 'core_address[street]',
           'id'        => 'wgt-input-core_address_street'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Street', 'src' => 'Address' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'street', 'src' => 'Address' ) ),
           'maxlength' => $this->entity->maxSize( 'street' ),
         )
       );
@@ -335,7 +335,7 @@ class CoreAddress_Crud_Create_Form
       $inputStreet->setReadonly( $this->fieldReadOnly( 'core_address', 'street' ) );
       $inputStreet->setRequired( $this->fieldRequired( 'core_address', 'street' ) );
       $inputStreet->setData( $this->entity->getSecure('street') );
-      $inputStreet->setLabel( $i18n->l( 'Street', 'core.address.label' ) );
+      $inputStreet->setLabel( $i18n->l( 'street', 'core.address.label' ) );
 
       $inputStreet->refresh           = $this->refresh;
       $inputStreet->serializeElement  = $this->sendElement;
@@ -455,7 +455,7 @@ class CoreAddress_Crud_Create_Form
           'name'      => 'core_address[postbox]',
           'id'        => 'wgt-input-core_address_postbox'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Postbox', 'src' => 'Address' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'postbox', 'src' => 'Address' ) ),
           'maxlength' => $this->entity->maxSize( 'postbox' ),
         )
       );
@@ -464,7 +464,7 @@ class CoreAddress_Crud_Create_Form
       $inputPostbox->setReadonly( $this->fieldReadOnly( 'core_address', 'postbox' ) );
       $inputPostbox->setRequired( $this->fieldRequired( 'core_address', 'postbox' ) );
       $inputPostbox->setData( $this->entity->getSecure('postbox') );
-      $inputPostbox->setLabel( $i18n->l( 'Postbox', 'core.address.label' ) );
+      $inputPostbox->setLabel( $i18n->l( 'postbox', 'core.address.label' ) );
 
       $inputPostbox->refresh           = $this->refresh;
       $inputPostbox->serializeElement  = $this->sendElement;

@@ -99,7 +99,12 @@ class WbfsysAnnouncement_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_announcement'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_announcement'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysAnnouncement_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.Announcement_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

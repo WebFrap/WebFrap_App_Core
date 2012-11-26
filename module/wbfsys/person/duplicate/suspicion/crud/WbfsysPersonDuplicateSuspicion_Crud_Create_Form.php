@@ -460,7 +460,7 @@ class WbfsysPersonDuplicateSuspicion_Crud_Create_Form
           'name'      => 'wbfsys_person_duplicate_suspicion[id_propability]',
           'id'        => 'wgt-input-wbfsys_person_duplicate_suspicion_id_propability'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Propability', 'src' => 'Person Duplicate Suspicion' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'propability', 'src' => 'Person Duplicate Suspicion' ) ),
         )
       );
       $inputIdPropability->setWidth( 'medium' );
@@ -474,7 +474,7 @@ class WbfsysPersonDuplicateSuspicion_Crud_Create_Form
       $inputIdPropability->setRequired( $this->fieldRequired( 'wbfsys_person_duplicate_suspicion', 'id_propability' ) );
 
 
-      $inputIdPropability->setLabel( $i18n->l( 'Propability', 'wbfsys.person_duplicate_suspicion.label' ) );
+      $inputIdPropability->setLabel( $i18n->l( 'propability', 'wbfsys.person_duplicate_suspicion.label' ) );
 
 
       $acl = $this->getAcl();
@@ -486,7 +486,7 @@ class WbfsysPersonDuplicateSuspicion_Crud_Create_Form
         $inputIdPropability->editUrl = 'index.php?c=Wbfsys.Probability.listing&amp;target='.$this->namespace.'&amp;field=id_propability&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_person_duplicate_suspicion_id_propability'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdPropability->setFirstFree( 'No Propability selected' );
+      $inputIdPropability->setFirstFree( 'No propability selected' );
 
       
       $queryIdPropability = null;

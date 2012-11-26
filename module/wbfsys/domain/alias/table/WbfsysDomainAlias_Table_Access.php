@@ -146,7 +146,7 @@ class WbfsysDomainAlias_Table_Access
 
     $criteria->select( array( 'wbfsys_domain_alias.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

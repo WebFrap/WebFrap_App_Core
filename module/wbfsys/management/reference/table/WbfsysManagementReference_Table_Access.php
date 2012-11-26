@@ -146,7 +146,7 @@ class WbfsysManagementReference_Table_Access
 
     $criteria->select( array( 'wbfsys_management_reference.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

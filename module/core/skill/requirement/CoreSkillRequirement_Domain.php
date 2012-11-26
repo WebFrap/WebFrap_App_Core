@@ -99,7 +99,12 @@ class CoreSkillRequirement_Domain
    * @var string
    */
   public $aclKey = 'mod-core-cat-core_data'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'ore-cat-core_data'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class CoreSkillRequirement_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Webfrap.Coredata_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

@@ -2096,7 +2096,7 @@ class WbfsysSecurityArea_Crud_Show_Form
           'name'      => 'wbfsys_security_area[type_key]',
           'id'        => 'wgt-input-wbfsys_security_area_type_key'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Type key', 'src' => 'Security Area' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'type key', 'src' => 'Security Area' ) ),
           'maxlength' => $this->entity->maxSize( 'type_key' ),
         )
       );
@@ -2105,7 +2105,7 @@ class WbfsysSecurityArea_Crud_Show_Form
       $inputTypeKey->setReadonly( $this->fieldReadOnly( 'wbfsys_security_area', 'type_key' ) );
       $inputTypeKey->setRequired( $this->fieldRequired( 'wbfsys_security_area', 'type_key' ) );
       $inputTypeKey->setData( $this->entity->getSecure('type_key') );
-      $inputTypeKey->setLabel( $i18n->l( 'Type key', 'wbfsys.security_area.label' ) );
+      $inputTypeKey->setLabel( $i18n->l( 'type key', 'wbfsys.security_area.label' ) );
 
       $inputTypeKey->refresh           = $this->refresh;
       $inputTypeKey->serializeElement  = $this->sendElement;
@@ -2139,7 +2139,7 @@ class WbfsysSecurityArea_Crud_Show_Form
           'name'      => 'wbfsys_security_area[parent_key]',
           'id'        => 'wgt-input-wbfsys_security_area_parent_key'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Parent key', 'src' => 'Security Area' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'parent key', 'src' => 'Security Area' ) ),
           'maxlength' => $this->entity->maxSize( 'parent_key' ),
         )
       );
@@ -2148,7 +2148,7 @@ class WbfsysSecurityArea_Crud_Show_Form
       $inputParentKey->setReadonly( $this->fieldReadOnly( 'wbfsys_security_area', 'parent_key' ) );
       $inputParentKey->setRequired( $this->fieldRequired( 'wbfsys_security_area', 'parent_key' ) );
       $inputParentKey->setData( $this->entity->getSecure('parent_key') );
-      $inputParentKey->setLabel( $i18n->l( 'Parent key', 'wbfsys.security_area.label' ) );
+      $inputParentKey->setLabel( $i18n->l( 'parent key', 'wbfsys.security_area.label' ) );
 
       $inputParentKey->refresh           = $this->refresh;
       $inputParentKey->serializeElement  = $this->sendElement;
@@ -2182,7 +2182,7 @@ class WbfsysSecurityArea_Crud_Show_Form
           'name'      => 'wbfsys_security_area[source_key]',
           'id'        => 'wgt-input-wbfsys_security_area_source_key'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Source key', 'src' => 'Security Area' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'source key', 'src' => 'Security Area' ) ),
           'maxlength' => $this->entity->maxSize( 'source_key' ),
         )
       );
@@ -2191,7 +2191,7 @@ class WbfsysSecurityArea_Crud_Show_Form
       $inputSourceKey->setReadonly( $this->fieldReadOnly( 'wbfsys_security_area', 'source_key' ) );
       $inputSourceKey->setRequired( $this->fieldRequired( 'wbfsys_security_area', 'source_key' ) );
       $inputSourceKey->setData( $this->entity->getSecure('source_key') );
-      $inputSourceKey->setLabel( $i18n->l( 'Source key', 'wbfsys.security_area.label' ) );
+      $inputSourceKey->setLabel( $i18n->l( 'source key', 'wbfsys.security_area.label' ) );
 
       $inputSourceKey->refresh           = $this->refresh;
       $inputSourceKey->serializeElement  = $this->sendElement;

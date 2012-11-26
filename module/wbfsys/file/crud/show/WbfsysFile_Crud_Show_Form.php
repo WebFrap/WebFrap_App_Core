@@ -432,7 +432,7 @@ class WbfsysFile_Crud_Show_Form
           'name'      => 'wbfsys_file[name]',
           'id'        => 'wgt-input-wbfsys_file_name'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium',
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Name', 'src' => 'File' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'name', 'src' => 'File' ) ),
         )
       );
       $inputName->setWidth( 'medium' );
@@ -456,7 +456,7 @@ class WbfsysFile_Crud_Show_Form
         );
       }
 
-      $inputName->setLabel( $i18n->l( 'Name', 'wbfsys.file.label' ) );
+      $inputName->setLabel( $i18n->l( 'name', 'wbfsys.file.label' ) );
 
 
       // activate the category
@@ -488,7 +488,7 @@ class WbfsysFile_Crud_Show_Form
           'name'      => 'wbfsys_file[link]',
           'id'        => 'wgt-input-wbfsys_file_link'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Link', 'src' => 'File' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'link', 'src' => 'File' ) ),
         )
       );
       $inputLink->setWidth( 'medium' );
@@ -496,7 +496,7 @@ class WbfsysFile_Crud_Show_Form
       $inputLink->setReadonly( $this->fieldReadOnly( 'wbfsys_file', 'link' ) );
       $inputLink->setRequired( $this->fieldRequired( 'wbfsys_file', 'link' ) );
       $inputLink->setData( $this->entity->getSecure( 'link' ) );
-      $inputLink->setLabel( $i18n->l( 'Link', 'wbfsys.file.label' ) );
+      $inputLink->setLabel( $i18n->l( 'link', 'wbfsys.file.label' ) );
 
       $inputLink->refresh           = $this->refresh;
       $inputLink->serializeElement  = $this->sendElement;

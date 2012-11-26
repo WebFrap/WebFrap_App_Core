@@ -634,7 +634,7 @@ $inputPartial->setReadOnly( $this->fieldReadOnly( 'wbfsys_group_users', 'partial
           'name'      => 'wbfsys_group_users[ident_key]',
           'id'        => 'wgt-input-wbfsys_group_users_ident_key'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_cname medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Ident key', 'src' => 'Group Users' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'ident key', 'src' => 'Group Users' ) ),
           'maxlength' => $this->entity->maxSize( 'ident_key' ),
         )
       );
@@ -643,7 +643,7 @@ $inputPartial->setReadOnly( $this->fieldReadOnly( 'wbfsys_group_users', 'partial
       $inputIdentKey->setReadonly( $this->fieldReadOnly( 'wbfsys_group_users', 'ident_key' ) );
       $inputIdentKey->setRequired( $this->fieldRequired( 'wbfsys_group_users', 'ident_key' ) );
       $inputIdentKey->setData( $this->entity->getSecure('ident_key') );
-      $inputIdentKey->setLabel( $i18n->l( 'Ident key', 'wbfsys.group_users.label' ) );
+      $inputIdentKey->setLabel( $i18n->l( 'ident key', 'wbfsys.group_users.label' ) );
 
       $inputIdentKey->refresh           = $this->refresh;
       $inputIdentKey->serializeElement  = $this->sendElement;

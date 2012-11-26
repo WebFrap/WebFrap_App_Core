@@ -271,22 +271,13 @@ class WbfsysRoleUser_Crud_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_role_user.name' );
       $criteria->selectAlso( 'wbfsys_role_user.name as "wbfsys_role_user-name-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */

@@ -366,6 +366,15 @@ class WbfsysIssue_Selection_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_issue.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -531,24 +540,18 @@ class WbfsysIssue_Selection_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-      if( in_array( 'id_severity', $params->order ) )
-      {
-        $criteria->selectAlso( 'wbfsys_issue.id_severity as "wbfsys_issue-id_severity-order"' );
-      }
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
       $criteria->orderBy( 'wbfsys_issue.id_severity ' );
       $criteria->orderBy( 'wbfsys_issue.id_status ' );
 
-      $criteria->selectAlso( 'wbfsys_issue.id_severity as "wbfsys_issue-id_severity-order"' );
 
-    }
+			
+      $criteria->selectAlso( 'wbfsys_issue.id_severity as "wbfsys_issue-id_severity-order"' );
+			
+      $criteria->selectAlso( 'wbfsys_issue.id_status as "wbfsys_issue-id_status-order"' );
+
+
 
     // Check the offset
     if( $params->start )
@@ -597,23 +600,16 @@ class WbfsysIssue_Selection_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_issue.id_severity ' );
       $criteria->orderBy( 'wbfsys_issue.id_status ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_issue.id_severity as "wbfsys_issue-id_severity-order"' );
+			
       $criteria->selectAlso( 'wbfsys_issue.id_status as "wbfsys_issue-id_status-order"' );
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -631,48 +627,22 @@ class WbfsysIssue_Selection_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-      if( in_array( 'id_severity', $params->order ) )
-      {
-        $criteria->selectAlso( 'wbfsys_issue.id_severity as "wbfsys_issue-id_severity-order"' );
-        $envelop->groupBy( 'inner_acl."wbfsys_issue-id_severity-order"' );
-        $envelop->selectAlso( 'inner_acl."wbfsys_issue-id_severity-order"' );
-        $envelop->orderBy( 'inner_acl."wbfsys_issue-id_severity-order" ' );
-      }
-      if( in_array( 'id_status', $params->order ) )
-      {
-        $criteria->selectAlso( 'wbfsys_issue.id_status as "wbfsys_issue-id_status-order"' );
-        $envelop->groupBy( 'inner_acl."wbfsys_issue-id_status-order"' );
-        $envelop->selectAlso( 'inner_acl."wbfsys_issue-id_status-order"' );
-        $envelop->orderBy( 'inner_acl."wbfsys_issue-id_status-order" ' );
-      }
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_issue.id_severity ' );
       $criteria->orderBy( 'wbfsys_issue.id_status ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_issue.id_severity as "wbfsys_issue-id_severity-order"' );
-
-      $envelop->groupBy( 'inner_acl."wbfsys_issue-id_severity-order"' );
       $envelop->selectAlso( 'inner_acl."wbfsys_issue-id_severity-order"' );
+      $envelop->groupBy( 'inner_acl."wbfsys_issue-id_severity-order"' );
       $envelop->orderBy( 'inner_acl."wbfsys_issue-id_severity-order" ' );
+			
       $criteria->selectAlso( 'wbfsys_issue.id_status as "wbfsys_issue-id_status-order"' );
-
-      $envelop->groupBy( 'inner_acl."wbfsys_issue-id_status-order"' );
       $envelop->selectAlso( 'inner_acl."wbfsys_issue-id_status-order"' );
+      $envelop->groupBy( 'inner_acl."wbfsys_issue-id_status-order"' );
       $envelop->orderBy( 'inner_acl."wbfsys_issue-id_status-order" ' );
 
-
-    }
 
 
   }//end public function injectAclOrder */

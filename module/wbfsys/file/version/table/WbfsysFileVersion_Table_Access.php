@@ -146,7 +146,7 @@ class WbfsysFileVersion_Table_Access
 
     $criteria->select( array( 'wbfsys_file_version.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

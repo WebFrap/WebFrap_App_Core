@@ -147,7 +147,7 @@ class WbfsysRoleGroup_Treetable_Access
 
     $criteria->select( array( 'wbfsys_role_group.rowid as rowid' )  );
 
-    if( !$this->defLevel )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

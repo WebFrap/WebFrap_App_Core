@@ -99,7 +99,12 @@ class WbfsysPriority_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_priority'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_priority'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysPriority_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.Priority_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

@@ -99,7 +99,12 @@ class WbfsysPackageType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_package_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_package_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysPackageType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.PackageType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

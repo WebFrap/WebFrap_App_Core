@@ -351,6 +351,15 @@ class WbfsysIssueType_Selection_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_issue_type.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -499,18 +508,15 @@ class WbfsysIssueType_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
       $criteria->orderBy( 'wbfsys_issue_type.name ' );
 
 
-    }
+			
+      $criteria->selectAlso( 'wbfsys_issue_type.name as "wbfsys_issue_type-name-order"' );
+
+
 
     // Check the offset
     if( $params->start )
@@ -559,21 +565,13 @@ class WbfsysIssueType_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_issue_type.name ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_issue_type.name as "wbfsys_issue_type-name-order"' );
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -591,35 +589,16 @@ class WbfsysIssueType_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-      if( in_array( 'name', $params->order ) )
-      {
-        $criteria->selectAlso( 'wbfsys_issue_type.name as "wbfsys_issue_type-name-order"' );
-        $envelop->groupBy( 'inner_acl."wbfsys_issue_type-name-order"' );
-        $envelop->selectAlso( 'inner_acl."wbfsys_issue_type-name-order"' );
-        $envelop->orderBy( 'inner_acl."wbfsys_issue_type-name-order" ' );
-      }
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_issue_type.name ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_issue_type.name as "wbfsys_issue_type-name-order"' );
-
-      $envelop->groupBy( 'inner_acl."wbfsys_issue_type-name-order"' );
       $envelop->selectAlso( 'inner_acl."wbfsys_issue_type-name-order"' );
+      $envelop->groupBy( 'inner_acl."wbfsys_issue_type-name-order"' );
       $envelop->orderBy( 'inner_acl."wbfsys_issue_type-name-order" ' );
 
-
-    }
 
 
   }//end public function injectAclOrder */

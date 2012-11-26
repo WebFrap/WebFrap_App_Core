@@ -71,12 +71,13 @@ class WbfsysTask_Ref_Attachments_Table_Modal_View
     $access = $params->accessAttachments;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'ajax.php?c=Wbfsys.Task_Ref_Attachments.search&amp;objid='.$objid;
+    $params->searchFormAction = 'ajax.php?c=Wbfsys.Task_Ref_Attachments.search&amp;objid='.$objid;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_task-ref-attachments-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_task-ref-attachments-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-attachments-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'Attachments' );

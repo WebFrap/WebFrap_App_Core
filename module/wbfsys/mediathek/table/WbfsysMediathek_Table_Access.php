@@ -146,7 +146,7 @@ class WbfsysMediathek_Table_Access
 
     $criteria->select( array( 'wbfsys_mediathek.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

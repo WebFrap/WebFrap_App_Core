@@ -146,7 +146,7 @@ class WbfsysIssueType_Table_Access
 
     $criteria->select( array( 'wbfsys_issue_type.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

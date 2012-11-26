@@ -350,6 +350,15 @@ class WbfsysEntityCategory_Selection_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_entity_category.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -495,17 +504,15 @@ class WbfsysEntityCategory_Selection_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_entity_category.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_entity_category.name' );
+      $criteria->selectAlso( 'wbfsys_entity_category.name as "wbfsys_entity_category-name-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -554,22 +561,13 @@ class WbfsysEntityCategory_Selection_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_entity_category.name' );
       $criteria->selectAlso( 'wbfsys_entity_category.name as "wbfsys_entity_category-name-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -587,17 +585,7 @@ class WbfsysEntityCategory_Selection_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_entity_category.name' );
       $criteria->selectAlso( 'wbfsys_entity_category.name as "wbfsys_entity_category-name-order"' );
@@ -608,8 +596,6 @@ class WbfsysEntityCategory_Selection_Query_Postgresql
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

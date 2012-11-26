@@ -99,7 +99,12 @@ class WbfsysDocumentType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_document_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_document_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysDocumentType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.DocumentType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

@@ -146,7 +146,7 @@ class WbfsysThemeIcon_Table_Access
 
     $criteria->select( array( 'wbfsys_theme_icon.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

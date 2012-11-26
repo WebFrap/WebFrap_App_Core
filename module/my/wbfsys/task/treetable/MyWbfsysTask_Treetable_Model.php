@@ -293,7 +293,8 @@ class MyWbfsysTask_Treetable_Model
     $query->extendedConditions = $extendedConditions;
 
 
-    if( $params->dynFilters )
+
+		if( $params->dynFilters )
     {
       foreach( $params->dynFilters as $dynFilter  )
       {
@@ -314,6 +315,7 @@ class MyWbfsysTask_Treetable_Model
 
       }
     }
+
 
     // per exclude können regeln übergeben werden um bestimmte datensätze
     // auszublenden

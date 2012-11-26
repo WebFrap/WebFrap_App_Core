@@ -146,7 +146,7 @@ class WbfsysGroupUsers_Table_Access
 
     $criteria->select( array( 'wbfsys_group_users.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

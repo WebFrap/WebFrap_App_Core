@@ -42,6 +42,8 @@ class WbfsysIssue_Selection_NewIssues_Filter_Postgresql
   {
 
     $acl       = $this->getAcl();
+    $subCheck = array();
+    
     $criteria->filter
     ("
        wbfsys_process_node.access_key  IN( 'new' )
@@ -49,6 +51,10 @@ class WbfsysIssue_Selection_NewIssues_Filter_Postgresql
     'OR'
   );
 
+
+		
+		if( $subCheck )
+			$criteria->where( "(".implode( ' OR ', $subCheck ).")" ); 
 
     return $criteria;
 

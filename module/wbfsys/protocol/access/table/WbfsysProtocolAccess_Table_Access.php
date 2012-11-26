@@ -146,7 +146,7 @@ class WbfsysProtocolAccess_Table_Access
 
     $criteria->select( array( 'wbfsys_protocol_access.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

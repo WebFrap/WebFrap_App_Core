@@ -129,7 +129,7 @@ class WbfsysUserSetting_Crud_Access_Update
   }//end public function loadDefault */
 
   /**
-   * @param TFlag $params
+   * @param Context $params
    * @param WbfsysUserSetting_Entity $entity
    */
   public function loadDefReferences( $params, $entity = null )

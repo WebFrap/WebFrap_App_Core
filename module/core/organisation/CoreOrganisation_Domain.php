@@ -99,7 +99,12 @@ class CoreOrganisation_Domain
    * @var string
    */
   public $aclKey = 'mgmt-core_organisation'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'core_organisation'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class CoreOrganisation_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Core.Organisation_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

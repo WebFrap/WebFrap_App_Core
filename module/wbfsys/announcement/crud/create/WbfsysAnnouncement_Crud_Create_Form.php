@@ -862,7 +862,7 @@ class WbfsysAnnouncement_Crud_Create_Form
           'name'  => 'wbfsys_announcement[message]',
           'id'    => 'wgt-input-wbfsys_announcement_message'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip full large-height'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title' => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Message', 'src' => 'Announcement' ) ),
+          'title' => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'message', 'src' => 'Announcement' ) ),
         )
       );
       $inputMessage->setWidth( 'full' );
@@ -873,7 +873,7 @@ class WbfsysAnnouncement_Crud_Create_Form
       $inputMessage->setData( $this->entity->getData( 'message' ) );
       $inputMessage->setReadonly( $this->fieldReadOnly( 'wbfsys_announcement', 'message' ) );
       $inputMessage->setRequired( $this->fieldRequired( 'wbfsys_announcement', 'message' ) );
-      $inputMessage->setLabel( $i18n->l( 'Message', 'wbfsys.announcement.label' ) );
+      $inputMessage->setLabel( $i18n->l( 'message', 'wbfsys.announcement.label' ) );
 
       $inputMessage->refresh           = $this->refresh;
       $inputMessage->serializeElement  = $this->sendElement;

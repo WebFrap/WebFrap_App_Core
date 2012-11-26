@@ -398,6 +398,15 @@ class WbfsysVideo_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_video.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -508,17 +517,15 @@ class WbfsysVideo_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_video.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_video.title' );
+      $criteria->selectAlso( 'wbfsys_video.title as "wbfsys_video-title-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -567,22 +574,13 @@ class WbfsysVideo_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_video.title' );
       $criteria->selectAlso( 'wbfsys_video.title as "wbfsys_video-title-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -600,17 +598,7 @@ class WbfsysVideo_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_video.title' );
       $criteria->selectAlso( 'wbfsys_video.title as "wbfsys_video-title-order"' );
@@ -621,8 +609,6 @@ class WbfsysVideo_Table_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

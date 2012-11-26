@@ -99,7 +99,12 @@ class WbfsysCalendarAppointment_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_calendar_appointment'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_calendar_appointment'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysCalendarAppointment_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.CalendarAppointment_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

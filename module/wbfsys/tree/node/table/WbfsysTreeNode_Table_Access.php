@@ -146,7 +146,7 @@ class WbfsysTreeNode_Table_Access
 
     $criteria->select( array( 'wbfsys_tree_node.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

@@ -118,7 +118,7 @@ class WbfsysRoleUser_Crud_Selection_Element
     $this->html .= '</div>'.NL;
     
 
-      $this->html .= '<script type="text/javascript" >'.NL;
+      $this->html .= '<script type="application/javascript" >'.NL;
       $this->html .= $this->buildJavascript();
       $this->html .= '</script>'.NL;
 
@@ -193,8 +193,8 @@ class WbfsysRoleUser_Crud_Selection_Element
         .' id="'.$rowid.'" >'.NL;
       $body .= '<td  valign="top" class="pos" name="slct['.$objid.']" style="text-align:right;" >'.$pos.'</td>'.NL;
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_role_user_name']).'<br />'.Validator::sanitizeHtml($row['embed_person_lastname']).'<span>, </span>'.Validator::sanitizeHtml($row['embed_person_firstname']).'</td>'.NL;
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_profile_name']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_role_user_name'])).'<br />'.nl2br(Validator::sanitizeHtml($row['embed_person_lastname'])).'<span>, </span>'.nl2br(Validator::sanitizeHtml($row['embed_person_firstname'])).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_profile_name'])).'</td>'.NL;
       $body .= '<td valign="top" >'.('' != trim($row['wbfsys_role_user_m_time_created'])?$this->view->i18n->date($row['wbfsys_role_user_m_time_created']):' ').'</td>'.NL;
       $body .= '<td valign="top" >'.WgtRndForm::checkbox( 'wbfsys_role_user[inactive]', $row['wbfsys_role_user_inactive'] , array() , true ).'</td>'.NL;
       if( $this->enableNav )

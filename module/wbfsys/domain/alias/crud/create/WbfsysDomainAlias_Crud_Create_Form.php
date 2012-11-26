@@ -278,7 +278,7 @@ class WbfsysDomainAlias_Crud_Create_Form
           'name'      => 'wbfsys_domain_alias[address]',
           'id'        => 'wgt-input-wbfsys_domain_alias_address'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Address', 'src' => 'Domain Alias' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'address', 'src' => 'Domain Alias' ) ),
           'maxlength' => $this->entity->maxSize( 'address' ),
         )
       );
@@ -287,7 +287,7 @@ class WbfsysDomainAlias_Crud_Create_Form
       $inputAddress->setReadonly( $this->fieldReadOnly( 'wbfsys_domain_alias', 'address' ) );
       $inputAddress->setRequired( $this->fieldRequired( 'wbfsys_domain_alias', 'address' ) );
       $inputAddress->setData( $this->entity->getSecure('address') );
-      $inputAddress->setLabel( $i18n->l( 'Address', 'wbfsys.domain_alias.label' ) );
+      $inputAddress->setLabel( $i18n->l( 'address', 'wbfsys.domain_alias.label' ) );
 
       $inputAddress->refresh           = $this->refresh;
       $inputAddress->serializeElement  = $this->sendElement;
@@ -321,7 +321,7 @@ class WbfsysDomainAlias_Crud_Create_Form
           'name'      => 'wbfsys_domain_alias[destination]',
           'id'        => 'wgt-input-wbfsys_domain_alias_destination'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Destination', 'src' => 'Domain Alias' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'destination', 'src' => 'Domain Alias' ) ),
           'maxlength' => $this->entity->maxSize( 'destination' ),
         )
       );
@@ -330,7 +330,7 @@ class WbfsysDomainAlias_Crud_Create_Form
       $inputDestination->setReadonly( $this->fieldReadOnly( 'wbfsys_domain_alias', 'destination' ) );
       $inputDestination->setRequired( $this->fieldRequired( 'wbfsys_domain_alias', 'destination' ) );
       $inputDestination->setData( $this->entity->getSecure('destination') );
-      $inputDestination->setLabel( $i18n->l( 'Destination', 'wbfsys.domain_alias.label' ) );
+      $inputDestination->setLabel( $i18n->l( 'destination', 'wbfsys.domain_alias.label' ) );
 
       $inputDestination->refresh           = $this->refresh;
       $inputDestination->serializeElement  = $this->sendElement;

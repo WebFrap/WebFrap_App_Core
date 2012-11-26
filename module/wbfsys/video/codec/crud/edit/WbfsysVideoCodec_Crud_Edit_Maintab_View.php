@@ -47,7 +47,7 @@ class WbfsysVideoCodec_Crud_Edit_Maintab_View
   * Das Edit Form der WbfsysVideoCodec Maske
   *
   * @param int $objid Die Objid der Hauptentity
-  * @param TFlag $params Flow Control Flags
+  * @param Context $params Flow Control Flags
   *
   * @return null Error im Fehlerfall
   */
@@ -147,7 +147,7 @@ class WbfsysVideoCodec_Crud_Edit_Maintab_View
   /**
    * add a drop menu to the create window
    *
-   * @param TFlag $params the named parameter object that was created in
+   * @param Context $params the named parameter object that was created in
    *   the controller
    * {
    *   string formId: the id of the form;
@@ -177,7 +177,7 @@ class WbfsysVideoCodec_Crud_Edit_Maintab_View
    * just add the code for the edit ui controls
    *
    * @param int $objid die rowid des zu editierende Datensatzes
-   * @param TFlag $params benamte parameter
+   * @param Context $params benamte parameter
    * {
    *   @param LibAclContainer access: der container mit den zugriffsrechten für
    *     die aktuelle maske

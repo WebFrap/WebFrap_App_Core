@@ -131,6 +131,7 @@ class WbfsysRoleGroup_Treetable_Ui
       $searchElement->searchKey = 'wbfsys_role_group';
       $searchElement->advancedSearch = true;
       $searchElement->focus = true;
+      $searchElement->context = 'treetable';
       
 
     }

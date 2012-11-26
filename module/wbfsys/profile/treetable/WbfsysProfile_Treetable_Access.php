@@ -147,7 +147,7 @@ class WbfsysProfile_Treetable_Access
 
     $criteria->select( array( 'wbfsys_profile.rowid as rowid' )  );
 
-    if( !$this->defLevel )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

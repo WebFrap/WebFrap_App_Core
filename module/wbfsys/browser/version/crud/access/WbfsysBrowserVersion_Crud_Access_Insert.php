@@ -122,7 +122,7 @@ class WbfsysBrowserVersion_Crud_Access_Insert
   }//end public function loadDefault */
 
   /**
-   * @param TFlag $params
+   * @param Context $params
    * @param WbfsysBrowserVersion_Entity $entity
    */
   public function loadDefReferences( $params, $entity = null )

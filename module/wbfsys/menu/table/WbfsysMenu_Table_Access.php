@@ -146,7 +146,7 @@ class WbfsysMenu_Table_Access
 
     $criteria->select( array( 'wbfsys_menu.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

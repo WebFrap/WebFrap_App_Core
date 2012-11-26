@@ -129,7 +129,7 @@ class WbfsysCalendarType_Table_Element
       (
         Wgt::ACTION_BUTTON_GET,
         'Rights',
-        'maintab.php?c=Wbfsys.CalendarType_Acl_Dset.listing&amp;objid=',
+        'maintab.php?c=Acl.Mgmt_Dset.listing&amp;dkey=wbfsys_calendar_type&amp;objid=',
         'control/rights.png',
         '',
         'wbfsys.calendar_type.label',
@@ -185,7 +185,8 @@ class WbfsysCalendarType_Table_Element
       $this->html .= '<div id="'.$this->id.'" class="wgt-grid" >'.NL;
       $this->html .= '<var id="'.$this->id.'-table-cfg-grid" >{
         "height":"'.$this->bodyHeight.'",
-        "search_form":"'.$this->searchForm.'"
+        "search_form":"'.$this->searchForm.'",
+        "select_able":"true"
       }</var>';
       $this->html .= $this->buildPanel();
 
@@ -213,7 +214,7 @@ class WbfsysCalendarType_Table_Element
 
 
 
-      $this->html .= '<script type="text/javascript" >'.NL;
+      $this->html .= '<script type="application/javascript" >'.NL;
       $this->html .= $this->buildJavascript();
       $this->html .= '</script>'.NL;
 
@@ -313,19 +314,19 @@ class WbfsysCalendarType_Table_Element
       // doubcle click open
       $accessActionKey = $this->hasEditRights( $row )?'edit':'show';
  
-      $rowWcm       = '';
+      $rowWcm      = '';
       $rowParams   = '';
-      $dsUrl        = null;
+      $dsUrl       = null;
       // check if the row has 
       if( $dsUrl = $this->getActionUrl( $objid, $row ) )
       {
-        $rowWcm     .= ' wcm_control_access_dataset';
+        $rowWcm     .= ' wcm wcm_control_access_dataset';
         $rowParams .= ' wgt_url="'.$dsUrl.'" ';
       }
 
 
       
-      $body .= '<tr class="wcm wcm_ui_highlight '.$rowWcm.$classContext.' row'.$num.' node-'.$objid.'" '
+      $body .= '<tr class="'.$rowWcm.$classContext.' row'.$num.' node-'.$objid.'" '
 
         .' wgt_context_menu="'.$this->id.'-cmenu" ' 
         .$menuActions
@@ -341,7 +342,7 @@ class WbfsysCalendarType_Table_Element
 
 
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.CalendarType.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_calendar_type_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.CalendarType.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_calendar_type_name'])).'</a></td>'.NL;
 
       $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_calendar_type_description']).'</td>'.NL;
 
@@ -471,8 +472,8 @@ class WbfsysCalendarType_Table_Element
     );
     $accessActionKey = $this->hasEditRights( $row )?'edit':'show';
     
-    $dsUrl        = null;
-    $rowWcm       = '';
+    $dsUrl       = null;
+    $rowWcm      = '';
     $rowParams   = '';
     $menuActions = '';
     
@@ -485,7 +486,7 @@ class WbfsysCalendarType_Table_Element
     // check if the row has 
     if( $dsUrl = $this->getActionUrl( $objid, $row ) )
     {
-      $rowWcm     .= ' wcm_control_access_dataset';
+      $rowWcm    .= ' wcm_control_access_dataset';
       $rowParams .= ' wgt_url="'.$dsUrl.'" ';
     }
     
@@ -506,7 +507,7 @@ class WbfsysCalendarType_Table_Element
         .' wgt_eid="'.$objid.'" '
         .$rowParams
         .' wgt_context_menu="'.$this->id.'-cmenu" '
-        .' class="wcm wcm_ui_highlight wcm_control_access_dataset '.$classContext.' node-'.$objid.'" >'.NL;
+        .' class="wcm wcm_ui_highlight '.$rowWcm .$classContext.' node-'.$objid.'" >'.NL;
     }
     else
     {
@@ -520,7 +521,7 @@ class WbfsysCalendarType_Table_Element
 
 
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.CalendarType.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_calendar_type_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.CalendarType.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_calendar_type_name'])).'</a></td>'.NL;
 
       $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_calendar_type_description']).'</td>'.NL;
 

@@ -99,7 +99,12 @@ class WbfsysIssueSeverity_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_issue_severity'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_issue_severity'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysIssueSeverity_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.IssueSeverity_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

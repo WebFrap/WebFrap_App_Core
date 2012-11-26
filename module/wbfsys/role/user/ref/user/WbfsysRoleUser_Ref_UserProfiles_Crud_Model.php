@@ -260,7 +260,7 @@ class WbfsysRoleUser_Ref_UserProfiles_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysUserProfiles) )
+      if( !$orm->insert( $entityWbfsysUserProfiles ) )
       {
 
         $entityText = $entityWbfsysUserProfiles->text();

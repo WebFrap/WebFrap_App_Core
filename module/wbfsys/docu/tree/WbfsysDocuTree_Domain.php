@@ -99,7 +99,12 @@ class WbfsysDocuTree_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_docu_tree'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_docu_tree'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysDocuTree_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.DocuTree_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

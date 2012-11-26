@@ -375,6 +375,15 @@ class WbfsysDataIndex_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_data_index.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -523,17 +532,15 @@ class WbfsysDataIndex_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_data_index.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_data_index.name' );
+      $criteria->selectAlso( 'wbfsys_data_index.name as "wbfsys_data_index-name-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -582,22 +589,13 @@ class WbfsysDataIndex_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_data_index.name' );
       $criteria->selectAlso( 'wbfsys_data_index.name as "wbfsys_data_index-name-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -615,17 +613,7 @@ class WbfsysDataIndex_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_data_index.name' );
       $criteria->selectAlso( 'wbfsys_data_index.name as "wbfsys_data_index-name-order"' );
@@ -636,8 +624,6 @@ class WbfsysDataIndex_Table_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

@@ -376,6 +376,15 @@ class WbfsysProtocolMessage_Table_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_protocol_message.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -480,17 +489,15 @@ class WbfsysProtocolMessage_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_protocol_message.rowid' );
+      $criteria->selectAlso( 'wbfsys_protocol_message.rowid as "wbfsys_protocol_message-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -539,22 +546,13 @@ class WbfsysProtocolMessage_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_protocol_message.rowid' );
       $criteria->selectAlso( 'wbfsys_protocol_message.rowid as "wbfsys_protocol_message-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -572,17 +570,7 @@ class WbfsysProtocolMessage_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_protocol_message.rowid' );
       $criteria->selectAlso( 'wbfsys_protocol_message.rowid as "wbfsys_protocol_message-rowid-order"' );
@@ -593,8 +581,6 @@ class WbfsysProtocolMessage_Table_Query_Postgresql
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

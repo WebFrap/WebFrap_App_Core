@@ -75,12 +75,13 @@ class WbfsysCalendar_Ref_Appointments_Table_Modal_View
       $params->refId = $objid;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'index.php?c=Wbfsys.Calendar_Ref_Appointments.search&amp;objid='.$params->refId;
+    $params->searchFormAction = 'index.php?c=Wbfsys.Calendar_Ref_Appointments.search&amp;objid='.$params->refId;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_calendar-ref-appointments-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_calendar-ref-appointments-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-appointments-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'Appointments' );

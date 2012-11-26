@@ -42,6 +42,8 @@ class WbfsysIssue_Table_NewIssues_Filter
   {
 
     $acl       = $this->getAcl();
+    $subCheck = array();
+    
     $criteria->filter
     ("
        wbfsys_process_node.access_key  IN( 'new' )
@@ -49,6 +51,10 @@ class WbfsysIssue_Table_NewIssues_Filter
     'OR'
   );
 
+
+		
+		if( $subCheck )
+			$criteria->where( "(".implode( ' OR ', $subCheck ).")" ); 
 
     return $criteria;
 

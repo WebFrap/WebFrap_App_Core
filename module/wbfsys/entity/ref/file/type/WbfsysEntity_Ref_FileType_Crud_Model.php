@@ -260,7 +260,7 @@ class WbfsysEntity_Ref_FileType_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysVrefFileType) )
+      if( !$orm->insert( $entityWbfsysVrefFileType ) )
       {
 
         $entityText = $entityWbfsysVrefFileType->text();

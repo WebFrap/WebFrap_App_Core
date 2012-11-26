@@ -99,7 +99,12 @@ class WbfsysCategory_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_category'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_category'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysCategory_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.Category_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

@@ -448,7 +448,7 @@ class WbfsysVideoVariant_Crud_Show_Form
           'name'      => 'wbfsys_video_variant[id_video_codec]',
           'id'        => 'wgt-input-wbfsys_video_variant_id_video_codec'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Video codec', 'src' => 'Video Variant' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'video codec', 'src' => 'Video Variant' ) ),
         )
       );
       $inputIdVideoCodec->setWidth( 'medium' );
@@ -462,7 +462,7 @@ class WbfsysVideoVariant_Crud_Show_Form
       $inputIdVideoCodec->setRequired( $this->fieldRequired( 'wbfsys_video_variant', 'id_video_codec' ) );
 
 
-      $inputIdVideoCodec->setLabel( $i18n->l( 'Video codec', 'wbfsys.video_variant.label' ) );
+      $inputIdVideoCodec->setLabel( $i18n->l( 'video codec', 'wbfsys.video_variant.label' ) );
 
 
       $acl = $this->getAcl();
@@ -474,7 +474,7 @@ class WbfsysVideoVariant_Crud_Show_Form
         $inputIdVideoCodec->editUrl = 'index.php?c=Wbfsys.VideoCodec.listing&amp;target='.$this->namespace.'&amp;field=id_video_codec&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_video_variant_id_video_codec'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdVideoCodec->setFirstFree( 'No Video codec selected' );
+      $inputIdVideoCodec->setFirstFree( 'No video codec selected' );
 
       
       $queryIdVideoCodec = null;
@@ -550,7 +550,7 @@ class WbfsysVideoVariant_Crud_Show_Form
           'name'      => 'wbfsys_video_variant[id_audio_codec]',
           'id'        => 'wgt-input-wbfsys_video_variant_id_audio_codec'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Audio codec', 'src' => 'Video Variant' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'audio codec', 'src' => 'Video Variant' ) ),
         )
       );
       $inputIdAudioCodec->setWidth( 'medium' );
@@ -564,7 +564,7 @@ class WbfsysVideoVariant_Crud_Show_Form
       $inputIdAudioCodec->setRequired( $this->fieldRequired( 'wbfsys_video_variant', 'id_audio_codec' ) );
 
 
-      $inputIdAudioCodec->setLabel( $i18n->l( 'Audio codec', 'wbfsys.video_variant.label' ) );
+      $inputIdAudioCodec->setLabel( $i18n->l( 'audio codec', 'wbfsys.video_variant.label' ) );
 
 
       $acl = $this->getAcl();
@@ -576,7 +576,7 @@ class WbfsysVideoVariant_Crud_Show_Form
         $inputIdAudioCodec->editUrl = 'index.php?c=Wbfsys.AudioCodec.listing&amp;target='.$this->namespace.'&amp;field=id_audio_codec&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_video_variant_id_audio_codec'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdAudioCodec->setFirstFree( 'No Audio codec selected' );
+      $inputIdAudioCodec->setFirstFree( 'No audio codec selected' );
 
       
       $queryIdAudioCodec = null;

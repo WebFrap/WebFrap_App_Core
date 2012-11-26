@@ -71,12 +71,13 @@ class WbfsysRoleGroup_Ref_GroupUsers_Table_Modal_View
     $access = $params->accessGroupUsers;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'ajax.php?c=Wbfsys.RoleGroup_Ref_GroupUsers.search&amp;objid='.$objid;
+    $params->searchFormAction = 'ajax.php?c=Wbfsys.RoleGroup_Ref_GroupUsers.search&amp;objid='.$objid;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_role_group-ref-group_users-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_role_group-ref-group_users-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-group_users-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'GroupUsers' );

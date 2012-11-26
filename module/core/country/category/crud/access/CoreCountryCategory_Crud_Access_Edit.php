@@ -127,5 +127,72 @@ class CoreCountryCategory_Crud_Access_Edit
 
   }//end public function loadDefault */
 
+  /**
+   * @param Context $params
+   * @param CoreCountryCategory_Entity $entity
+   */
+  public function loadDefReferences( $params, $entity = null )
+  {
+
+    // laden der benötigten Resource Objekte
+    /* @var $acl LibAclAdapter_Db */
+    $acl = $this->getAcl();
+    $orm = $this->getOrm();
+
+    // wenn keine pfadinformationen übergeben werden oder wir in level 1 sind
+    // dann befinden wir uns im root und brauchen keine pfadafrage
+    if( is_null( $params->aclRoot ) || 1 == $params->aclLevel )
+    {
+      $params->isAclRoot     = true;
+    }
+
+    // wenn keine root übergeben wird oder wir in level 1 sind
+    // dann befinden wir uns im root und brauchen keine pfadafrage
+    // um potentielle fehler abzufangen wird auch direkt der richtige Root gesetzt
+    // nicht das hier einer einen falschen pfad injected
+    if( is_null($params->aclRoot) || 1 == $params->aclLevel )
+    {
+      $params->isAclRoot     = true;
+      $params->aclRoot       = 'mgmt-core_country_category';
+      $params->aclRootId     = null;
+      $params->aclKey        = 'mgmt-core_country_category';
+      $params->aclNode       = 'mgmt-core_country_category';
+      $params->aclLevel      = 1;
+    }
+
+    // wenn wir in keinem pfad sind nehmen wir einfach die normalen
+    // berechtigungen
+    if( $params->isAclRoot )
+    {
+      // da wir die zugriffsrechte mehr als nur einmal brauchen holen wir uns
+      // direkt einen acl container
+      $acl->getDsetRefPermissions
+      (
+        'mod-core>mgmt-core_country_category',
+        $entity,
+        $this     // dieses objekt soll als container verwendet werden
+      );
+    }
+    else
+    {
+      // da wir die zugriffsrechte mehr als nur einmal brauchen holen wir uns
+      // direkt das zugriffslevel
+      $acl->getPathPermission
+      (
+        $params->aclRoot,
+        $params->aclRootId,
+        $params->aclLevel,
+        $params->aclKey,
+        $params->refId,
+        $params->aclNode,
+        $entity,
+        true,     // Rollen laden
+        $this    // sich selbst als container mit übergeben
+      );
+      
+    }
+
+  }//end public function loadDefReferences */
+
 }//end class CoreCountryCategory_Crud_Access_Edit
 

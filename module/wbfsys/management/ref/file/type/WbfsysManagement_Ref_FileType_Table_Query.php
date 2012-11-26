@@ -386,6 +386,15 @@ class WbfsysManagement_Ref_FileType_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_vref_file_type.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -549,17 +558,15 @@ class WbfsysManagement_Ref_FileType_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_vref_file_type.rowid' );
+      $criteria->selectAlso( 'wbfsys_vref_file_type.rowid as "wbfsys_vref_file_type-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -608,22 +615,13 @@ class WbfsysManagement_Ref_FileType_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_vref_file_type.rowid' );
       $criteria->selectAlso( 'wbfsys_vref_file_type.rowid as "wbfsys_vref_file_type-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -641,17 +639,7 @@ class WbfsysManagement_Ref_FileType_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_vref_file_type.rowid' );
       $criteria->selectAlso( 'wbfsys_vref_file_type.rowid as "wbfsys_vref_file_type-rowid-order"' );
@@ -662,8 +650,6 @@ class WbfsysManagement_Ref_FileType_Table_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

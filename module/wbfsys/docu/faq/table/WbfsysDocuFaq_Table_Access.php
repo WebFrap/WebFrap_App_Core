@@ -146,7 +146,7 @@ class WbfsysDocuFaq_Table_Access
 
     $criteria->select( array( 'wbfsys_docu_faq.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

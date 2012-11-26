@@ -42,7 +42,7 @@ class IssueHandling_Process_Graph_Maintab_Menu
     $view  = $this->getView();
 
     $iconHistory   = $view->icon(  'process/history.png',   'History'  );
-    $iconClose     = $view->icon(  'control/close.png',   'Close'    );
+    $iconClose     = $view->icon(  'control/close_tab.png',   'Close'    );
 
     $entries = new TArray();
     $entries->support  = $this->entriesSupport( $params );
@@ -70,7 +70,34 @@ class IssueHandling_Process_Graph_Maintab_Menu
   </div>
   
   <div class="wgt-panel-control" >
-    <button class="wcm wcm_ui_button wgtac_process_history" >{$iconHistory} {$view->i18n->l('History','wbf.label')}</button>
+    <button 
+    	class="wcm wcm_ui_button wgtac_process_history" >{$iconHistory} {$view->i18n->l('History','wbf.label')}</button>
+  </div>
+  
+  <div class="wgt-panel-control" >
+    <button
+        class="wcm wcm_ui_dropform wcm_ui_tip-top wgt-button ui-state-default" 
+        id="wgt-help-issue_handling-pgraph"
+        tooltip="Click to open the help text."
+      ><div class="left ui-icon ui-icon-info"> </div></button>
+      
+    <div class="wgt-help-issue_handling-pgraph hidden" >
+    	<ul>
+    		<li>
+    			<div class="node start" >Start Node</div>
+    			Startpoint for the process.
+    	  </li>
+    		<li>
+    			<div class="node default" >Process Node</div>
+    			Default Process Node.
+    	  </li>
+    		<li>
+    			<div class="node default active" >Active Node</div>
+    			Shows the actual position of the process.
+    	  </li>
+    	</li>
+    </div>
+    
   </div>
 
 HTML;
@@ -102,13 +129,13 @@ HTML;
               href="modal.php?c=Webfrap.Help.display&amp;key=process-{$params->process->getProcessId()}" 
               >{$iconHelp} {$this->view->i18n->l('Help','wbf.label')}</a>
              </li>
-             
+            <!--
             <li><a 
               class="wcm wcm_req_ajax" 
               href="modal.php?c=Wbfsys.Issue.create&amp;context=create" 
               >{$iconBug} {$this->view->i18n->l('Bug','wbf.label')}</a>
              </li>
-             
+             -->
             <li><a 
               class="wcm wcm_req_ajax" 
               href="modal.php?c=Webfrap.Faq.display&amp;key=process-{$params->process->getProcessId()}" 

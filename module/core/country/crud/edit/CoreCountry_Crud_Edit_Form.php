@@ -428,7 +428,7 @@ class CoreCountry_Crud_Edit_Form
           'name'      => 'core_country[key3]',
           'id'        => 'wgt-input-core_country_key3'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_cname medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Key3', 'src' => 'Country' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'key3', 'src' => 'Country' ) ),
           'maxlength' => $this->entity->maxSize( 'key3' ),
         )
       );
@@ -437,7 +437,7 @@ class CoreCountry_Crud_Edit_Form
       $inputKey3->setReadonly( $this->fieldReadOnly( 'core_country', 'key3' ) );
       $inputKey3->setRequired( $this->fieldRequired( 'core_country', 'key3' ) );
       $inputKey3->setData( $this->entity->getSecure('key3') );
-      $inputKey3->setLabel( $i18n->l( 'Key3', 'core.country.label' ) );
+      $inputKey3->setLabel( $i18n->l( 'key3', 'core.country.label' ) );
 
       $inputKey3->refresh           = $this->refresh;
       $inputKey3->serializeElement  = $this->sendElement;

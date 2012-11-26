@@ -501,7 +501,7 @@ class WbfsysMessageProfile_Crud_Edit_Form
           'name'      => 'wbfsys_message_profile[id_visibility]',
           'id'        => 'wgt-input-wbfsys_message_profile_id_visibility'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Visibility', 'src' => 'Message Profile' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'visibility', 'src' => 'Message Profile' ) ),
         )
       );
       $inputIdVisibility->setWidth( 'medium' );
@@ -515,7 +515,7 @@ class WbfsysMessageProfile_Crud_Edit_Form
       $inputIdVisibility->setRequired( $this->fieldRequired( 'wbfsys_message_profile', 'id_visibility' ) );
 
 
-      $inputIdVisibility->setLabel( $i18n->l( 'Visibility', 'wbfsys.message_profile.label' ) );
+      $inputIdVisibility->setLabel( $i18n->l( 'visibility', 'wbfsys.message_profile.label' ) );
 
 
       $acl = $this->getAcl();
@@ -527,7 +527,7 @@ class WbfsysMessageProfile_Crud_Edit_Form
         $inputIdVisibility->editUrl = 'index.php?c=Wbfsys.UserContactVisibility.listing&amp;target='.$this->namespace.'&amp;field=id_visibility&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_message_profile_id_visibility'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdVisibility->setFirstFree( 'No Visibility selected' );
+      $inputIdVisibility->setFirstFree( 'No visibility selected' );
 
       
       $queryIdVisibility = null;
@@ -589,7 +589,7 @@ class WbfsysMessageProfile_Crud_Edit_Form
           'name'      => 'wbfsys_message_profile[user_name]',
           'id'        => 'wgt-input-wbfsys_message_profile_user_name'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'User name', 'src' => 'Message Profile' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'user name', 'src' => 'Message Profile' ) ),
           'maxlength' => $this->entity->maxSize( 'user_name' ),
         )
       );
@@ -598,7 +598,7 @@ class WbfsysMessageProfile_Crud_Edit_Form
       $inputUserName->setReadonly( $this->fieldReadOnly( 'wbfsys_message_profile', 'user_name' ) );
       $inputUserName->setRequired( $this->fieldRequired( 'wbfsys_message_profile', 'user_name' ) );
       $inputUserName->setData( $this->entity->getSecure('user_name') );
-      $inputUserName->setLabel( $i18n->l( 'User name', 'wbfsys.message_profile.label' ) );
+      $inputUserName->setLabel( $i18n->l( 'user name', 'wbfsys.message_profile.label' ) );
 
       $inputUserName->refresh           = $this->refresh;
       $inputUserName->serializeElement  = $this->sendElement;
@@ -925,7 +925,7 @@ class WbfsysMessageProfile_Crud_Edit_Form
           'name'      => 'wbfsys_message_profile[port]',
           'id'        => 'wgt-input-wbfsys_message_profile_port'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_int medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Port', 'src' => 'Message Profile' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'port', 'src' => 'Message Profile' ) ),
         )
       );
       $inputPort->setWidth( 'medium' );
@@ -933,7 +933,7 @@ class WbfsysMessageProfile_Crud_Edit_Form
 $inputPort->setReadOnly( $this->fieldReadOnly( 'wbfsys_message_profile', 'port' ) );
       $inputPort->setRequired( $this->fieldRequired( 'wbfsys_message_profile', 'port' ) );
       $inputPort->setData( $this->entity->getData( 'port' ) );
-      $inputPort->setLabel( $i18n->l( 'Port', 'wbfsys.message_profile.label' ) );
+      $inputPort->setLabel( $i18n->l( 'port', 'wbfsys.message_profile.label' ) );
 
       $inputPort->refresh           = $this->refresh;
       $inputPort->serializeElement  = $this->sendElement;

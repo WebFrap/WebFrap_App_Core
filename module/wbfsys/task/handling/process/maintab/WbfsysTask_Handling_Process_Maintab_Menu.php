@@ -42,7 +42,7 @@ class WbfsysTask_Handling_Process_Maintab_Menu
     $view  = $this->getView();
 
     $iconHistory   = $view->icon(  'process/history.png',   'History'  );
-    $iconClose     = $view->icon(  'control/close.png',   'Close'    );
+    $iconClose     = $view->icon(  'control/close_tab.png',   'Close'    );
 
     $entries = new TArray();
     $entries->support  = $this->entriesSupport( $params );
@@ -102,11 +102,13 @@ HTML;
             >{$iconHelp} {$this->view->i18n->l('Help','wbf.label')}</a>
            </li>
            
+           <!--
           <li><a 
             class="wcm wcm_req_ajax" 
             href="modal.php?c=Wbfsys.Issue.create&amp;context=create" 
             >{$iconBug} {$this->view->i18n->l('Bug','wbf.label')}</a>
            </li>
+           -->
            
           <li><a 
             class="wcm wcm_req_ajax" 

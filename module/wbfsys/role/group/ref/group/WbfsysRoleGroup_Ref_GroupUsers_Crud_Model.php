@@ -352,7 +352,7 @@ class WbfsysRoleGroup_Ref_GroupUsers_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysGroupUsers) )
+      if( !$orm->insert( $entityWbfsysGroupUsers ) )
       {
 
         $entityText = $entityWbfsysGroupUsers->text();

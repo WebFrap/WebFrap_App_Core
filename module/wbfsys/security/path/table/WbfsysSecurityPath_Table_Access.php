@@ -146,7 +146,7 @@ class WbfsysSecurityPath_Table_Access
 
     $criteria->select( array( 'wbfsys_security_path.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

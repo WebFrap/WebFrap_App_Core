@@ -146,7 +146,7 @@ class CoreSkillRequirement_Table_Access
 
     $criteria->select( array( 'core_skill_requirement.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

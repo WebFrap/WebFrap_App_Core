@@ -146,7 +146,7 @@ class WbfsysVrefFileType_Table_Access
 
     $criteria->select( array( 'wbfsys_vref_file_type.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

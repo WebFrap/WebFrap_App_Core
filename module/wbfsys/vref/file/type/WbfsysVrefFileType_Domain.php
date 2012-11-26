@@ -99,7 +99,12 @@ class WbfsysVrefFileType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_vref_file_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_vref_file_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysVrefFileType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.VrefFileType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

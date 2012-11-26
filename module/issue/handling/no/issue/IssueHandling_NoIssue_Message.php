@@ -100,7 +100,7 @@ SUBJECT;
 
     $this->htmlDynContent = <<<MAIL
 <p class="mail_head" >
-  <a href="{$this->getServerAddress()}" >{$this->info->getAppName()}</a> Issue {$this->entity->title}
+  <a href="{$this->getServerAddress()}" target="_new" >{$this->info->getAppName()}</a> Issue {$this->entity->title}
 </p>
 
 <p class="text_def" > 
@@ -109,7 +109,7 @@ SUBJECT;
   
 <p class="text_def" >
 
-  <a href="{$this->getServerAddress()}maintab.php?c=Wbfsys.Issue.edit&objid={$this->entity}" >
+  <a  target="_new" href="{$this->getServerAddress()}maintab.php?c=Wbfsys.Issue.edit&objid={$this->entity}" >
     {$this->entity->title}
   </a>
 

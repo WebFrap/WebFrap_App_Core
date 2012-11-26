@@ -99,13 +99,20 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
    * @var array
    */
   public $datasetActions  = array();
-
   
   /**
-  *
+   * @var DomainNode
+   */
+  public $domainNode  = null;
+
+  
+ /**
+  * laden der URLS
   */
   public function loadUrl()
   {
+  
+    $this->id = 'wgt-treetable-'.$this->domainNode->domainName.'-acl-qfdu';
   
     $this->url      = array
     (
@@ -113,7 +120,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
       (
         Wgt::ACTION_DELETE,
         'Delete',
-        'index.php?c=Wbfsys.PackageType_Acl.cleanQfduGroup&amp;objid=',
+        'index.php?c=Acl.Mgmt_Qfdu.cleanGroup&amp;dkey='.$this->domainNode->domainName.'&amp;objid=',
         'control/clean.png',
         '',
         'wbf.label',
@@ -123,7 +130,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
       (
         Wgt::ACTION_BUTTON_GET,
         'Inherit Rights',
-        'maintab.php?c=Wbfsys.PackageType_Acl_Path.showGraph&amp;objid=',
+        'maintab.php?c=Acl.Mgmt_Path.showGraph&amp;dkey='.$this->domainNode->domainName.'&amp;objid=',
         'control/acl_inheritance.png',
         '',
         'wbf.inheritance',
@@ -142,7 +149,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
       (
         Wgt::ACTION_DELETE,
         'Delete',
-        'index.php?c=Wbfsys.PackageType_Acl.deleteQfdUser&amp;objid=',
+        'index.php?c=Acl.Mgmt_Qfdu.deleteUser&amp;dkey='.$this->domainNode->domainName.'&amp;objid=',
         'control/delete.png',
         '',
         'wbf.label',
@@ -152,7 +159,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
       (
         Wgt::ACTION_DELETE,
         'Delete',
-        'index.php?c=Wbfsys.PackageType_Acl.cleanQfdUser&amp;objid=',
+        'index.php?c=Acl.Mgmt_Qfdu.cleanUser&amp;dkey='.$this->domainNode->domainName.'&amp;objid=',
         'control/clean.png',
         '',
         'wbf.label',
@@ -166,7 +173,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
       (
         Wgt::ACTION_DELETE,
         'Delete',
-        'index.php?c=Wbfsys.PackageType_Acl.deleteQfduDataset&amp;objid=',
+        'index.php?c=Acl.Mgmt_Qfdu.deleteDataset&amp;dkey='.$this->domainNode->domainName.'&amp;objid=',
         'control/delete.png',
         '',
         'wbf.label',
@@ -176,6 +183,42 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
 
   }//end public function loadUrl */
 
+  /**
+   * default constructor
+   *
+   * @param string $name the name of the wgt object
+   * @param LibTemplate $view
+   */
+  public function __construct( $domainNode, $name = null, $view = null )
+  {
+    
+    $this->domainNode = $domainNode;
+    $this->name     = $name;
+    $this->stepSize = Wgt::$defListSize;
+
+    // when a view is given we asume that the element should be injected
+    // directly to the view
+    if( $view )
+    {
+      $this->view = $view;
+      $this->i18n = $view->getI18n();
+      
+      if( $view->access )
+        $this->access = $view->access;
+
+      if( $name )
+        $view->addElement( $name, $this );
+    }
+    else
+    {
+      $this->i18n     = I18n::getActive();
+    }
+    
+    $this->loadUrl();
+
+  }//end public function __construct */
+  
+  
 ////////////////////////////////////////////////////////////////////////////////
 // Methodes
 ////////////////////////////////////////////////////////////////////////////////
@@ -201,9 +244,9 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
    */
   public function addDatasetActions( $actions )
   {
-    if(is_array($actions))
+    if( is_array( $actions ) )
     {
-      $this->datasetActions = array_merge($this->datasetActions,$actions);
+      $this->datasetActions = array_merge( $this->datasetActions, $actions );
     }
     else
     {
@@ -218,7 +261,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
    * @param $value
    * @return void
    */
-  public function setData( $data , $value = null )
+  public function setData( $data, $value = null )
   {
 
     if( !$data )
@@ -289,7 +332,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
 
       $this->html .= '</div>'.NL;
 
-      $this->html .= '<script type="text/javascript" >'.NL;
+      $this->html .= '<script type="application/javascript" >'.NL;
       $this->html .= $this->buildJavascript();
       $this->html .= '</script>'.NL;
 
@@ -370,7 +413,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
       $body .= '<tr class="row'.$num.' title" id="'.$rowid.'" >'.NL;
       $body .= '<td valign="top" style="text-align:center;" >'.$pos.'</td>'.NL;
 
-      $body .= '<td valign="top" colspan="3" >'.$row['wbfsys_role_group_name'].'</td>'.NL;
+      $body .= '<td valign="top" colspan="3" >'.$row['role_group_name'].'</td>'.NL;
 
 
       $this->num ++;
@@ -461,7 +504,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
       }
       else
       {
-        $objid      = $row['wbfsys_group_users_rowid'];
+        $objid      = $row['group_users_rowid'];
         $rowid      = $this->id.'_row_'.$groupId.'_'.$userId;
         $pRowid     = 'child-of-'.$this->id.'_row_'.$groupId.' group-'.$groupId;
 
@@ -477,11 +520,11 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
             type="text"
             class="'.$this->editForm.' wcm wcm_ui_date show small"
             id="wgt-input-acl-wbfsys_package_type-qfdu-'.$objid.'-date_start"
-            name="qfdu[wbfsys_group_users]['.$objid.'][date_start]"
+            name="qfdu[group_users]['.$objid.'][date_start]"
             value="'.
             (
-               '' != trim( $row['wbfsys_group_users_date_start'] )
-                ?$this->view->i18n->date( $row['wbfsys_group_users_date_start'] )
+               '' != trim( $row['group_users_date_start'] )
+                ?$this->view->i18n->date( $row['group_users_date_start'] )
                 :''
             ).'" /></td>'.NL;
 
@@ -490,11 +533,11 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
             type="text"
             class="'.$this->editForm.' wcm wcm_ui_date show small"
             id="wgt-input-acl-wbfsys_package_type-qfdu-'.$objid.'-date_end"
-            name="qfdu[wbfsys_group_users]['.$objid.'][date_end]"
+            name="qfdu[group_users]['.$objid.'][date_end]"
             value="'.
             (
-              '' != trim( $row['wbfsys_group_users_date_end'] )
-                ?$this->view->i18n->date( $row['wbfsys_group_users_date_end'] )
+              '' != trim( $row['group_users_date_end'] )
+                ?$this->view->i18n->date( $row['group_users_date_end'] )
                 :''
             ).'" /></td>'.NL;
 
@@ -506,7 +549,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
           ( 
             $this->userButtons, 
             array('clean','delete'), 
-            $row['wbfsys_group_users_rowid'].'&amp;group_id='.$groupId.'&amp;user_id='.$userId.'&amp;area_id='.$this->areaId 
+            $row['group_users_rowid'].'&amp;group_id='.$groupId.'&amp;user_id='.$userId.'&amp;area_id='.$this->areaId 
           );
           
           $body .= '<td valign="top"  class="nav_split"  >'.$navigation.'</td>'.NL;
@@ -548,7 +591,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
     foreach( $childs as $row )
     {
 
-      $objid       = $row['wbfsys_group_users_rowid'];
+      $objid       = $row['group_users_rowid'];
       $rowid       = $this->id.'_row_'.$objid;
       $pRowid      = 'child-of-'.$this->id.'_row_'.$groupId.'_'.$userId.' user-'.$userId.' group-'.$groupId;
 
@@ -562,10 +605,10 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
             type="text"
             class="'.$this->editForm.' wcm wcm_ui_date show small"
             id="wgt-input-acl-wbfsys_package_type-qfdu-'.$objid.'-date_start"
-            name="qfdu[wbfsys_group_users]['.$objid.'][date_start]" value="'.
+            name="qfdu[group_users]['.$objid.'][date_start]" value="'.
             (
-              '' != trim( $row['wbfsys_group_users_date_start'] )
-                ?$this->view->i18n->date( $row['wbfsys_group_users_date_start'] )
+              '' != trim( $row['group_users_date_start'] )
+                ?$this->view->i18n->date( $row['group_users_date_start'] )
                 :''
             ).'" />'
         .'</td>'.NL;
@@ -575,11 +618,11 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
           type="text"
           class="'.$this->editForm.' wcm wcm_ui_date show small"
           id="wgt-input-acl-wbfsys_package_type-qfdu-'.$objid.'-date_end"
-          name="qfdu[wbfsys_group_users]['.$objid.'][date_end]"
+          name="qfdu[group_users]['.$objid.'][date_end]"
           value="'.
           (
-            '' != trim( $row['wbfsys_group_users_date_end'] )
-              ? $this->view->i18n->date( $row['wbfsys_group_users_date_end'] )
+            '' != trim( $row['group_users_date_end'] )
+              ? $this->view->i18n->date( $row['group_users_date_end'] )
               : ''
           ).'" />'
         .'</td>'.NL;
@@ -695,7 +738,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
       $body .= '<tr class="title" id="'.$rowid.'" >'.NL;
       
       $body .= '<td valign="top" class="pos" >1</td>'.NL;
-      $body .= '<td valign="top" colspan="3" >'.$row['wbfsys_role_group_name'].'</td>'.NL;
+      $body .= '<td valign="top" colspan="3" >'.$row['role_group_name'].'</td>'.NL;
 
       $navigation  = $this->rowMenu
         (
@@ -767,8 +810,8 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
       else
       {
 
-        $userId     = $row['wbfsys_role_user_rowid'];
-        $objid      = $row['wbfsys_group_users_rowid'];
+        $userId     = $row['role_user_rowid'];
+        $objid      = $row['group_users_rowid'];
         $rowid      = $this->id.'_row_'.$groupId.'_'.$userId;
         $pRowid     = 'child-of-'.$this->id.'_row_'.$groupId.' group-'.$groupId;
 
@@ -784,11 +827,11 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
             type="text"
             class="'.$this->editForm.' wcm wcm_ui_date show small"
             id="wgt-input-acl-wbfsys_package_type-qfdu-'.$objid.'-date_start"
-            name="qfdu[wbfsys_group_users]['.$objid.'][date_start]"
+            name="qfdu[group_users]['.$objid.'][date_start]"
             value="'.
             (
-              '' != trim( $row['wbfsys_group_users_date_start'] )
-                ? $this->view->i18n->date( $row['wbfsys_group_users_date_start'] )
+              '' != trim( $row['group_users_date_start'] )
+                ? $this->view->i18n->date( $row['group_users_date_start'] )
                 : ''
             ).'" /></td>'.NL;
 
@@ -797,11 +840,11 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
             type="text"
             class="'.$this->editForm.' wcm wcm_ui_date show small"
             id="wgt-input-acl-wbfsys_package_type-qfdu-'.$objid.'-date_end"
-            name="qfdu[wbfsys_group_users]['.$objid.'][date_end]"
+            name="qfdu[group_users]['.$objid.'][date_end]"
             value="'.
             (
-              '' != trim( $row['wbfsys_group_users_date_end'] )
-                ? $this->view->i18n->date( $row['wbfsys_group_users_date_end'] )
+              '' != trim( $row['group_users_date_end'] )
+                ? $this->view->i18n->date( $row['group_users_date_end'] )
                 : ''
             ).'" /></td>'.NL;
 
@@ -812,7 +855,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
           ( 
             $this->userButtons, 
             array('clean','delete'), 
-            $row['wbfsys_group_users_rowid'].'&amp;group_id='.$groupId.'&amp;user_id='.$userId.'&amp;area_id='.$this->areaId 
+            $row['group_users_rowid'].'&amp;group_id='.$groupId.'&amp;user_id='.$userId.'&amp;area_id='.$this->areaId 
           );
           $body .= '<td valign="top"  class="nav_split"  >'.$navigation.'</td>'.NL;
         }
@@ -850,7 +893,7 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
     foreach( $childs as $row )
     {
 
-      $objid       = $row['wbfsys_group_users_rowid'];
+      $objid       = $row['group_users_rowid'];
       $rowid       = $this->id.'_row_'.$objid;
       $pRowid      = 'child-of-'.$this->id.'_row_'.$groupId.'_'.$userId.' user-'.$userId.' group-'.$groupId;
 
@@ -867,11 +910,11 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
             type="text"
             class="'.$this->editForm.' wcm wcm_ui_date show small"
             id="wgt-input-acl-wbfsys_package_type-qfdu-'.$objid.'-date_start"
-            name="qfdu[wbfsys_group_users]['.$objid.'][date_start]"
+            name="qfdu[group_users]['.$objid.'][date_start]"
             value="'
             .(
-               '' != trim( $row['wbfsys_group_users_date_start'] )
-                ? $this->view->i18n->date( $row['wbfsys_group_users_date_start'] )
+               '' != trim( $row['group_users_date_start'] )
+                ? $this->view->i18n->date( $row['group_users_date_start'] )
                 : ''
             ).'" />'
         .'</td>'.NL;
@@ -881,11 +924,11 @@ class WbfsysPackageType_Acl_Qfdu_Treetable_Element
             type="text"
             class="'.$this->editForm.' wcm wcm_ui_date show small"
             id="wgt-input-acl-wbfsys_package_type-qfdu-'.$objid.'-date_end"
-            name="qfdu[wbfsys_group_users]['.$objid.'][date_end]"
+            name="qfdu[group_users]['.$objid.'][date_end]"
             value="'
           .(
-            '' != trim( $row['wbfsys_group_users_date_end'] )
-              ? $this->view->i18n->date( $row['wbfsys_group_users_date_end'] )
+            '' != trim( $row['group_users_date_end'] )
+              ? $this->view->i18n->date( $row['group_users_date_end'] )
               : ''
             ).'" />'
         .'</td>'.NL;

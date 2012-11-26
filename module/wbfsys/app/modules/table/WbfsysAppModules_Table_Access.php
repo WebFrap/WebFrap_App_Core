@@ -146,7 +146,7 @@ class WbfsysAppModules_Table_Access
 
     $criteria->select( array( 'wbfsys_app_modules.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

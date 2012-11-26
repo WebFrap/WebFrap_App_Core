@@ -146,7 +146,7 @@ class WbfsysDocuTree_Table_Access
 
     $criteria->select( array( 'wbfsys_docu_tree.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

@@ -75,12 +75,13 @@ class WbfsysEntity_Ref_Aliases_Table_Modal_View
       $params->refId = $objid;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'index.php?c=Wbfsys.Entity_Ref_Aliases.search&amp;objid='.$params->refId;
+    $params->searchFormAction = 'index.php?c=Wbfsys.Entity_Ref_Aliases.search&amp;objid='.$params->refId;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_entity-ref-aliases-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_entity-ref-aliases-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-aliases-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'Aliases' );

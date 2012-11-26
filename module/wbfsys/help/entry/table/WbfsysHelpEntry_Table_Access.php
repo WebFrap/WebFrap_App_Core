@@ -146,7 +146,7 @@ class WbfsysHelpEntry_Table_Access
 
     $criteria->select( array( 'wbfsys_help_entry.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

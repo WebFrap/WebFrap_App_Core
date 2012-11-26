@@ -147,7 +147,7 @@ class CoreCountryCategory_Treetable_Access
 
     $criteria->select( array( 'core_country_category.rowid as rowid' )  );
 
-    if( !$this->defLevel )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

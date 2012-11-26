@@ -260,7 +260,7 @@ class MyMessage_Ref_References_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysMessageReferences) )
+      if( !$orm->insert( $entityWbfsysMessageReferences ) )
       {
 
         $entityText = $entityWbfsysMessageReferences->text();

@@ -146,7 +146,7 @@ class CoreNameType_Table_Access
 
     $criteria->select( array( 'core_name_type.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

@@ -389,6 +389,15 @@ class WbfsysMessageLog_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_message_log.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -493,17 +502,27 @@ class WbfsysMessageLog_Table_Query
   {
 
 
+
     // check if there is a given order
     if( $params->order )
     {
-      $criteria->orderBy( $params->order );
+
+      if( isset( $params->order['wbfsys_message_log-m_time_created'] ) )
+      {
+        $criteria->selectAlso( 'wbfsys_message_log.m_time_created as "wbfsys_message_log-m_time_created-order"' );
+      	$criteria->orderBy( 'wbfsys_message_log.m_time_created '.$params->order['wbfsys_message_log-m_time_created'] );
+      }
 
     }
     else // if not use the default
     {
-      $criteria->orderBy( 'wbfsys_message_log.rowid' );
+
+            
+      $criteria->selectAlso( 'wbfsys_message_log.m_time_created as "wbfsys_message_log-m_time_created-order"' );
+			$criteria->orderBy( 'wbfsys_message_log.m_time_created desc' );
 
     }
+
 
     // Check the offset
     if( $params->start )
@@ -555,17 +574,20 @@ class WbfsysMessageLog_Table_Query
     // check if there is a given order
     if( $params->order )
     {
-      $criteria->orderBy( $params->order );
+
+      if( isset( $params->order['wbfsys_message_log-m_time_created'] ) )
+      {
+        $criteria->selectAlso( 'wbfsys_message_log.m_time_created as "wbfsys_message_log-m_time_created-order"' );
+      	$criteria->orderBy( 'wbfsys_message_log.m_time_created '.$params->order['wbfsys_message_log-m_time_created'] );
+      }
+
     }
     else // if not use the default
     {
 
-
-      $criteria->orderBy( 'wbfsys_message_log.title' );
-      $criteria->selectAlso( 'wbfsys_message_log.title as "wbfsys_message_log-title-order"' );
-
-
-
+            
+      $criteria->selectAlso( 'wbfsys_message_log.m_time_created as "wbfsys_message_log-m_time_created-order"' );
+			$criteria->orderBy( 'wbfsys_message_log.m_time_created desc' );
 
     }
 
@@ -588,24 +610,26 @@ class WbfsysMessageLog_Table_Query
     // check if there is a given order
     if( $params->order )
     {
-      $criteria->orderBy( $params->order );
-
-
+            
+      if( isset( $params->order['wbfsys_message_log-m_time_created'] ) )
+      {
+        $criteria->selectAlso( 'wbfsys_message_log.m_time_created as "wbfsys_message_log-m_time_created-order"' );        
+        $criteria->orderBy( 'wbfsys_message_log.m_time_created '.$params->order['wbfsys_message_log-m_time_created']  );        
+        $envelop->groupBy( 'inner_acl."wbfsys_message_log-m_time_created-order"' );
+        $envelop->selectAlso( 'inner_acl."wbfsys_message_log-m_time_created-order"' );
+        $envelop->orderBy( 'inner_acl."wbfsys_message_log-m_time_created-order" '.$params->order['wbfsys_message_log-m_time_created'] );
+      }
 
     }
     else // if not use the default
     {
 
-
-      $criteria->orderBy( 'wbfsys_message_log.title' );
-      $criteria->selectAlso( 'wbfsys_message_log.title as "wbfsys_message_log-title-order"' );
-      
-      $envelop->groupBy( 'inner_acl."wbfsys_message_log-title-order"' );
-      $envelop->selectAlso( 'inner_acl."wbfsys_message_log-title-order"' );
-      $envelop->orderBy( 'inner_acl."wbfsys_message_log-title-order"' );
-
-
-
+			
+      $criteria->selectAlso( 'wbfsys_message_log.m_time_created as "wbfsys_message_log-m_time_created-order"' );
+      $criteria->orderBy( 'wbfsys_message_log.m_time_created desc' );
+      $envelop->groupBy( 'inner_acl."wbfsys_message_log-m_time_created-order"' );
+      $envelop->selectAlso( 'inner_acl."wbfsys_message_log-m_time_created-order"' );
+      $envelop->orderBy( 'inner_acl."wbfsys_message_log-m_time_created-order" desc' );
 
     }
 

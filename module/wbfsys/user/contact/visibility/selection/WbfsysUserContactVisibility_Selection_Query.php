@@ -351,6 +351,15 @@ class WbfsysUserContactVisibility_Selection_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_user_contact_visibility.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -499,23 +508,15 @@ class WbfsysUserContactVisibility_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-      if( in_array( 'm_order', $params->order ) )
-      {
-        $criteria->selectAlso( 'wbfsys_user_contact_visibility.m_order as "wbfsys_user_contact_visibility-m_order-order"' );
-      }
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
       $criteria->orderBy( 'wbfsys_user_contact_visibility.m_order ' );
 
+
+			
       $criteria->selectAlso( 'wbfsys_user_contact_visibility.m_order as "wbfsys_user_contact_visibility-m_order-order"' );
 
-    }
+
 
     // Check the offset
     if( $params->start )
@@ -564,21 +565,13 @@ class WbfsysUserContactVisibility_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_user_contact_visibility.m_order ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_user_contact_visibility.m_order as "wbfsys_user_contact_visibility-m_order-order"' );
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -596,35 +589,16 @@ class WbfsysUserContactVisibility_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-      if( in_array( 'm_order', $params->order ) )
-      {
-        $criteria->selectAlso( 'wbfsys_user_contact_visibility.m_order as "wbfsys_user_contact_visibility-m_order-order"' );
-        $envelop->groupBy( 'inner_acl."wbfsys_user_contact_visibility-m_order-order"' );
-        $envelop->selectAlso( 'inner_acl."wbfsys_user_contact_visibility-m_order-order"' );
-        $envelop->orderBy( 'inner_acl."wbfsys_user_contact_visibility-m_order-order" ' );
-      }
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_user_contact_visibility.m_order ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_user_contact_visibility.m_order as "wbfsys_user_contact_visibility-m_order-order"' );
-
-      $envelop->groupBy( 'inner_acl."wbfsys_user_contact_visibility-m_order-order"' );
       $envelop->selectAlso( 'inner_acl."wbfsys_user_contact_visibility-m_order-order"' );
+      $envelop->groupBy( 'inner_acl."wbfsys_user_contact_visibility-m_order-order"' );
       $envelop->orderBy( 'inner_acl."wbfsys_user_contact_visibility-m_order-order" ' );
 
-
-    }
 
 
   }//end public function injectAclOrder */

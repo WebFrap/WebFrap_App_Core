@@ -38,7 +38,7 @@ class WbfsysRoleGroup_Treetable_Maintab_Menu
     $access  = $params->access;
 
     $iconMisc         = $this->view->icon('control/misc.png'      ,'Misc');
-    $iconClose         = $this->view->icon('control/close.png'      ,'Close');
+    $iconClose         = $this->view->icon('control/close_tab.png'      ,'Close');
     $iconEntity         = $this->view->icon('control/entity.png'      ,'Entity');
     $iconBookmark         = $this->view->icon('control/bookmark.png'      ,'Bookmark');
     $iconDesktop         = $this->view->icon('arrows/arrow_up.png'      ,'Desktop');
@@ -251,9 +251,11 @@ HTML;
             href="modal.php?c=Webfrap.Docu.open&amp;key=wbfsys_role_group-treetable" >{$iconHelp} {$this->view->i18n->l('Help','wbf.label')}</a></li>
 
 
+					<!--
           <li><a 
             class="wcm wcm_req_ajax" 
             href="modal.php?c=Wbfsys.Issue.create&amp;context=treetable" >{$iconBug} {$this->view->i18n->l('Bug','wbf.label')}</a></li>
+					-->
 
 
 

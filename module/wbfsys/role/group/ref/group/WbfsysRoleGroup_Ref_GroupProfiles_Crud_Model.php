@@ -260,7 +260,7 @@ class WbfsysRoleGroup_Ref_GroupProfiles_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysGroupProfiles) )
+      if( !$orm->insert( $entityWbfsysGroupProfiles ) )
       {
 
         $entityText = $entityWbfsysGroupProfiles->text();

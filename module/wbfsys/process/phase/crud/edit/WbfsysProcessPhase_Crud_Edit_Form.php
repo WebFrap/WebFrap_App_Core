@@ -310,7 +310,7 @@ class WbfsysProcessPhase_Crud_Edit_Form
           'name'      => 'wbfsys_process_phase[label]',
           'id'        => 'wgt-input-wbfsys_process_phase_label'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Label', 'src' => 'Process Phase' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'label', 'src' => 'Process Phase' ) ),
           'maxlength' => $this->entity->maxSize( 'label' ),
         )
       );
@@ -319,7 +319,7 @@ class WbfsysProcessPhase_Crud_Edit_Form
       $inputLabel->setReadonly( $this->fieldReadOnly( 'wbfsys_process_phase', 'label' ) );
       $inputLabel->setRequired( $this->fieldRequired( 'wbfsys_process_phase', 'label' ) );
       $inputLabel->setData( $this->entity->getSecure('label') );
-      $inputLabel->setLabel( $i18n->l( 'Label', 'wbfsys.process_phase.label' ) );
+      $inputLabel->setLabel( $i18n->l( 'label', 'wbfsys.process_phase.label' ) );
 
       $inputLabel->refresh           = $this->refresh;
       $inputLabel->serializeElement  = $this->sendElement;

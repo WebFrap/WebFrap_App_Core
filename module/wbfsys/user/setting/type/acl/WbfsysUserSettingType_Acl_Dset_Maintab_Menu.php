@@ -48,7 +48,7 @@ class WbfsysUserSettingType_Acl_Dset_Maintab_Menu
 
     $iconEdit        = $this->view->icon( 'control/save.png'      ,'Save' );
     $iconBookmark    = $this->view->icon( 'control/bookmark.png'  ,'Bookmark' );
-    $iconClose       = $this->view->icon( 'control/close.png'     ,'Close' );
+    $iconClose       = $this->view->icon( 'control/close_tab.png'     ,'Close' );
     $iconMask        = $this->view->icon( 'control/mask.png'     ,'Mask' );
     
     $access           = $params->access;
@@ -118,14 +118,6 @@ HTML;
     <a class="deeplink" >{$iconSupport} {$this->view->i18n->l('Support','wbf.label')}</a>
     <span>
       <ul>
-        <li><a 
-          class="wcm wcm_req_ajax" 
-          href="modal.php?c=Wbfsys.SecurityArea_Maintenance.help&amp;refer=wbfsys_user_setting_type-acl-dset" >{$iconHelp} Help</a>
-        </li>
-        <li><a 
-          class="wcm wcm_req_ajax" 
-          href="modal.php?c=Wbfsys.Issue.create&amp;refer=wbfsys_user_setting_type-acl-dset" >{$iconBug} Bug</a>
-        </li>
         <li><a 
           class="wcm wcm_req_ajax" 
           href="modal.php?c=Wbfsys.Faq.create&amp;refer=wbfsys_user_setting_type-acl-dset" >{$iconFaq} Faq</a>

@@ -146,7 +146,7 @@ class WbfsysCustomTag_Table_Access
 
     $criteria->select( array( 'wbfsys_custom_tag.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

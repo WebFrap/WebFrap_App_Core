@@ -99,7 +99,12 @@ class WbfsysEntityAttributeType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_entity_attribute_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_entity_attribute_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysEntityAttributeType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.EntityAttributeType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

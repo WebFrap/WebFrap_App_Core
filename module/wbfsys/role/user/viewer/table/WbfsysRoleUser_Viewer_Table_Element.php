@@ -150,7 +150,8 @@ class WbfsysRoleUser_Viewer_Table_Element
       $this->html .= '<div id="'.$this->id.'" class="wgt-grid" >'.NL;
       $this->html .= '<var id="'.$this->id.'-table-cfg-grid" >{
         "height":"'.$this->bodyHeight.'",
-        "search_form":"'.$this->searchForm.'"
+        "search_form":"'.$this->searchForm.'",
+        "select_able":"true"
       }</var>';
       $this->html .= $this->buildPanel();
 
@@ -178,7 +179,7 @@ class WbfsysRoleUser_Viewer_Table_Element
 
 
 
-      $this->html .= '<script type="text/javascript" >'.NL;
+      $this->html .= '<script type="application/javascript" >'.NL;
       $this->html .= $this->buildJavascript();
       $this->html .= '</script>'.NL;
 
@@ -270,13 +271,13 @@ class WbfsysRoleUser_Viewer_Table_Element
       }
       
       // doubcle click open
-      $rowWcm       = '';
-      $rowParams   = '';
-      $dsUrl        = null;
+      $rowWcm     = '';
+      $rowParams  = '';
+      $dsUrl      = null;
       // check if the row has 
       if( $dsUrl = $this->getActionUrl( $objid, $row ) )
       {
-        $rowWcm     .= ' wcm_control_access_dataset';
+        $rowWcm    .= ' wcm_control_access_dataset';
         $rowParams .= ' wgt_url="'.$dsUrl.'" ';
       }
 
@@ -292,8 +293,8 @@ class WbfsysRoleUser_Viewer_Table_Element
         .' id="'.$rowid.'" >'.NL;
       $body .= '<td  valign="top" class="pos" name="slct['.$objid.']" style="text-align:right;" >'.$pos.'</td>'.NL;
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_role_user-viewer_name']).'</a><br /><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['embed_person_lastname']).'</a><span>, </span><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['embed_person_firstname']).'</a></td>'.NL;
-      $body .= '<td valign="top" ><span>Profile: </span>'.Validator::sanitizeHtml($row['wbfsys_profile_name']).'<br /></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_role_user-viewer_name'])).'</a><br /><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['embed_person_lastname'])).'</a><span>, </span><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['embed_person_firstname'])).'</a></td>'.NL;
+      $body .= '<td valign="top" ><span>Profile: </span>'.nl2br(Validator::sanitizeHtml($row['wbfsys_profile_name'])).'<br /></td>'.NL;
       $body .= '<td valign="top" >'.('' != trim($row['wbfsys_role_user-viewer_m_time_created'])?$this->view->i18n->date($row['wbfsys_role_user-viewer_m_time_created']):' ').'</td>'.NL;
       $body .= '<td valign="top" >'.WgtRndForm::checkbox( 'wbfsys_role_user-viewer[inactive]', $row['wbfsys_role_user-viewer_inactive'] , array() , true ).'</td>'.NL;
       if( $this->enableNav )
@@ -420,8 +421,8 @@ class WbfsysRoleUser_Viewer_Table_Element
     );
     $accessActionKey = $this->hasEditRights( $row )?'edit':'show';
     
-    $dsUrl        = null;
-    $rowWcm       = '';
+    $dsUrl       = null;
+    $rowWcm      = '';
     $rowParams   = '';
     $menuActions = '';
     
@@ -434,7 +435,7 @@ class WbfsysRoleUser_Viewer_Table_Element
     // check if the row has 
     if( $dsUrl = $this->getActionUrl( $objid, $row ) )
     {
-      $rowWcm     .= ' wcm_control_access_dataset';
+      $rowWcm    .= ' wcm_control_access_dataset';
       $rowParams .= ' wgt_url="'.$dsUrl.'" ';
     }
               
@@ -464,8 +465,8 @@ class WbfsysRoleUser_Viewer_Table_Element
       $body .= '<htmlArea selector="tr#'.$rowid.'" action="html" ><![CDATA[';
     }
       $body .= '<td  valign="top" class="pos" name="slct['.$objid.']" style="text-align:right;" >1</td>'.NL;
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_role_user-viewer_name']).'</a><br /><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['embed_person_lastname']).'</a><span>, </span><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['embed_person_firstname']).'</a></td>'.NL;
-      $body .= '<td valign="top" ><span>Profile: </span>'.Validator::sanitizeHtml($row['wbfsys_profile_name']).'<br /></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_role_user-viewer_name'])).'</a><br /><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['embed_person_lastname'])).'</a><span>, </span><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.RoleUser_Viewer.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['embed_person_firstname'])).'</a></td>'.NL;
+      $body .= '<td valign="top" ><span>Profile: </span>'.nl2br(Validator::sanitizeHtml($row['wbfsys_profile_name'])).'<br /></td>'.NL;
       $body .= '<td valign="top" >'.('' != trim($row['wbfsys_role_user-viewer_m_time_created'])?$this->view->i18n->date($row['wbfsys_role_user-viewer_m_time_created']):' ').'</td>'.NL;
       $body .= '<td valign="top" >'.WgtRndForm::checkbox( 'wbfsys_role_user-viewer[inactive]', $row['wbfsys_role_user-viewer_inactive'] , array() , true ).'</td>'.NL;
       if( $this->enableNav )
@@ -509,42 +510,50 @@ class WbfsysRoleUser_Viewer_Table_Element
   	$iconClean = $this->icon( 'control/clean.png', 'Clean' );
   	$iconDelete = $this->icon( 'control/delete.png', 'Delete Selection' );
   	$iconExport = $this->icon( 'control/export.png', 'Export' );
+  	
+  	
+  	$iconSelectAll = $this->icon( 'control/select_all.png', 'Select All' );
+  	$iconDeselectAll = $this->icon( 'control/deselect_all.png', 'Deselect All' );
 
     $html = '<div class="wgt-panel wgt-border-top" >'.NL;
     $html .= ' <div class="right menu"  >';
     $html .=     $this->menuTableSize();
     $html .= ' </div>';
-    $html .= ' <div class="menu" style="float:left;" style="width:150px;" >';
-    
-    if( WBF_SHOW_MOCKUP )
-    {
-    
+    $html .= ' <div class="menu" style="float:left;" style="width:200px;" >';
+
     $html .=   <<<HTML
     
- <div id="{$this->id}-list-action" >
+ <div class="wgt-panel-control" id="{$this->id}-list-action" >
 	<button 
 		class="wcm wcm_control_dropmenu wgt-button" id="{$this->id}-list-action-cntrl" 
 		wgt_drop_box="{$this->id}-list-action-menu" >{$iconListMenu} List Menu</button>
   </div>
   <div class="wgt-dropdownbox" id="{$this->id}-list-action-menu" >
+    
     <ul>
-      <li><a>{$iconDelete} Delete Selection</a></li>
-      <li><a>{$iconClean} Clear Data</a></li>
-      <li><a class="deeplink" >{$iconExport} Export</a>
-      	<span>
-      		<ul>
-      			<li><a>Export 1</a></li>
-      			<li><a>Export 2</a></li>
-      		</ul>
-      	</span>
-      </li>
+      <li><a
+      	class="wcm wcm_req_del_selection"
+      	href="ajax.php?c=Wbfsys.RoleUser_Viewer_Multi.deleteSelection"
+      	wgt_elem="table#{$this->id}-table"
+      	title="Please confirm that you want to delete the selected Employees." >{$iconDelete} Delete selected Employees</a></li>
+      <li><a 
+      	class="wcm wcm_req_del"
+      	title="You are going to delete ALL! Employees. Please confirm that you really want to do that."
+      	href="ajax.php?c=Wbfsys.RoleUser_Viewer_Multi.deleteAll" >{$iconClean} Delete all Employees</a></li>
   	</ul>
  	</div>
   <var id="{$this->id}-list-action-cntrl-cfg-dropmenu"  >{"align":"left","valign":"top"}</var>
+  
+  <div class="wgt-panel-control" >
+  	<button 
+  		onclick="\$S('table#{$this->id}-table').grid('deSelectAll');" 
+  		class="wcm wcm_ui_tip wgt-button"
+  		tooltip="Deselect all entries" >
+  			{$iconDeselectAll}</button>
+  </div>
 
 HTML;
 
-	}
 
     $html .= ' </div>';
     $html .= ' <div class="menu"  style="text-align:center;margin:0px auto;" >';

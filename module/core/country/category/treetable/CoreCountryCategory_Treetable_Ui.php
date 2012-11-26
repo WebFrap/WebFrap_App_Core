@@ -131,6 +131,7 @@ class CoreCountryCategory_Treetable_Ui
       $searchElement->searchKey = 'core_country_category';
       $searchElement->advancedSearch = true;
       $searchElement->focus = true;
+      $searchElement->context = 'treetable';
       
 
     }

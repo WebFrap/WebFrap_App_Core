@@ -374,6 +374,15 @@ class WbfsysColorScheme_Table_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_color_scheme.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -519,17 +528,15 @@ class WbfsysColorScheme_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_color_scheme.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_color_scheme.name' );
+      $criteria->selectAlso( 'wbfsys_color_scheme.name as "wbfsys_color_scheme-name-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -578,22 +585,13 @@ class WbfsysColorScheme_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_color_scheme.name' );
       $criteria->selectAlso( 'wbfsys_color_scheme.name as "wbfsys_color_scheme-name-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -611,17 +609,7 @@ class WbfsysColorScheme_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_color_scheme.name' );
       $criteria->selectAlso( 'wbfsys_color_scheme.name as "wbfsys_color_scheme-name-order"' );
@@ -632,8 +620,6 @@ class WbfsysColorScheme_Table_Query_Postgresql
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

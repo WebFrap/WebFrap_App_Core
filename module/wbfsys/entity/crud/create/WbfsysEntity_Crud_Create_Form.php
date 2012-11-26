@@ -486,7 +486,7 @@ class WbfsysEntity_Crud_Create_Form
           'name'      => 'wbfsys_entity[default_create]',
           'id'        => 'wgt-input-wbfsys_entity_default_create'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_required wcm_valid_url medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Default create', 'src' => 'Entity' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'default create', 'src' => 'Entity' ) ),
         )
       );
       $inputDefaultCreate->setWidth( 'medium' );
@@ -494,7 +494,7 @@ class WbfsysEntity_Crud_Create_Form
       $inputDefaultCreate->setReadonly( $this->fieldReadOnly( 'wbfsys_entity', 'default_create' ) );
       $inputDefaultCreate->setRequired( $this->fieldRequired( 'wbfsys_entity', 'default_create' ) );
       $inputDefaultCreate->setData( $this->entity->getSecure( 'default_create' ) );
-      $inputDefaultCreate->setLabel( $i18n->l( 'Default create', 'wbfsys.entity.label' ) );
+      $inputDefaultCreate->setLabel( $i18n->l( 'default create', 'wbfsys.entity.label' ) );
 
       $inputDefaultCreate->refresh           = $this->refresh;
       $inputDefaultCreate->serializeElement  = $this->sendElement;
@@ -529,7 +529,7 @@ class WbfsysEntity_Crud_Create_Form
           'name'      => 'wbfsys_entity[default_edit]',
           'id'        => 'wgt-input-wbfsys_entity_default_edit'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_required wcm_valid_url medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Default edit', 'src' => 'Entity' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'default edit', 'src' => 'Entity' ) ),
         )
       );
       $inputDefaultEdit->setWidth( 'medium' );
@@ -537,7 +537,7 @@ class WbfsysEntity_Crud_Create_Form
       $inputDefaultEdit->setReadonly( $this->fieldReadOnly( 'wbfsys_entity', 'default_edit' ) );
       $inputDefaultEdit->setRequired( $this->fieldRequired( 'wbfsys_entity', 'default_edit' ) );
       $inputDefaultEdit->setData( $this->entity->getSecure( 'default_edit' ) );
-      $inputDefaultEdit->setLabel( $i18n->l( 'Default edit', 'wbfsys.entity.label' ) );
+      $inputDefaultEdit->setLabel( $i18n->l( 'default edit', 'wbfsys.entity.label' ) );
 
       $inputDefaultEdit->refresh           = $this->refresh;
       $inputDefaultEdit->serializeElement  = $this->sendElement;
@@ -572,7 +572,7 @@ class WbfsysEntity_Crud_Create_Form
           'name'      => 'wbfsys_entity[default_show]',
           'id'        => 'wgt-input-wbfsys_entity_default_show'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_required wcm_valid_url medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Default show', 'src' => 'Entity' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'default show', 'src' => 'Entity' ) ),
         )
       );
       $inputDefaultShow->setWidth( 'medium' );
@@ -580,7 +580,7 @@ class WbfsysEntity_Crud_Create_Form
       $inputDefaultShow->setReadonly( $this->fieldReadOnly( 'wbfsys_entity', 'default_show' ) );
       $inputDefaultShow->setRequired( $this->fieldRequired( 'wbfsys_entity', 'default_show' ) );
       $inputDefaultShow->setData( $this->entity->getSecure( 'default_show' ) );
-      $inputDefaultShow->setLabel( $i18n->l( 'Default show', 'wbfsys.entity.label' ) );
+      $inputDefaultShow->setLabel( $i18n->l( 'default show', 'wbfsys.entity.label' ) );
 
       $inputDefaultShow->refresh           = $this->refresh;
       $inputDefaultShow->serializeElement  = $this->sendElement;
@@ -615,7 +615,7 @@ class WbfsysEntity_Crud_Create_Form
           'name'      => 'wbfsys_entity[default_list]',
           'id'        => 'wgt-input-wbfsys_entity_default_list'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_required wcm_valid_url medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Default list', 'src' => 'Entity' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'default list', 'src' => 'Entity' ) ),
         )
       );
       $inputDefaultList->setWidth( 'medium' );
@@ -623,7 +623,7 @@ class WbfsysEntity_Crud_Create_Form
       $inputDefaultList->setReadonly( $this->fieldReadOnly( 'wbfsys_entity', 'default_list' ) );
       $inputDefaultList->setRequired( $this->fieldRequired( 'wbfsys_entity', 'default_list' ) );
       $inputDefaultList->setData( $this->entity->getSecure( 'default_list' ) );
-      $inputDefaultList->setLabel( $i18n->l( 'Default list', 'wbfsys.entity.label' ) );
+      $inputDefaultList->setLabel( $i18n->l( 'default list', 'wbfsys.entity.label' ) );
 
       $inputDefaultList->refresh           = $this->refresh;
       $inputDefaultList->serializeElement  = $this->sendElement;
@@ -658,7 +658,7 @@ class WbfsysEntity_Crud_Create_Form
           'name'      => 'wbfsys_entity[default_selection]',
           'id'        => 'wgt-input-wbfsys_entity_default_selection'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_required wcm_valid_url medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Default selection', 'src' => 'Entity' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'default selection', 'src' => 'Entity' ) ),
         )
       );
       $inputDefaultSelection->setWidth( 'medium' );
@@ -666,7 +666,7 @@ class WbfsysEntity_Crud_Create_Form
       $inputDefaultSelection->setReadonly( $this->fieldReadOnly( 'wbfsys_entity', 'default_selection' ) );
       $inputDefaultSelection->setRequired( $this->fieldRequired( 'wbfsys_entity', 'default_selection' ) );
       $inputDefaultSelection->setData( $this->entity->getSecure( 'default_selection' ) );
-      $inputDefaultSelection->setLabel( $i18n->l( 'Default selection', 'wbfsys.entity.label' ) );
+      $inputDefaultSelection->setLabel( $i18n->l( 'default selection', 'wbfsys.entity.label' ) );
 
       $inputDefaultSelection->refresh           = $this->refresh;
       $inputDefaultSelection->serializeElement  = $this->sendElement;

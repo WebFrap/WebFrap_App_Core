@@ -352,6 +352,15 @@ class CoreCountryCategory_Selection_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'core_country_category.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -500,17 +509,15 @@ class CoreCountryCategory_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'core_country_category.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'core_country_category.name' );
+      $criteria->selectAlso( 'core_country_category.name as "core_country_category-name-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -559,22 +566,13 @@ class CoreCountryCategory_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'core_country_category.name' );
       $criteria->selectAlso( 'core_country_category.name as "core_country_category-name-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -592,17 +590,7 @@ class CoreCountryCategory_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'core_country_category.name' );
       $criteria->selectAlso( 'core_country_category.name as "core_country_category-name-order"' );
@@ -613,8 +601,6 @@ class CoreCountryCategory_Selection_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

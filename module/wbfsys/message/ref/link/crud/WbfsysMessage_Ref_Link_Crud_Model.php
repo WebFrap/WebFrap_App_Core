@@ -260,7 +260,7 @@ class WbfsysMessage_Ref_Link_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysDataLink) )
+      if( !$orm->insert( $entityWbfsysDataLink ) )
       {
 
         $entityText = $entityWbfsysDataLink->text();

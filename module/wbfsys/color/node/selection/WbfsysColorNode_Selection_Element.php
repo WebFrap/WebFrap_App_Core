@@ -105,7 +105,7 @@ class WbfsysColorNode_Selection_Element
       (
         Wgt::ACTION_BUTTON_GET,
         'Rights',
-        'maintab.php?c=Wbfsys.ColorNode_Acl_Dset.listing&amp;objid=',
+        'maintab.php?c=Acl.Mgmt_Dset.listing&amp;dkey=wbfsys_color_node&amp;objid=',
         'control/rights.png',
         '',
         'wbfsys.color_node.label',
@@ -161,7 +161,8 @@ class WbfsysColorNode_Selection_Element
       $this->html .= '<div id="'.$this->id.'" class="wgt-grid" >'.NL;
       $this->html .= '<var id="'.$this->id.'-table-cfg-grid" >{
         "height":"'.$this->bodyHeight.'",
-        "search_form":"'.$this->searchForm.'"
+        "search_form":"'.$this->searchForm.'",
+        "select_able":"true"
       }</var>';
       $this->html .= $this->buildPanel();
 
@@ -189,7 +190,7 @@ class WbfsysColorNode_Selection_Element
 
 
 
-      $this->html .= '<script type="text/javascript" >'.NL;
+      $this->html .= '<script type="application/javascript" >'.NL;
       $this->html .= $this->buildJavascript();
       $this->html .= '</script>'.NL;
 
@@ -266,7 +267,7 @@ class WbfsysColorNode_Selection_Element
 
 
       
-      $body .= '<tr class="wcm wcm_ui_highlight '.' row'.$num.' node-'.$objid.'" '
+      $body .= '<tr class="'.' row'.$num.' node-'.$objid.'" '
 
         .' id="'.$rowid.'" >'.NL;
         
@@ -277,7 +278,7 @@ class WbfsysColorNode_Selection_Element
 
 
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_color_node_name']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_color_node_name'])).'</td>'.NL;
 
 
 
@@ -405,8 +406,8 @@ class WbfsysColorNode_Selection_Element
     );
     $accessActionKey = $this->hasEditRights( $row )?'edit':'show';
     
-    $dsUrl        = null;
-    $rowWcm       = '';
+    $dsUrl       = null;
+    $rowWcm      = '';
     $rowParams   = '';
     $menuActions = '';
     
@@ -419,7 +420,7 @@ class WbfsysColorNode_Selection_Element
     // check if the row has 
     if( $dsUrl = $this->getActionUrl( $objid, $row ) )
     {
-      $rowWcm     .= ' wcm_control_access_dataset';
+      $rowWcm    .= ' wcm_control_access_dataset';
       $rowParams .= ' wgt_url="'.$dsUrl.'" ';
     }
     
@@ -440,7 +441,7 @@ class WbfsysColorNode_Selection_Element
         .' wgt_eid="'.$objid.'" '
         .$rowParams
         .' wgt_context_menu="'.$this->id.'-cmenu" '
-        .' class="wcm wcm_ui_highlight wcm_control_access_dataset '.$classContext.' node-'.$objid.'" >'.NL;
+        .' class="wcm wcm_ui_highlight '.$rowWcm .$classContext.' node-'.$objid.'" >'.NL;
     }
     else
     {
@@ -454,7 +455,7 @@ class WbfsysColorNode_Selection_Element
 
 
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_color_node_name']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_color_node_name'])).'</td>'.NL;
 
 
     if( $this->enableNav )

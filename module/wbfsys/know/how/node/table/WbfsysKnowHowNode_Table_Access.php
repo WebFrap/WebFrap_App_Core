@@ -146,7 +146,7 @@ class WbfsysKnowHowNode_Table_Access
 
     $criteria->select( array( 'wbfsys_know_how_node.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

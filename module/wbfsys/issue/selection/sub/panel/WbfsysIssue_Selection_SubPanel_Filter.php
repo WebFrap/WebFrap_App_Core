@@ -42,23 +42,28 @@ class WbfsysIssue_Selection_SubPanel_Filter
   public function render()
   {
   
-    $i18n     = $this->getI18n();
-    $acl       = $this->getAcl();
+    $i18n    = $this->getI18n();
+    $acl     = $this->getAcl();
     $user    = $this->getUser();
     $access  = $this->access;
   
     $controls       = '';
     $hiddenControls  = '';
 
-    $checkednewIssues = $this->filterStatus->new_issues
-      ? 'checked="checked"'
-      : '';
-    
+    ++$this->numFilter;
+    $checkednewIssues = '';
+    if( $this->filterStatus->new_issues )
+    {
+    	$checkednewIssues = 'checked="checked"';
+    	++$this->numFilterActive;
+    }
+      
     $controls .= <<<HTML
         <li>
           <a 
             id="wgt-button-selection-{$this->searchKey}-control-filter-new_issues"
             class="wcm wcm_control_check_button wcm_ui_docu_tip"
+            wgt_counter="wgt-search-selection-{$this->searchKey}-numfilter"
             wgt_doc_src="wgt-search-selection-{$this->searchKey}-control-filter-new_issues-docu"
             wgt_doc_cnt="wgt-search-selection-{$this->searchKey}-control-docu_cont"
             >
@@ -75,15 +80,20 @@ class WbfsysIssue_Selection_SubPanel_Filter
         <var id="wgt-search-selection-{$this->searchKey}-control-filter-new_issues-docu" ></var>
 HTML;
 
-    $checkedclosedIssues = $this->filterStatus->closed_issues
-      ? 'checked="checked"'
-      : '';
-    
+    ++$this->numFilter;
+    $checkedclosedIssues = '';
+    if( $this->filterStatus->closed_issues )
+    {
+    	$checkedclosedIssues = 'checked="checked"';
+    	++$this->numFilterActive;
+    }
+      
     $controls .= <<<HTML
         <li>
           <a 
             id="wgt-button-selection-{$this->searchKey}-control-filter-closed_issues"
             class="wcm wcm_control_check_button wcm_ui_docu_tip"
+            wgt_counter="wgt-search-selection-{$this->searchKey}-numfilter"
             wgt_doc_src="wgt-search-selection-{$this->searchKey}-control-filter-closed_issues-docu"
             wgt_doc_cnt="wgt-search-selection-{$this->searchKey}-control-docu_cont"
             >
@@ -100,15 +110,20 @@ HTML;
         <var id="wgt-search-selection-{$this->searchKey}-control-filter-closed_issues-docu" ></var>
 HTML;
 
-    $checkedmyAssignedIssued = $this->filterStatus->my_assigned_issued
-      ? 'checked="checked"'
-      : '';
-    
+    ++$this->numFilter;
+    $checkedmyAssignedIssued = '';
+    if( $this->filterStatus->my_assigned_issued )
+    {
+    	$checkedmyAssignedIssued = 'checked="checked"';
+    	++$this->numFilterActive;
+    }
+      
     $controls .= <<<HTML
         <li>
           <a 
             id="wgt-button-selection-{$this->searchKey}-control-filter-my_assigned_issued"
             class="wcm wcm_control_check_button wcm_ui_docu_tip"
+            wgt_counter="wgt-search-selection-{$this->searchKey}-numfilter"
             wgt_doc_src="wgt-search-selection-{$this->searchKey}-control-filter-my_assigned_issued-docu"
             wgt_doc_cnt="wgt-search-selection-{$this->searchKey}-control-docu_cont"
             >
@@ -125,15 +140,20 @@ HTML;
         <var id="wgt-search-selection-{$this->searchKey}-control-filter-my_assigned_issued-docu" ></var>
 HTML;
 
-    $checkedmyCreatedIssued = $this->filterStatus->my_created_issued
-      ? 'checked="checked"'
-      : '';
-    
+    ++$this->numFilter;
+    $checkedmyCreatedIssued = '';
+    if( $this->filterStatus->my_created_issued )
+    {
+    	$checkedmyCreatedIssued = 'checked="checked"';
+    	++$this->numFilterActive;
+    }
+      
     $controls .= <<<HTML
         <li>
           <a 
             id="wgt-button-selection-{$this->searchKey}-control-filter-my_created_issued"
             class="wcm wcm_control_check_button wcm_ui_docu_tip"
+            wgt_counter="wgt-search-selection-{$this->searchKey}-numfilter"
             wgt_doc_src="wgt-search-selection-{$this->searchKey}-control-filter-my_created_issued-docu"
             wgt_doc_cnt="wgt-search-selection-{$this->searchKey}-control-docu_cont"
             >

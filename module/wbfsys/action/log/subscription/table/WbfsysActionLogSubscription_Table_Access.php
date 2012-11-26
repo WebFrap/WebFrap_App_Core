@@ -146,7 +146,7 @@ class WbfsysActionLogSubscription_Table_Access
 
     $criteria->select( array( 'wbfsys_action_log_subscription.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

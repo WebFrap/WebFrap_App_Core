@@ -146,7 +146,7 @@ class WbfsysColorModel_Table_Access
 
     $criteria->select( array( 'wbfsys_color_model.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

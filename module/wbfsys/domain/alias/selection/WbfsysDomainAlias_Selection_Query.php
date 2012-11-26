@@ -351,6 +351,15 @@ class WbfsysDomainAlias_Selection_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_domain_alias.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -502,17 +511,15 @@ class WbfsysDomainAlias_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_domain_alias.rowid' );
+      $criteria->selectAlso( 'wbfsys_domain_alias.rowid as "wbfsys_domain_alias-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -561,22 +568,13 @@ class WbfsysDomainAlias_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_domain_alias.rowid' );
       $criteria->selectAlso( 'wbfsys_domain_alias.rowid as "wbfsys_domain_alias-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -594,17 +592,7 @@ class WbfsysDomainAlias_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_domain_alias.rowid' );
       $criteria->selectAlso( 'wbfsys_domain_alias.rowid as "wbfsys_domain_alias-rowid-order"' );
@@ -615,8 +603,6 @@ class WbfsysDomainAlias_Selection_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

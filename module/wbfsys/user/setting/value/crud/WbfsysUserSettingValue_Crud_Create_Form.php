@@ -391,7 +391,7 @@ class WbfsysUserSettingValue_Crud_Create_Form
           'name'      => 'wbfsys_user_setting_value[id_type]',
           'id'        => 'wgt-input-wbfsys_user_setting_value_id_type'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Type', 'src' => 'User Setting Value' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'type', 'src' => 'User Setting Value' ) ),
         )
       );
       $inputIdType->setWidth( 'medium' );
@@ -405,7 +405,7 @@ class WbfsysUserSettingValue_Crud_Create_Form
       $inputIdType->setRequired( $this->fieldRequired( 'wbfsys_user_setting_value', 'id_type' ) );
 
 
-      $inputIdType->setLabel( $i18n->l( 'Type', 'wbfsys.user_setting_value.label' ) );
+      $inputIdType->setLabel( $i18n->l( 'type', 'wbfsys.user_setting_value.label' ) );
 
 
       $acl = $this->getAcl();
@@ -417,7 +417,7 @@ class WbfsysUserSettingValue_Crud_Create_Form
         $inputIdType->editUrl = 'index.php?c=Wbfsys.UserSettingType.listing&amp;target='.$this->namespace.'&amp;field=id_type&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_user_setting_value_id_type'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdType->setFirstFree( 'No Type selected' );
+      $inputIdType->setFirstFree( 'No type selected' );
 
       
       $queryIdType = null;

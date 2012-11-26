@@ -386,6 +386,15 @@ class WbfsysEvent_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_event.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -493,17 +502,15 @@ class WbfsysEvent_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_event.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_event.title' );
+      $criteria->selectAlso( 'wbfsys_event.title as "wbfsys_event-title-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -552,22 +559,13 @@ class WbfsysEvent_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_event.title' );
       $criteria->selectAlso( 'wbfsys_event.title as "wbfsys_event-title-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -585,17 +583,7 @@ class WbfsysEvent_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_event.title' );
       $criteria->selectAlso( 'wbfsys_event.title as "wbfsys_event-title-order"' );
@@ -606,8 +594,6 @@ class WbfsysEvent_Table_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

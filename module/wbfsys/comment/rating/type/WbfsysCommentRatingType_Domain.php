@@ -99,7 +99,12 @@ class WbfsysCommentRatingType_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_comment_rating_type'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_comment_rating_type'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysCommentRatingType_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.CommentRatingType_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

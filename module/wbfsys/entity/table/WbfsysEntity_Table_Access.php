@@ -146,7 +146,7 @@ class WbfsysEntity_Table_Access
 
     $criteria->select( array( 'wbfsys_entity.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

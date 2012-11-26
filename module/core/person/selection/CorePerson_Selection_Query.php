@@ -353,6 +353,15 @@ class CorePerson_Selection_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'core_person.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -504,17 +513,15 @@ class CorePerson_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'core_person.rowid' );
+      $criteria->selectAlso( 'core_person.rowid as "core_person-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -563,22 +570,13 @@ class CorePerson_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'core_person.rowid' );
       $criteria->selectAlso( 'core_person.rowid as "core_person-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -596,17 +594,7 @@ class CorePerson_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'core_person.rowid' );
       $criteria->selectAlso( 'core_person.rowid as "core_person-rowid-order"' );
@@ -617,8 +605,6 @@ class CorePerson_Selection_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

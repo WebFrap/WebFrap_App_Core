@@ -353,7 +353,7 @@ class WbfsysOsVersion_Crud_Create_Form
           'name'      => 'wbfsys_os_version[code_name]',
           'id'        => 'wgt-input-wbfsys_os_version_code_name'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Code name', 'src' => 'Os Version' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'code name', 'src' => 'Os Version' ) ),
           'maxlength' => $this->entity->maxSize( 'code_name' ),
         )
       );
@@ -362,7 +362,7 @@ class WbfsysOsVersion_Crud_Create_Form
       $inputCodeName->setReadonly( $this->fieldReadOnly( 'wbfsys_os_version', 'code_name' ) );
       $inputCodeName->setRequired( $this->fieldRequired( 'wbfsys_os_version', 'code_name' ) );
       $inputCodeName->setData( $this->entity->getSecure('code_name') );
-      $inputCodeName->setLabel( $i18n->l( 'Code name', 'wbfsys.os_version.label' ) );
+      $inputCodeName->setLabel( $i18n->l( 'code name', 'wbfsys.os_version.label' ) );
 
       $inputCodeName->refresh           = $this->refresh;
       $inputCodeName->serializeElement  = $this->sendElement;

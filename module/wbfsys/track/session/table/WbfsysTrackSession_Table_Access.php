@@ -146,7 +146,7 @@ class WbfsysTrackSession_Table_Access
 
     $criteria->select( array( 'wbfsys_track_session.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

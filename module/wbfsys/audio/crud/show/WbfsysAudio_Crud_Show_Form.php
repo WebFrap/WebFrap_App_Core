@@ -770,7 +770,7 @@ $inputLength->setReadOnly( $this->fieldReadOnly( 'wbfsys_audio', 'length' ) );
           'name'      => 'wbfsys_audio[id_codec]',
           'id'        => 'wgt-input-wbfsys_audio_id_codec'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Codec', 'src' => 'Audio' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'codec', 'src' => 'Audio' ) ),
         )
       );
       $inputIdCodec->setWidth( 'medium' );
@@ -784,7 +784,7 @@ $inputLength->setReadOnly( $this->fieldReadOnly( 'wbfsys_audio', 'length' ) );
       $inputIdCodec->setRequired( $this->fieldRequired( 'wbfsys_audio', 'id_codec' ) );
 
 
-      $inputIdCodec->setLabel( $i18n->l( 'Codec', 'wbfsys.audio.label' ) );
+      $inputIdCodec->setLabel( $i18n->l( 'codec', 'wbfsys.audio.label' ) );
 
 
       $acl = $this->getAcl();
@@ -796,7 +796,7 @@ $inputLength->setReadOnly( $this->fieldReadOnly( 'wbfsys_audio', 'length' ) );
         $inputIdCodec->editUrl = 'index.php?c=Wbfsys.AudioCodec.listing&amp;target='.$this->namespace.'&amp;field=id_codec&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_audio_id_codec'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdCodec->setFirstFree( 'No Codec selected' );
+      $inputIdCodec->setFirstFree( 'No codec selected' );
 
       
       $queryIdCodec = null;

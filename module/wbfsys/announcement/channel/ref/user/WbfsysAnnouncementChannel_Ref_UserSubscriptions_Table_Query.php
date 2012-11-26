@@ -424,6 +424,15 @@ class WbfsysAnnouncementChannel_Ref_UserSubscriptions_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_announcement_channel_subscription.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -652,17 +661,15 @@ class WbfsysAnnouncementChannel_Ref_UserSubscriptions_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_announcement_channel_subscription.rowid' );
+      $criteria->selectAlso( 'wbfsys_announcement_channel_subscription.rowid as "wbfsys_announcement_channel_subscription-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -711,22 +718,13 @@ class WbfsysAnnouncementChannel_Ref_UserSubscriptions_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_announcement_channel_subscription.rowid' );
       $criteria->selectAlso( 'wbfsys_announcement_channel_subscription.rowid as "wbfsys_announcement_channel_subscription-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -744,17 +742,7 @@ class WbfsysAnnouncementChannel_Ref_UserSubscriptions_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_announcement_channel_subscription.rowid' );
       $criteria->selectAlso( 'wbfsys_announcement_channel_subscription.rowid as "wbfsys_announcement_channel_subscription-rowid-order"' );
@@ -765,8 +753,6 @@ class WbfsysAnnouncementChannel_Ref_UserSubscriptions_Table_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

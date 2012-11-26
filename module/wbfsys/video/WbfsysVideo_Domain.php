@@ -99,7 +99,12 @@ class WbfsysVideo_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_video'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_video'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysVideo_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.Video_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

@@ -75,12 +75,13 @@ class WbfsysDomain_Ref_Subdomain_Table_Modal_View
       $params->refId = $objid;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'index.php?c=Wbfsys.Domain_Ref_Subdomain.search&amp;objid='.$params->refId;
+    $params->searchFormAction = 'index.php?c=Wbfsys.Domain_Ref_Subdomain.search&amp;objid='.$params->refId;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_domain-ref-subdomain-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_domain-ref-subdomain-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-subdomain-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'Subdomain' );

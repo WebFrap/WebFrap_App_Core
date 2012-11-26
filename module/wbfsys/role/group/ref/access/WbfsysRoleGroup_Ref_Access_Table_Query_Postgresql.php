@@ -400,6 +400,15 @@ class WbfsysRoleGroup_Ref_Access_Table_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_security_access.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -469,17 +478,15 @@ class WbfsysRoleGroup_Ref_Access_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_security_access.rowid' );
+      $criteria->selectAlso( 'wbfsys_security_access.rowid as "wbfsys_security_access-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -528,22 +535,13 @@ class WbfsysRoleGroup_Ref_Access_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_security_access.rowid' );
       $criteria->selectAlso( 'wbfsys_security_access.rowid as "wbfsys_security_access-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -561,17 +559,7 @@ class WbfsysRoleGroup_Ref_Access_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_security_access.rowid' );
       $criteria->selectAlso( 'wbfsys_security_access.rowid as "wbfsys_security_access-rowid-order"' );
@@ -582,8 +570,6 @@ class WbfsysRoleGroup_Ref_Access_Table_Query_Postgresql
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

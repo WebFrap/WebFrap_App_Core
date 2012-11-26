@@ -146,7 +146,7 @@ class WbfsysMaskFormSettings_Table_Access
 
     $criteria->select( array( 'wbfsys_mask_form_settings.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

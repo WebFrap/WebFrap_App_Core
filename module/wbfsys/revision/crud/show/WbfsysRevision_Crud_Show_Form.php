@@ -364,7 +364,7 @@ class WbfsysRevision_Crud_Show_Form
           'name'  => 'wbfsys_revision[change_log]',
           'id'    => 'wgt-input-wbfsys_revision_change_log'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip full medium-height'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title' => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Change log', 'src' => 'Revision' ) ),
+          'title' => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'change log', 'src' => 'Revision' ) ),
         )
       );
       $inputChangeLog->setWidth( 'full' );
@@ -374,7 +374,7 @@ class WbfsysRevision_Crud_Show_Form
       $inputChangeLog->setRequired( $this->fieldRequired( 'wbfsys_revision', 'change_log' ) );
 
       $inputChangeLog->setData( $this->entity->getSecure( 'change_log' ) );
-      $inputChangeLog->setLabel( $i18n->l( 'Change log', 'wbfsys.revision.label' ) );
+      $inputChangeLog->setLabel( $i18n->l( 'change log', 'wbfsys.revision.label' ) );
 
       $inputChangeLog->refresh           = $this->refresh;
       $inputChangeLog->serializeElement  = $this->sendElement;

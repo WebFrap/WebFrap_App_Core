@@ -150,7 +150,8 @@ class WbfsysAnnouncement_Ref_Status_Table_Element
       $this->html .= '<div id="'.$this->id.'" class="wgt-grid" >'.NL;
       $this->html .= '<var id="'.$this->id.'-table-cfg-grid" >{
         "height":"'.$this->bodyHeight.'",
-        "search_form":"'.$this->searchForm.'"
+        "search_form":"'.$this->searchForm.'",
+        "select_able":"true"
       }</var>';
       $this->html .= $this->buildPanel();
 
@@ -178,7 +179,7 @@ class WbfsysAnnouncement_Ref_Status_Table_Element
 
 
 
-      $this->html .= '<script type="text/javascript" >'.NL;
+      $this->html .= '<script type="application/javascript" >'.NL;
       $this->html .= $this->buildJavascript();
       $this->html .= '</script>'.NL;
 
@@ -284,19 +285,19 @@ class WbfsysAnnouncement_Ref_Status_Table_Element
       // doubcle click open
       $accessActionKey = $this->hasEditRights( $row )?'edit':'show';
  
-      $rowWcm       = '';
+      $rowWcm      = '';
       $rowParams   = '';
-      $dsUrl        = null;
+      $dsUrl       = null;
       // check if the row has 
       if( $dsUrl = $this->getActionUrl( $objid, $row ) )
       {
-        $rowWcm     .= ' wcm_control_access_dataset';
+        $rowWcm     .= ' wcm wcm_control_access_dataset';
         $rowParams .= ' wgt_url="'.$dsUrl.'" ';
       }
 
 
       
-      $body .= '<tr class="wcm wcm_ui_highlight '.$rowWcm.$classContext.' row'.$num.' node-'.$objid.'" '
+      $body .= '<tr class="'.$rowWcm.$classContext.' row'.$num.' node-'.$objid.'" '
 
         .' wgt_context_menu="'.$this->id.'-cmenu" ' 
         .$menuActions
@@ -310,25 +311,25 @@ class WbfsysAnnouncement_Ref_Status_Table_Element
 
 
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_ajax" href="maintab.php?c=Wbfsys.UserAnnouncementStatus.listing" >'.Validator::sanitizeHtml($row['wbfsys_user_announcement_status_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_ajax" href="maintab.php?c=Wbfsys.UserAnnouncementStatus.listing" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_user_announcement_status_name'])).'</a></td>'.NL;
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_role_user_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_role_user_name'])).'</a></td>'.NL;
 
       $body .= '<td valign="top" style="text-align:center;" >'.( trim( $row['wbfsys_role_user_email'] ) == '' ? ' ' : '<a href="mailto:'.Validator::sanitizeHtml($row['wbfsys_role_user_email']).'">'.Validator::sanitizeHtml($row['wbfsys_role_user_email']).'</a>' ).'</td>'.NL;
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_role_mandant_name']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_role_mandant_name'])).'</td>'.NL;
 
       $body .= '<td valign="top" style="text-align:center;"  >'.WgtRndForm::checkbox( 'wbfsys_role_user[inactive]', $row['wbfsys_role_user_inactive'] , array() , true ).'</td>'.NL;
 
       $body .= '<td valign="top" style="text-align:center;"  >'.WgtRndForm::checkbox( 'wbfsys_role_user[non_cert_login]', $row['wbfsys_role_user_non_cert_login'] , array() , true ).'</td>'.NL;
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_profile_name']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_profile_name'])).'</td>'.NL;
 
       $body .= '<td valign="top" style="text-align:right;" >'.(!is_null($row['wbfsys_role_user_last_login'])?$this->view->i18n->timestamp($row['wbfsys_role_user_last_login']):' ').'</td>'.NL;
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['core_person_firstname']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['core_person_firstname'])).'</a></td>'.NL;
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['core_person_lastname']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['core_person_lastname'])).'</a></td>'.NL;
 
 
 
@@ -455,8 +456,8 @@ class WbfsysAnnouncement_Ref_Status_Table_Element
     );
     $accessActionKey = $this->hasEditRights( $row )?'edit':'show';
     
-    $dsUrl        = null;
-    $rowWcm       = '';
+    $dsUrl       = null;
+    $rowWcm      = '';
     $rowParams   = '';
     $menuActions = '';
     
@@ -469,7 +470,7 @@ class WbfsysAnnouncement_Ref_Status_Table_Element
     // check if the row has 
     if( $dsUrl = $this->getActionUrl( $objid, $row ) )
     {
-      $rowWcm     .= ' wcm_control_access_dataset';
+      $rowWcm    .= ' wcm_control_access_dataset';
       $rowParams .= ' wgt_url="'.$dsUrl.'" ';
     }
     
@@ -490,7 +491,7 @@ class WbfsysAnnouncement_Ref_Status_Table_Element
         .' wgt_eid="'.$objid.'" '
         .$rowParams
         .' wgt_context_menu="'.$this->id.'-cmenu" '
-        .' class="wcm wcm_ui_highlight wcm_control_access_dataset '.$classContext.' node-'.$objid.'" >'.NL;
+        .' class="wcm wcm_ui_highlight '.$rowWcm .$classContext.' node-'.$objid.'" >'.NL;
     }
     else
     {
@@ -502,25 +503,25 @@ class WbfsysAnnouncement_Ref_Status_Table_Element
 
 
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_ajax" href="maintab.php?c=Wbfsys.UserAnnouncementStatus.listing" >'.Validator::sanitizeHtml($row['wbfsys_user_announcement_status_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_ajax" href="maintab.php?c=Wbfsys.UserAnnouncementStatus.listing" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_user_announcement_status_name'])).'</a></td>'.NL;
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['wbfsys_role_user_name']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_role_user_name'])).'</a></td>'.NL;
 
       $body .= '<td valign="top" style="text-align:center;" >'.( trim( $row['wbfsys_role_user_email'] ) == '' ? ' ' : '<a href="mailto:'.Validator::sanitizeHtml($row['wbfsys_role_user_email']).'">'.Validator::sanitizeHtml($row['wbfsys_role_user_email']).'</a>' ).'</td>'.NL;
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_role_mandant_name']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_role_mandant_name'])).'</td>'.NL;
 
       $body .= '<td valign="top" style="text-align:center;"  >'.WgtRndForm::checkbox( 'wbfsys_role_user[inactive]', $row['wbfsys_role_user_inactive'] , array() , true ).'</td>'.NL;
 
       $body .= '<td valign="top" style="text-align:center;"  >'.WgtRndForm::checkbox( 'wbfsys_role_user[non_cert_login]', $row['wbfsys_role_user_non_cert_login'] , array() , true ).'</td>'.NL;
 
-      $body .= '<td valign="top" >'.Validator::sanitizeHtml($row['wbfsys_profile_name']).'</td>'.NL;
+      $body .= '<td valign="top" >'.nl2br(Validator::sanitizeHtml($row['wbfsys_profile_name'])).'</td>'.NL;
 
       $body .= '<td valign="top" style="text-align:right;" >'.(!is_null($row['wbfsys_role_user_last_login'])?$this->view->i18n->timestamp($row['wbfsys_role_user_last_login']):' ').'</td>'.NL;
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['core_person_firstname']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['core_person_firstname'])).'</a></td>'.NL;
 
-      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.Validator::sanitizeHtml($row['core_person_lastname']).'</a></td>'.NL;
+      $body .= '<td valign="top" ><a class="wcm wcm_req_mtab" title="Click to open" href="maintab.php?c=Wbfsys.UserAnnouncement.'.$accessActionKey.'&amp;objid='.$objid.'&amp;target_id='.$this->id.'" >'.nl2br(Validator::sanitizeHtml($row['core_person_lastname'])).'</a></td>'.NL;
 
 
     if( $this->enableNav )

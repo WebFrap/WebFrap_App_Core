@@ -364,6 +364,15 @@ class WbfsysMyIssues_Selection_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_issue.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -509,17 +518,15 @@ class WbfsysMyIssues_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_issue.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_issue.title' );
+      $criteria->selectAlso( 'wbfsys_issue.title as "wbfsys_issue-title-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -568,22 +575,13 @@ class WbfsysMyIssues_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_issue.title' );
       $criteria->selectAlso( 'wbfsys_issue.title as "wbfsys_issue-title-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -601,17 +599,7 @@ class WbfsysMyIssues_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_issue.title' );
       $criteria->selectAlso( 'wbfsys_issue.title as "wbfsys_issue-title-order"' );
@@ -622,8 +610,6 @@ class WbfsysMyIssues_Selection_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

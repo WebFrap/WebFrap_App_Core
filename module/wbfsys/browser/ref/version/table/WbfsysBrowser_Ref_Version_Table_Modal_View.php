@@ -75,12 +75,13 @@ class WbfsysBrowser_Ref_Version_Table_Modal_View
       $params->refId = $objid;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'index.php?c=Wbfsys.Browser_Ref_Version.search&amp;objid='.$params->refId;
+    $params->searchFormAction = 'index.php?c=Wbfsys.Browser_Ref_Version.search&amp;objid='.$params->refId;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_browser-ref-version-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_browser-ref-version-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-version-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'Version' );

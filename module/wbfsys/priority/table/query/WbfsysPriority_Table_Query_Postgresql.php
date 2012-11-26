@@ -375,6 +375,15 @@ class WbfsysPriority_Table_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_priority.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -523,18 +532,15 @@ class WbfsysPriority_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
       $criteria->orderBy( 'wbfsys_priority.name ' );
 
 
-    }
+			
+      $criteria->selectAlso( 'wbfsys_priority.name as "wbfsys_priority-name-order"' );
+
+
 
     // Check the offset
     if( $params->start )
@@ -583,21 +589,13 @@ class WbfsysPriority_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_priority.name ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_priority.name as "wbfsys_priority-name-order"' );
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -615,35 +613,16 @@ class WbfsysPriority_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-      if( in_array( 'name', $params->order ) )
-      {
-        $criteria->selectAlso( 'wbfsys_priority.name as "wbfsys_priority-name-order"' );
-        $envelop->groupBy( 'inner_acl."wbfsys_priority-name-order"' );
-        $envelop->selectAlso( 'inner_acl."wbfsys_priority-name-order"' );
-        $envelop->orderBy( 'inner_acl."wbfsys_priority-name-order" ' );
-      }
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_priority.name ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_priority.name as "wbfsys_priority-name-order"' );
-
-      $envelop->groupBy( 'inner_acl."wbfsys_priority-name-order"' );
       $envelop->selectAlso( 'inner_acl."wbfsys_priority-name-order"' );
+      $envelop->groupBy( 'inner_acl."wbfsys_priority-name-order"' );
       $envelop->orderBy( 'inner_acl."wbfsys_priority-name-order" ' );
 
-
-    }
 
 
   }//end public function injectAclOrder */

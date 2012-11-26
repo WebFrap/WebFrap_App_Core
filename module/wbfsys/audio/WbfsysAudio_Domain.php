@@ -99,7 +99,12 @@ class WbfsysAudio_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_audio'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_audio'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysAudio_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.Audio_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

@@ -396,7 +396,7 @@ class WbfsysItem_Crud_Edit_Form
           'name'      => 'wbfsys_item[cname]',
           'id'        => 'wgt-input-wbfsys_item_cname'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_cname medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Cname', 'src' => 'Item' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'cname', 'src' => 'Item' ) ),
           'maxlength' => $this->entity->maxSize( 'cname' ),
         )
       );
@@ -405,7 +405,7 @@ class WbfsysItem_Crud_Edit_Form
       $inputCname->setReadonly( $this->fieldReadOnly( 'wbfsys_item', 'cname' ) );
       $inputCname->setRequired( $this->fieldRequired( 'wbfsys_item', 'cname' ) );
       $inputCname->setData( $this->entity->getSecure('cname') );
-      $inputCname->setLabel( $i18n->l( 'Cname', 'wbfsys.item.label' ) );
+      $inputCname->setLabel( $i18n->l( 'cname', 'wbfsys.item.label' ) );
 
       $inputCname->refresh           = $this->refresh;
       $inputCname->serializeElement  = $this->sendElement;

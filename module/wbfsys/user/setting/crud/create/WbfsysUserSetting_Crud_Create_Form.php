@@ -722,7 +722,7 @@ class WbfsysUserSetting_Crud_Create_Form
           'name'      => 'wbfsys_user_setting[smtp]',
           'id'        => 'wgt-input-wbfsys_user_setting_smtp'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Smtp', 'src' => 'User Setting' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'smtp', 'src' => 'User Setting' ) ),
         )
       );
       $inputSmtp->setWidth( 'medium' );
@@ -730,7 +730,7 @@ class WbfsysUserSetting_Crud_Create_Form
       $inputSmtp->setReadonly( $this->fieldReadOnly( 'wbfsys_user_setting', 'smtp' ) );
       $inputSmtp->setRequired( $this->fieldRequired( 'wbfsys_user_setting', 'smtp' ) );
       $inputSmtp->setActive( $this->entity->getBoolean( 'smtp' ) );
-      $inputSmtp->setLabel( $i18n->l( 'Smtp', 'wbfsys.user_setting.label' ) );
+      $inputSmtp->setLabel( $i18n->l( 'smtp', 'wbfsys.user_setting.label' ) );
 
       $inputSmtp->refresh           = $this->refresh;
       $inputSmtp->serializeElement  = $this->sendElement;
@@ -764,7 +764,7 @@ class WbfsysUserSetting_Crud_Create_Form
           'name'      => 'wbfsys_user_setting[pop3]',
           'id'        => 'wgt-input-wbfsys_user_setting_pop3'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Pop3', 'src' => 'User Setting' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'pop3', 'src' => 'User Setting' ) ),
         )
       );
       $inputPop3->setWidth( 'medium' );
@@ -772,7 +772,7 @@ class WbfsysUserSetting_Crud_Create_Form
       $inputPop3->setReadonly( $this->fieldReadOnly( 'wbfsys_user_setting', 'pop3' ) );
       $inputPop3->setRequired( $this->fieldRequired( 'wbfsys_user_setting', 'pop3' ) );
       $inputPop3->setActive( $this->entity->getBoolean( 'pop3' ) );
-      $inputPop3->setLabel( $i18n->l( 'Pop3', 'wbfsys.user_setting.label' ) );
+      $inputPop3->setLabel( $i18n->l( 'pop3', 'wbfsys.user_setting.label' ) );
 
       $inputPop3->refresh           = $this->refresh;
       $inputPop3->serializeElement  = $this->sendElement;
@@ -806,7 +806,7 @@ class WbfsysUserSetting_Crud_Create_Form
           'name'      => 'wbfsys_user_setting[imap]',
           'id'        => 'wgt-input-wbfsys_user_setting_imap'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Imap', 'src' => 'User Setting' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'imap', 'src' => 'User Setting' ) ),
         )
       );
       $inputImap->setWidth( 'medium' );
@@ -814,7 +814,7 @@ class WbfsysUserSetting_Crud_Create_Form
       $inputImap->setReadonly( $this->fieldReadOnly( 'wbfsys_user_setting', 'imap' ) );
       $inputImap->setRequired( $this->fieldRequired( 'wbfsys_user_setting', 'imap' ) );
       $inputImap->setActive( $this->entity->getBoolean( 'imap' ) );
-      $inputImap->setLabel( $i18n->l( 'Imap', 'wbfsys.user_setting.label' ) );
+      $inputImap->setLabel( $i18n->l( 'imap', 'wbfsys.user_setting.label' ) );
 
       $inputImap->refresh           = $this->refresh;
       $inputImap->serializeElement  = $this->sendElement;
@@ -848,7 +848,7 @@ class WbfsysUserSetting_Crud_Create_Form
           'name'      => 'wbfsys_user_setting[sieve]',
           'id'        => 'wgt-input-wbfsys_user_setting_sieve'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Sieve', 'src' => 'User Setting' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'sieve', 'src' => 'User Setting' ) ),
         )
       );
       $inputSieve->setWidth( 'medium' );
@@ -856,7 +856,7 @@ class WbfsysUserSetting_Crud_Create_Form
       $inputSieve->setReadonly( $this->fieldReadOnly( 'wbfsys_user_setting', 'sieve' ) );
       $inputSieve->setRequired( $this->fieldRequired( 'wbfsys_user_setting', 'sieve' ) );
       $inputSieve->setActive( $this->entity->getBoolean( 'sieve' ) );
-      $inputSieve->setLabel( $i18n->l( 'Sieve', 'wbfsys.user_setting.label' ) );
+      $inputSieve->setLabel( $i18n->l( 'sieve', 'wbfsys.user_setting.label' ) );
 
       $inputSieve->refresh           = $this->refresh;
       $inputSieve->serializeElement  = $this->sendElement;

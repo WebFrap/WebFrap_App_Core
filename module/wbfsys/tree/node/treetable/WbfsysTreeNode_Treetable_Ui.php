@@ -131,6 +131,7 @@ class WbfsysTreeNode_Treetable_Ui
       $searchElement->searchKey = 'wbfsys_tree_node';
       $searchElement->advancedSearch = true;
       $searchElement->focus = true;
+      $searchElement->context = 'treetable';
       
 
     }

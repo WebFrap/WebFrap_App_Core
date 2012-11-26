@@ -56,7 +56,7 @@ class WbfsysTagsRelated_Crud_Show_Maintab_Menu
     $iconEdit        = $view->icon( 'control/edit.png', 'Edit' );
     $iconRights      = $view->icon( 'control/rights.png', 'Rights' );
     $iconBookmark    = $view->icon( 'control/bookmark.png', 'Bookmark' );
-    $iconClose       = $view->icon( 'control/close.png', 'Close' );
+    $iconClose       = $view->icon( 'control/close_tab.png', 'Close' );
     $iconBack        = $view->icon( 'arrows/arrow_up.png', 'Back' );
     
     $iconMgmt      = $view->icon( 'relation/management.png', 'Management' );
@@ -100,7 +100,7 @@ BUTTON;
 
           <li>
             <a 
-              href="maintab.php?c=Webfrap.Coredata_Acl_Dset.listing&amp;objid={$objid}" 
+              href="maintab.php?c=Acl.Mgmt_Dset.listing&amp;dkey=wbfsys_tags_related&amp;objid={$objid}" 
               class="wcm wcm_req_ajax" >{$iconEntity} {$view->i18n->l( 'ACLs Entity', 'wbf.label' )}</a>
           </li>
 
@@ -194,9 +194,11 @@ HTML;
             href="modal.php?c=Webfrap.Docu.open&amp;key=wbfsys_tags_related-show" >{$iconHelp} {$this->view->i18n->l('Help','wbf.label')}</a></li>
 
           
+          <!--
           <li><a 
             class="wcm wcm_req_ajax" 
             href="modal.php?c=Wbfsys.Issue.create&amp;context=show" >{$iconBug} {$this->view->i18n->l('Bug','wbf.label')}</a></li>
+          -->
           
 
           

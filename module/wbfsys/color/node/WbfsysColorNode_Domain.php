@@ -99,7 +99,12 @@ class WbfsysColorNode_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_color_node'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_color_node'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysColorNode_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.ColorNode_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

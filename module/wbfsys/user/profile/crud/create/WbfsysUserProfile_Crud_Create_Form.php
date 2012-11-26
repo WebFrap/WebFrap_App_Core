@@ -302,7 +302,7 @@ class WbfsysUserProfile_Crud_Create_Form
           'name'      => 'wbfsys_user_profile[key]',
           'id'        => 'wgt-input-wbfsys_user_profile_key'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_cname medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Key', 'src' => 'User Profile' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'key', 'src' => 'User Profile' ) ),
           'maxlength' => $this->entity->maxSize( 'key' ),
         )
       );
@@ -311,7 +311,7 @@ class WbfsysUserProfile_Crud_Create_Form
       $inputKey->setReadonly( $this->fieldReadOnly( 'wbfsys_user_profile', 'key' ) );
       $inputKey->setRequired( $this->fieldRequired( 'wbfsys_user_profile', 'key' ) );
       $inputKey->setData( $this->entity->getSecure('key') );
-      $inputKey->setLabel( $i18n->l( 'Key', 'wbfsys.user_profile.label' ) );
+      $inputKey->setLabel( $i18n->l( 'key', 'wbfsys.user_profile.label' ) );
 
       $inputKey->refresh           = $this->refresh;
       $inputKey->serializeElement  = $this->sendElement;

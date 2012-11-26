@@ -146,7 +146,7 @@ class CoreLocation_Table_Access
 
     $criteria->select( array( 'core_location.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

@@ -352,7 +352,7 @@ class WbfsysAnnouncement_Ref_Status_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysUserAnnouncement) )
+      if( !$orm->insert( $entityWbfsysUserAnnouncement ) )
       {
 
         $entityText = $entityWbfsysUserAnnouncement->text();

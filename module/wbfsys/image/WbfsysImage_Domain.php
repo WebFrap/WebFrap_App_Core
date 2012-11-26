@@ -99,7 +99,12 @@ class WbfsysImage_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_image'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_image'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysImage_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.Image_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

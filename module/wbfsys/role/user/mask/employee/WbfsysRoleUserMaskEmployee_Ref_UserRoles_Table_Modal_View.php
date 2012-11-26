@@ -71,12 +71,13 @@ class WbfsysRoleUserMaskEmployee_Ref_UserRoles_Table_Modal_View
     $access = $params->accessUserRoles;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'ajax.php?c=Wbfsys.RoleUserMaskEmployee_Ref_UserRoles.search&amp;objid='.$objid;
+    $params->searchFormAction = 'ajax.php?c=Wbfsys.RoleUserMaskEmployee_Ref_UserRoles.search&amp;objid='.$objid;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_role_user_mask_employee-ref-user_roles-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_role_user_mask_employee-ref-user_roles-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-user_roles-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'UserRoles' );

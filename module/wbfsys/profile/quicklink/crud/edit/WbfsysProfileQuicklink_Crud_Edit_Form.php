@@ -486,7 +486,7 @@ class WbfsysProfileQuicklink_Crud_Edit_Form
           'name'      => 'wbfsys_profile_quicklink[short_desc]',
           'id'        => 'wgt-input-wbfsys_profile_quicklink_short_desc'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Short desc', 'src' => 'Profile Quicklink' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'short desc', 'src' => 'Profile Quicklink' ) ),
           'maxlength' => $this->entity->maxSize( 'short_desc' ),
         )
       );
@@ -495,7 +495,7 @@ class WbfsysProfileQuicklink_Crud_Edit_Form
       $inputShortDesc->setReadonly( $this->fieldReadOnly( 'wbfsys_profile_quicklink', 'short_desc' ) );
       $inputShortDesc->setRequired( $this->fieldRequired( 'wbfsys_profile_quicklink', 'short_desc' ) );
       $inputShortDesc->setData( $this->entity->getSecure('short_desc') );
-      $inputShortDesc->setLabel( $i18n->l( 'Short desc', 'wbfsys.profile_quicklink.label' ) );
+      $inputShortDesc->setLabel( $i18n->l( 'short desc', 'wbfsys.profile_quicklink.label' ) );
 
       $inputShortDesc->refresh           = $this->refresh;
       $inputShortDesc->serializeElement  = $this->sendElement;

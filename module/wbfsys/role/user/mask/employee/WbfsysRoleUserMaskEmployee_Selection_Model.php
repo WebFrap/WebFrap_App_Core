@@ -459,7 +459,8 @@ class WbfsysRoleUserMaskEmployee_Selection_Model
     $query->extendedConditions = $extendedConditions;
 
 
-    if( $params->dynFilters )
+
+		if( $params->dynFilters )
     {
       foreach( $params->dynFilters as $dynFilter  )
       {
@@ -480,6 +481,7 @@ class WbfsysRoleUserMaskEmployee_Selection_Model
 
       }
     }
+
 
     // per exclude können regeln übergeben werden um bestimmte datensätze
     // auszublenden

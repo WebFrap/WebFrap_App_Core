@@ -369,7 +369,7 @@ class WbfsysAddressItem_Crud_Create_Form
           'name'      => 'wbfsys_address_item[address_value]',
           'id'        => 'wgt-input-wbfsys_address_item_address_value'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_required xxlarge'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Address value', 'src' => 'Address Item' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'address value', 'src' => 'Address Item' ) ),
           'maxlength' => $this->entity->maxSize( 'address_value' ),
         )
       );
@@ -378,7 +378,7 @@ class WbfsysAddressItem_Crud_Create_Form
       $inputAddressValue->setReadonly( $this->fieldReadOnly( 'wbfsys_address_item', 'address_value' ) );
       $inputAddressValue->setRequired( $this->fieldRequired( 'wbfsys_address_item', 'address_value' ) );
       $inputAddressValue->setData( $this->entity->getSecure('address_value') );
-      $inputAddressValue->setLabel( $i18n->l( 'Address value', 'wbfsys.address_item.label' ) );
+      $inputAddressValue->setLabel( $i18n->l( 'address value', 'wbfsys.address_item.label' ) );
 
       $inputAddressValue->refresh           = $this->refresh;
       $inputAddressValue->serializeElement  = $this->sendElement;

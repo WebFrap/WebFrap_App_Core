@@ -885,7 +885,7 @@ class WbfsysProcessStatus_Crud_Create_Form
           'name'      => 'wbfsys_process_status[actual_node_key]',
           'id'        => 'wgt-input-wbfsys_process_status_actual_node_key'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_cname medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Actual node key', 'src' => 'Process Status' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'actual node key', 'src' => 'Process Status' ) ),
           'maxlength' => $this->entity->maxSize( 'actual_node_key' ),
         )
       );
@@ -894,7 +894,7 @@ class WbfsysProcessStatus_Crud_Create_Form
       $inputActualNodeKey->setReadonly( $this->fieldReadOnly( 'wbfsys_process_status', 'actual_node_key' ) );
       $inputActualNodeKey->setRequired( $this->fieldRequired( 'wbfsys_process_status', 'actual_node_key' ) );
       $inputActualNodeKey->setData( $this->entity->getSecure('actual_node_key') );
-      $inputActualNodeKey->setLabel( $i18n->l( 'Actual node key', 'wbfsys.process_status.label' ) );
+      $inputActualNodeKey->setLabel( $i18n->l( 'actual node key', 'wbfsys.process_status.label' ) );
 
       $inputActualNodeKey->refresh           = $this->refresh;
       $inputActualNodeKey->serializeElement  = $this->sendElement;

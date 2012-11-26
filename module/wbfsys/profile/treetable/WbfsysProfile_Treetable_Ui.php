@@ -131,6 +131,7 @@ class WbfsysProfile_Treetable_Ui
       $searchElement->searchKey = 'wbfsys_profile';
       $searchElement->advancedSearch = true;
       $searchElement->focus = true;
+      $searchElement->context = 'treetable';
       
 
     }

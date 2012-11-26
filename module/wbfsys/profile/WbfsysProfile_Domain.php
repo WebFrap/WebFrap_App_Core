@@ -99,7 +99,12 @@ class WbfsysProfile_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_profile'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_profile'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysProfile_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.Profile_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

@@ -45,7 +45,7 @@ class MyWbfsysTask_Table_Maintab_Menu
     $access   = $params->access;
 
     $iconMisc         = $this->view->icon('control/misc.png'      ,'Misc');
-    $iconClose         = $this->view->icon('control/close.png'      ,'Close');
+    $iconClose         = $this->view->icon('control/close_tab.png'      ,'Close');
     $iconEntity         = $this->view->icon('control/entity.png'      ,'Entity');
     $iconBookmark         = $this->view->icon('control/bookmark.png'      ,'Bookmark');
 
@@ -326,9 +326,11 @@ HTML;
             href="modal.php?c=Webfrap.Docu.open&amp;key=my_wbfsys_task-table" >{$iconHelp} {$this->view->i18n->l('Help','wbf.label')}</a></li>
 
 
+					<!--
           <li><a 
             class="wcm wcm_req_ajax" 
             href="modal.php?c=Wbfsys.Issue.create&amp;context=table" >{$iconBug} {$this->view->i18n->l('Bug','wbf.label')}</a></li>
+					-->
 
 
 
@@ -360,8 +362,8 @@ HTML;
       <a class="deeplink" >{$iconAcl} {$this->view->i18n->l( 'ACLs', 'wbf.label' )}</a>
       <span>
       <ul>
-                  <li><a class="wcm wcm_req_ajax" href="maintab.php?c=My.WbfsysTask_Acl.listing" >{$iconMgmt} {$this->view->i18n->l( 'ACLs Management', 'wbf.label' )}</a></li>
-          <li><a class="wcm wcm_req_ajax" href="maintab.php?c=Wbfsys.Task_Acl.listing" >{$iconEntity} {$this->view->i18n->l( 'ACLs Entity', 'wbf.label' )}</a></li>
+                  <li><a class="wcm wcm_req_ajax" href="maintab.php?c=Acl.Mgmt.listing&amp;dkey=my_wbfsys_task" >{$iconMgmt} {$this->view->i18n->l( 'ACLs Management', 'wbf.label' )}</a></li>
+          <li><a class="wcm wcm_req_ajax" href="maintab.php?c=Acl.Mgmt.listing&amp;dkey=wbfsys_task" >{$iconEntity} {$this->view->i18n->l( 'ACLs Entity', 'wbf.label' )}</a></li>
       </ul>
       </span>
     </li>

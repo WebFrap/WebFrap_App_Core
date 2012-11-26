@@ -131,6 +131,7 @@ class WbfsysDocuTree_Treetable_Ui
       $searchElement->searchKey = 'wbfsys_docu_tree';
       $searchElement->advancedSearch = true;
       $searchElement->focus = true;
+      $searchElement->context = 'treetable';
       
 
     }

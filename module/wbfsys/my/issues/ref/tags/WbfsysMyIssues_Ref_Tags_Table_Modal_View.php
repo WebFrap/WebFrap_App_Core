@@ -71,12 +71,13 @@ class WbfsysMyIssues_Ref_Tags_Table_Modal_View
     $access = $params->accessTags;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'ajax.php?c=Wbfsys.MyIssues_Ref_Tags.search&amp;objid='.$objid;
+    $params->searchFormAction = 'ajax.php?c=Wbfsys.MyIssues_Ref_Tags.search&amp;objid='.$objid;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_my_issues-ref-tags-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_my_issues-ref-tags-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-tags-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'Tags' );

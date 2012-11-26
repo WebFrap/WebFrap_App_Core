@@ -71,12 +71,13 @@ class WbfsysRoleUser_Ref_UserProfiles_Table_Modal_View
     $access = $params->accessUserProfiles;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'ajax.php?c=Wbfsys.RoleUser_Ref_UserProfiles.search&amp;objid='.$objid;
+    $params->searchFormAction = 'ajax.php?c=Wbfsys.RoleUser_Ref_UserProfiles.search&amp;objid='.$objid;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_role_user-ref-user_profiles-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_role_user-ref-user_profiles-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-user_profiles-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'UserProfiles' );

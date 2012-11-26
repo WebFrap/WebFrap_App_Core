@@ -260,7 +260,7 @@ class WbfsysPackage_Ref_PackageModules_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysPackageModules) )
+      if( !$orm->insert( $entityWbfsysPackageModules ) )
       {
 
         $entityText = $entityWbfsysPackageModules->text();

@@ -123,5 +123,48 @@ class WbfsysFileVersion_Table_Ajax_View
 
   }//end public function displayDelete */
 
+ /**
+  * Remove a selection of elements from the list
+  *
+  * @param [int] $ids die rowid des gelöschten listenelements
+  * @param TFlag $params benamte parameter
+  *
+  * @return void
+  */
+  public function displayDeleteSelection( $ids, $params )
+  {
+
+    // if we got a target id we remove the element from the client
+    if( $params->targetId )
+    {
+      $ui = $this->loadUi( 'WbfsysFileVersion_Table' );
+
+      $ui->setModel($this->model);
+      $ui->removeListEntries( $ids, $params->targetId );
+    }
+
+  }//end public function method_displayDeleteSelection */
+
+ /**
+  * Remove all list entries from the table body
+  *
+  * @param TFlag $params some named parameters
+  *
+  * @return void
+  */
+  public function displayDeleteAll( $params )
+  {
+
+    // if we got a target id we remove the element from the client
+    if( $params->targetId )
+    {
+      $ui = $this->loadUi( 'WbfsysFileVersion_Table' );
+
+      $ui->setModel( $this->model );
+      $ui->cleanListBody( $params->targetId );
+    }
+
+  }//end public function displayDeleteAll */
+
 }//end class WbfsysFileVersion_Table_Ajax_View
 

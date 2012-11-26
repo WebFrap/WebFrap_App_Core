@@ -375,6 +375,15 @@ class WbfsysBrowser_Table_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_browser.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -520,18 +529,15 @@ class WbfsysBrowser_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
       $criteria->orderBy( 'wbfsys_browser.name ' );
 
 
-    }
+			
+      $criteria->selectAlso( 'wbfsys_browser.name as "wbfsys_browser-name-order"' );
+
+
 
     // Check the offset
     if( $params->start )
@@ -580,21 +586,13 @@ class WbfsysBrowser_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_browser.name ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_browser.name as "wbfsys_browser-name-order"' );
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -612,35 +610,16 @@ class WbfsysBrowser_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-      if( in_array( 'name', $params->order ) )
-      {
-        $criteria->selectAlso( 'wbfsys_browser.name as "wbfsys_browser-name-order"' );
-        $envelop->groupBy( 'inner_acl."wbfsys_browser-name-order"' );
-        $envelop->selectAlso( 'inner_acl."wbfsys_browser-name-order"' );
-        $envelop->orderBy( 'inner_acl."wbfsys_browser-name-order" ' );
-      }
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
       $criteria->orderBy( 'wbfsys_browser.name ' );
 
 
+			
       $criteria->selectAlso( 'wbfsys_browser.name as "wbfsys_browser-name-order"' );
-
-      $envelop->groupBy( 'inner_acl."wbfsys_browser-name-order"' );
       $envelop->selectAlso( 'inner_acl."wbfsys_browser-name-order"' );
+      $envelop->groupBy( 'inner_acl."wbfsys_browser-name-order"' );
       $envelop->orderBy( 'inner_acl."wbfsys_browser-name-order" ' );
 
-
-    }
 
 
   }//end public function injectAclOrder */

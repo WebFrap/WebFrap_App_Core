@@ -354,7 +354,7 @@ class WbfsysIssue_Ref_Tags_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysEntityTag) )
+      if( !$orm->insert( $entityWbfsysEntityTag ) )
       {
 
         $entityText = $entityWbfsysEntityTag->text();

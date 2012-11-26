@@ -146,7 +146,7 @@ class WbfsysProcessPhase_Table_Access
 
     $criteria->select( array( 'wbfsys_process_phase.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

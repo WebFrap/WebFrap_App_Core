@@ -640,7 +640,7 @@ class WbfsysFileStorage_Crud_Show_Form
           'name'      => 'wbfsys_file_storage[link]',
           'id'        => 'wgt-input-wbfsys_file_storage_link'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Link', 'src' => 'File Storage' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'link', 'src' => 'File Storage' ) ),
         )
       );
       $inputLink->setWidth( 'medium' );
@@ -648,7 +648,7 @@ class WbfsysFileStorage_Crud_Show_Form
       $inputLink->setReadonly( $this->fieldReadOnly( 'wbfsys_file_storage', 'link' ) );
       $inputLink->setRequired( $this->fieldRequired( 'wbfsys_file_storage', 'link' ) );
       $inputLink->setData( $this->entity->getSecure( 'link' ) );
-      $inputLink->setLabel( $i18n->l( 'Link', 'wbfsys.file_storage.label' ) );
+      $inputLink->setLabel( $i18n->l( 'link', 'wbfsys.file_storage.label' ) );
 
       $inputLink->refresh           = $this->refresh;
       $inputLink->serializeElement  = $this->sendElement;

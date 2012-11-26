@@ -146,7 +146,7 @@ class WbfsysDataIndex_Table_Access
 
     $criteria->select( array( 'wbfsys_data_index.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

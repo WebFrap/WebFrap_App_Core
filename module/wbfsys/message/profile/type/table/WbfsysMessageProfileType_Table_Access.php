@@ -146,7 +146,7 @@ class WbfsysMessageProfileType_Table_Access
 
     $criteria->select( array( 'wbfsys_message_profile_type.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

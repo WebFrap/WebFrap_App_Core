@@ -377,6 +377,15 @@ class WbfsysContentLicence_Table_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_content_licence.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -528,17 +537,15 @@ class WbfsysContentLicence_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_content_licence.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_content_licence.name' );
+      $criteria->selectAlso( 'wbfsys_content_licence.name as "wbfsys_content_licence-name-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -587,22 +594,13 @@ class WbfsysContentLicence_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_content_licence.name' );
       $criteria->selectAlso( 'wbfsys_content_licence.name as "wbfsys_content_licence-name-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -620,17 +618,7 @@ class WbfsysContentLicence_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_content_licence.name' );
       $criteria->selectAlso( 'wbfsys_content_licence.name as "wbfsys_content_licence-name-order"' );
@@ -641,8 +629,6 @@ class WbfsysContentLicence_Table_Query_Postgresql
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

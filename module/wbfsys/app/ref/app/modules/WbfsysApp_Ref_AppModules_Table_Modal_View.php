@@ -71,12 +71,13 @@ class WbfsysApp_Ref_AppModules_Table_Modal_View
     $access = $params->accessAppModules;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'ajax.php?c=Wbfsys.App_Ref_AppModules.search&amp;objid='.$objid;
+    $params->searchFormAction = 'ajax.php?c=Wbfsys.App_Ref_AppModules.search&amp;objid='.$objid;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_app-ref-app_modules-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_app-ref-app_modules-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-app_modules-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'AppModules' );

@@ -366,7 +366,7 @@ class WbfsysProcessNode_Crud_Edit_Form
           'name'      => 'wbfsys_process_node[label]',
           'id'        => 'wgt-input-wbfsys_process_node_label'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Label', 'src' => 'Process Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'label', 'src' => 'Process Node' ) ),
           'maxlength' => $this->entity->maxSize( 'label' ),
         )
       );
@@ -375,7 +375,7 @@ class WbfsysProcessNode_Crud_Edit_Form
       $inputLabel->setReadonly( $this->fieldReadOnly( 'wbfsys_process_node', 'label' ) );
       $inputLabel->setRequired( $this->fieldRequired( 'wbfsys_process_node', 'label' ) );
       $inputLabel->setData( $this->entity->getSecure('label') );
-      $inputLabel->setLabel( $i18n->l( 'Label', 'wbfsys.process_node.label' ) );
+      $inputLabel->setLabel( $i18n->l( 'label', 'wbfsys.process_node.label' ) );
 
       $inputLabel->refresh           = $this->refresh;
       $inputLabel->serializeElement  = $this->sendElement;
@@ -452,7 +452,7 @@ class WbfsysProcessNode_Crud_Edit_Form
           'name'      => 'wbfsys_process_node[phase_key]',
           'id'        => 'wgt-input-wbfsys_process_node_phase_key'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_cname medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Phase key', 'src' => 'Process Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'phase key', 'src' => 'Process Node' ) ),
           'maxlength' => $this->entity->maxSize( 'phase_key' ),
         )
       );
@@ -461,7 +461,7 @@ class WbfsysProcessNode_Crud_Edit_Form
       $inputPhaseKey->setReadonly( $this->fieldReadOnly( 'wbfsys_process_node', 'phase_key' ) );
       $inputPhaseKey->setRequired( $this->fieldRequired( 'wbfsys_process_node', 'phase_key' ) );
       $inputPhaseKey->setData( $this->entity->getSecure('phase_key') );
-      $inputPhaseKey->setLabel( $i18n->l( 'Phase key', 'wbfsys.process_node.label' ) );
+      $inputPhaseKey->setLabel( $i18n->l( 'phase key', 'wbfsys.process_node.label' ) );
 
       $inputPhaseKey->refresh           = $this->refresh;
       $inputPhaseKey->serializeElement  = $this->sendElement;
@@ -791,7 +791,7 @@ class WbfsysProcessNode_Crud_Edit_Form
           'name'      => 'wbfsys_process_node[bg_color]',
           'id'        => 'wgt-input-wbfsys_process_node_bg_color'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Bg color', 'src' => 'Process Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'bg color', 'src' => 'Process Node' ) ),
           'maxlength' => $this->entity->maxSize( 'bg_color' ),
         )
       );
@@ -800,7 +800,7 @@ class WbfsysProcessNode_Crud_Edit_Form
       $inputBgColor->setReadonly( $this->fieldReadOnly( 'wbfsys_process_node', 'bg_color' ) );
       $inputBgColor->setRequired( $this->fieldRequired( 'wbfsys_process_node', 'bg_color' ) );
       $inputBgColor->setData( $this->entity->getSecure( 'bg_color' ) );
-      $inputBgColor->setLabel( $i18n->l( 'Bg color', 'wbfsys.process_node.label' ) );
+      $inputBgColor->setLabel( $i18n->l( 'bg color', 'wbfsys.process_node.label' ) );
 
       $inputBgColor->refresh           = $this->refresh;
       $inputBgColor->serializeElement  = $this->sendElement;
@@ -834,7 +834,7 @@ class WbfsysProcessNode_Crud_Edit_Form
           'name'      => 'wbfsys_process_node[text_color]',
           'id'        => 'wgt-input-wbfsys_process_node_text_color'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Text color', 'src' => 'Process Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'text color', 'src' => 'Process Node' ) ),
           'maxlength' => $this->entity->maxSize( 'text_color' ),
         )
       );
@@ -843,7 +843,7 @@ class WbfsysProcessNode_Crud_Edit_Form
       $inputTextColor->setReadonly( $this->fieldReadOnly( 'wbfsys_process_node', 'text_color' ) );
       $inputTextColor->setRequired( $this->fieldRequired( 'wbfsys_process_node', 'text_color' ) );
       $inputTextColor->setData( $this->entity->getSecure( 'text_color' ) );
-      $inputTextColor->setLabel( $i18n->l( 'Text color', 'wbfsys.process_node.label' ) );
+      $inputTextColor->setLabel( $i18n->l( 'text color', 'wbfsys.process_node.label' ) );
 
       $inputTextColor->refresh           = $this->refresh;
       $inputTextColor->serializeElement  = $this->sendElement;
@@ -877,7 +877,7 @@ class WbfsysProcessNode_Crud_Edit_Form
           'name'      => 'wbfsys_process_node[border_color]',
           'id'        => 'wgt-input-wbfsys_process_node_border_color'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Border color', 'src' => 'Process Node' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'border color', 'src' => 'Process Node' ) ),
           'maxlength' => $this->entity->maxSize( 'border_color' ),
         )
       );
@@ -886,7 +886,7 @@ class WbfsysProcessNode_Crud_Edit_Form
       $inputBorderColor->setReadonly( $this->fieldReadOnly( 'wbfsys_process_node', 'border_color' ) );
       $inputBorderColor->setRequired( $this->fieldRequired( 'wbfsys_process_node', 'border_color' ) );
       $inputBorderColor->setData( $this->entity->getSecure( 'border_color' ) );
-      $inputBorderColor->setLabel( $i18n->l( 'Border color', 'wbfsys.process_node.label' ) );
+      $inputBorderColor->setLabel( $i18n->l( 'border color', 'wbfsys.process_node.label' ) );
 
       $inputBorderColor->refresh           = $this->refresh;
       $inputBorderColor->serializeElement  = $this->sendElement;

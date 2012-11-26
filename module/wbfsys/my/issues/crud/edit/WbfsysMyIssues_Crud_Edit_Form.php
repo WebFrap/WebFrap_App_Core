@@ -557,7 +557,7 @@ class WbfsysMyIssues_Crud_Edit_Form
           'name'      => 'wbfsys_my_issues[id_category]',
           'id'        => 'wgt-input-wbfsys_my_issues_id_category'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Category', 'src' => 'Issue' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'category', 'src' => 'Issue' ) ),
         )
       );
       $inputIdCategory->setWidth( 'medium' );
@@ -571,7 +571,7 @@ class WbfsysMyIssues_Crud_Edit_Form
       $inputIdCategory->setRequired( $this->fieldRequired( 'wbfsys_my_issues', 'id_category' ) );
 
 
-      $inputIdCategory->setLabel( $i18n->l( 'Category', 'wbfsys.issue.label' ) );
+      $inputIdCategory->setLabel( $i18n->l( 'category', 'wbfsys.issue.label' ) );
 
 
       $acl = $this->getAcl();
@@ -583,7 +583,7 @@ class WbfsysMyIssues_Crud_Edit_Form
         $inputIdCategory->editUrl = 'index.php?c=Wbfsys.Category.listing&amp;target='.$this->namespace.'&amp;field=id_category&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_my_issues_id_category'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdCategory->setFirstFree( 'No Category selected' );
+      $inputIdCategory->setFirstFree( 'No category selected' );
 
       
       $queryIdCategory = null;
@@ -747,7 +747,7 @@ class WbfsysMyIssues_Crud_Edit_Form
           'name'      => 'wbfsys_my_issues[id_severity]',
           'id'        => 'wgt-input-wbfsys_my_issues_id_severity'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Severity', 'src' => 'Issue' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'severity', 'src' => 'Issue' ) ),
         )
       );
       $inputIdSeverity->setWidth( 'medium' );
@@ -761,7 +761,7 @@ class WbfsysMyIssues_Crud_Edit_Form
       $inputIdSeverity->setRequired( $this->fieldRequired( 'wbfsys_my_issues', 'id_severity' ) );
 
 
-      $inputIdSeverity->setLabel( $i18n->l( 'Severity', 'wbfsys.issue.label' ) );
+      $inputIdSeverity->setLabel( $i18n->l( 'severity', 'wbfsys.issue.label' ) );
 
 
       $acl = $this->getAcl();
@@ -773,7 +773,7 @@ class WbfsysMyIssues_Crud_Edit_Form
         $inputIdSeverity->editUrl = 'index.php?c=Wbfsys.IssueSeverity.listing&amp;target='.$this->namespace.'&amp;field=id_severity&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_my_issues_id_severity'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdSeverity->setFirstFree( 'No Severity selected' );
+      $inputIdSeverity->setFirstFree( 'No severity selected' );
 
       
       $queryIdSeverity = null;
@@ -849,7 +849,7 @@ class WbfsysMyIssues_Crud_Edit_Form
           'name'      => 'wbfsys_my_issues[id_os]',
           'id'        => 'wgt-input-wbfsys_my_issues_id_os'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Os', 'src' => 'Issue' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'os', 'src' => 'Issue' ) ),
         )
       );
       $inputIdOs->setWidth( 'medium' );
@@ -863,7 +863,7 @@ class WbfsysMyIssues_Crud_Edit_Form
       $inputIdOs->setRequired( $this->fieldRequired( 'wbfsys_my_issues', 'id_os' ) );
 
 
-      $inputIdOs->setLabel( $i18n->l( 'Os', 'wbfsys.issue.label' ) );
+      $inputIdOs->setLabel( $i18n->l( 'os', 'wbfsys.issue.label' ) );
 
 
       $acl = $this->getAcl();
@@ -875,7 +875,7 @@ class WbfsysMyIssues_Crud_Edit_Form
         $inputIdOs->editUrl = 'index.php?c=Wbfsys.Os.listing&amp;target='.$this->namespace.'&amp;field=id_os&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_my_issues_id_os'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdOs->setFirstFree( 'No Os selected' );
+      $inputIdOs->setFirstFree( 'No os selected' );
 
       
       $queryIdOs = null;
@@ -951,7 +951,7 @@ class WbfsysMyIssues_Crud_Edit_Form
           'name'      => 'wbfsys_my_issues[id_priority]',
           'id'        => 'wgt-input-wbfsys_my_issues_id_priority'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Priority', 'src' => 'Issue' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'priority', 'src' => 'Issue' ) ),
         )
       );
       $inputIdPriority->setWidth( 'medium' );
@@ -965,7 +965,7 @@ class WbfsysMyIssues_Crud_Edit_Form
       $inputIdPriority->setRequired( $this->fieldRequired( 'wbfsys_my_issues', 'id_priority' ) );
 
 
-      $inputIdPriority->setLabel( $i18n->l( 'Priority', 'wbfsys.issue.label' ) );
+      $inputIdPriority->setLabel( $i18n->l( 'priority', 'wbfsys.issue.label' ) );
 
 
       $acl = $this->getAcl();
@@ -977,7 +977,7 @@ class WbfsysMyIssues_Crud_Edit_Form
         $inputIdPriority->editUrl = 'index.php?c=Wbfsys.Priority.listing&amp;target='.$this->namespace.'&amp;field=id_priority&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_my_issues_id_priority'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdPriority->setFirstFree( 'No Priority selected' );
+      $inputIdPriority->setFirstFree( 'No priority selected' );
 
       
       $queryIdPriority = null;
@@ -1053,7 +1053,7 @@ class WbfsysMyIssues_Crud_Edit_Form
           'name'      => 'wbfsys_my_issues[id_browser]',
           'id'        => 'wgt-input-wbfsys_my_issues_id_browser'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Browser', 'src' => 'Issue' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'browser', 'src' => 'Issue' ) ),
         )
       );
       $inputIdBrowser->setWidth( 'medium' );
@@ -1067,7 +1067,7 @@ class WbfsysMyIssues_Crud_Edit_Form
       $inputIdBrowser->setRequired( $this->fieldRequired( 'wbfsys_my_issues', 'id_browser' ) );
 
 
-      $inputIdBrowser->setLabel( $i18n->l( 'Browser', 'wbfsys.issue.label' ) );
+      $inputIdBrowser->setLabel( $i18n->l( 'browser', 'wbfsys.issue.label' ) );
 
 
       $acl = $this->getAcl();
@@ -1079,7 +1079,7 @@ class WbfsysMyIssues_Crud_Edit_Form
         $inputIdBrowser->editUrl = 'index.php?c=Wbfsys.Browser.listing&amp;target='.$this->namespace.'&amp;field=id_browser&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_my_issues_id_browser'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdBrowser->setFirstFree( 'No Browser selected' );
+      $inputIdBrowser->setFirstFree( 'No browser selected' );
 
       
       $queryIdBrowser = null;
@@ -1604,7 +1604,7 @@ class WbfsysMyIssues_Crud_Edit_Form
           'name'  => 'wbfsys_my_issues[error_message]',
           'id'    => 'wgt-input-wbfsys_my_issues_error_message'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip full medium-height'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title' => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Error message', 'src' => 'Issue' ) ),
+          'title' => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'error message', 'src' => 'Issue' ) ),
         )
       );
       $inputErrorMessage->setWidth( 'full' );
@@ -1614,7 +1614,7 @@ class WbfsysMyIssues_Crud_Edit_Form
       $inputErrorMessage->setRequired( $this->fieldRequired( 'wbfsys_my_issues', 'error_message' ) );
 
       $inputErrorMessage->setData( $this->entity->getSecure( 'error_message' ) );
-      $inputErrorMessage->setLabel( $i18n->l( 'Error message', 'wbfsys.issue.label' ) );
+      $inputErrorMessage->setLabel( $i18n->l( 'error message', 'wbfsys.issue.label' ) );
 
       $inputErrorMessage->refresh           = $this->refresh;
       $inputErrorMessage->serializeElement  = $this->sendElement;

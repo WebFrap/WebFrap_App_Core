@@ -71,12 +71,13 @@ class WbfsysEntityRole_Ref_RoleActions_Table_Modal_View
     $access = $params->accessRoleActions;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'ajax.php?c=Wbfsys.EntityRole_Ref_RoleActions.search&amp;objid='.$objid;
+    $params->searchFormAction = 'ajax.php?c=Wbfsys.EntityRole_Ref_RoleActions.search&amp;objid='.$objid;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_entity_role-ref-role_actions-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_entity_role-ref-role_actions-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-role_actions-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'RoleActions' );

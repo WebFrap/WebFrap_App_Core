@@ -99,7 +99,12 @@ class WbfsysRoleGroup_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_role_group'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_role_group'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysRoleGroup_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.RoleGroup_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

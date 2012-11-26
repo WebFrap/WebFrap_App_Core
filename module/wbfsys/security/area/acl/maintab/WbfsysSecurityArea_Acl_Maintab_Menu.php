@@ -28,8 +28,14 @@
  * @licence WebFrap.net
  */
 class WbfsysSecurityArea_Acl_Maintab_Menu
-  extends Webfrap_Acl_Maintab_Menu
+  extends WgtDropmenu
 {
+
+	/**
+	* @var DomainNode
+	*/
+	public $domainNode = null;
+
 ////////////////////////////////////////////////////////////////////////////////
 // Menu Logic
 ////////////////////////////////////////////////////////////////////////////////
@@ -56,6 +62,11 @@ class WbfsysSecurityArea_Acl_Maintab_Menu
     $iconClose       = $this->view->icon('control/close.png'     , 'Close' );
     $iconMasks       = $this->view->icon('control/masks.png'     , 'Masks' );
     $iconMask        = $this->view->icon('control/mask.png'      , 'Mask' );
+    
+    $iconUser        = $this->view->icon( 'control/user.png'      , 'User' );
+    $iconGroup       = $this->view->icon( 'control/group.png'     , 'Group' );
+    $iconDset        = $this->view->icon( 'control/dset.png'      , 'Dset' );
+    
 
     
     // load entries
@@ -102,6 +113,47 @@ class WbfsysSecurityArea_Acl_Maintab_Menu
       class="wcm wgt-button wgtac_edit wcm_ui_tip"
       title="Save Changes" >{$iconEdit} {$this->view->i18n->l('Save','wbf.label')}</button>
   </div>
+  
+  <div 
+  	class="wgt-panel-control {$this->view->id}-wbfsys_security_area-acl box-qfd_users"
+  	style="display:none;"
+  	 >
+    <div 
+    	class="wcm wcm_control_buttonset wcm_ui_radio_tab wgt-button-set" 
+    	wgt_body="tab-box-{$this->domainNode->domainName}-acl-content"
+    	id="{$this->id}-boxtype" >
+      <input 
+      	type="radio" 
+      	class="{$this->id}-boxtype" 
+      	id="{$this->id}-boxtype-group"
+      	value="groups"
+      	name="grouping" 
+      	checked="checked" /><label 
+      		for="{$this->id}-boxtype-group" 
+      		class="wcm wcm_ui_tip-top"  
+      		tooltip="Group by group"  >{$iconGroup}</label>
+      <input 
+      	type="radio" 
+      	class="{$this->id}-boxtype" 
+      	id="{$this->id}-boxtype-user" 
+      	wgt_src="ajax.php?c=Acl.Mgmt_Qfdu.listByUsers&dkey={$this->domainNode->domainName}"
+      	value="users"
+      	name="grouping"  /><label 
+      		for="{$this->id}-boxtype-user" 
+      		class="wcm wcm_ui_tip-top" 
+      		tooltip="Group by user" >{$iconUser}</label>
+      <input 
+      	type="radio"
+      	class="{$this->id}-boxtype" 
+      	id="{$this->id}-boxtype-dset" 
+      	wgt_src="ajax.php?c=Acl.Mgmt_Qfdu.listByDsets&dkey={$this->domainNode->domainName}"
+      	value="dsets"
+      	name="grouping" /><label 
+      		for="{$this->id}-boxtype-dset" 
+      		class="wcm wcm_ui_tip-top" 
+      		tooltip="Group by {$this->domainNode->label}" >{$iconDset}</label>
+    </div>
+  </div>
 
 HTML;
 
@@ -132,10 +184,12 @@ HTML;
           class="wcm wcm_req_ajax" 
             href="modal.php?c=Webfrap.Docu.show&amp;key=wbfsys_security_area-acl" >{$iconHelp} {$this->view->i18n->l('Help','wbf.label')}</a>
         </li>
+        <!--
         <li><a 
           class="wcm wcm_req_ajax" 
           href="modal.php?c=Wbfsys.Issue.create&amp;refer=wbfsys_security_area-acl" >{$iconBug} {$this->view->i18n->l('Bug','wbf.label')}</a>
         </li>
+        -->
         <li><a 
           class="wcm wcm_req_ajax" 
           href="modal.php?c=Wbfsys.Faq.create&amp;refer=wbfsys_security_area-acl" >{$iconFaq} {$this->view->i18n->l('Faq','wbf.label')}</a>
@@ -175,11 +229,11 @@ HTML;
     self.getObject().find(".wgtac_mask_entity_rights").click(function(){
       \$S('#{$this->id}-control').dropdown('remove');
       self.close( );
-      \$R.get( 'maintab.php?c=Wbfsys.SecurityArea_Acl.listing' );
+      \$R.get( 'maintab.php?c=Mgmt.Acl.listing&dkey=wbfsys_security_area' );
     });
     
     self.getObject().find(".wgtac_masks_overview").click(function(){
-      \$R.get( 'modal.php?c=Wbfsys.SecurityArea_Acl.listAllMasks' );
+      \$R.get( 'modal.php?c=Mgmt.Acl.listAllMasks&dkey=wbfsys_security_area' );
       \$S('#{$this->id}-control').dropdown('close');
     });
     

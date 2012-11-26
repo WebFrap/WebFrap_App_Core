@@ -146,7 +146,7 @@ class WbfsysPackageStatus_Table_Access
 
     $criteria->select( array( 'wbfsys_package_status.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

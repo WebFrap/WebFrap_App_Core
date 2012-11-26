@@ -352,7 +352,7 @@ class MyMessage_Ref_Attachments_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysEntityAttachment) )
+      if( !$orm->insert( $entityWbfsysEntityAttachment ) )
       {
 
         $entityText = $entityWbfsysEntityAttachment->text();

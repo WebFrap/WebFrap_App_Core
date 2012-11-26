@@ -99,7 +99,12 @@ class CoreCountryCategory_Domain
    * @var string
    */
   public $aclKey = 'mgmt-core_country_category'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'core_country_category'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class CoreCountryCategory_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Core.CountryCategory_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

@@ -118,10 +118,12 @@ HTML;
           class="wcm wcm_req_ajax" 
           href="modal.php?c=Wbfsys.SecurityArea_Maintenance.help&amp;refer=wbfsys_message_profile_type-acl-path" >{$iconHelp} Help</a>
         </li>
+        <!--
         <li><a 
           class="wcm wcm_req_ajax" 
           href="modal.php?c=Wbfsys.Issue.create&amp;refer=wbfsys_message_profile_type-acl-path" >{$iconBug} Bug</a>
         </li>
+        -->
         <li><a 
           class="wcm wcm_req_ajax" 
           href="modal.php?c=Wbfsys.Faq.create&amp;refer=wbfsys_message_profile_type-acl-path" >{$iconFaq} Faq</a>

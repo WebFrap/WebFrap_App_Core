@@ -146,7 +146,7 @@ class WbfsysRoleMandant_Table_Access
 
     $criteria->select( array( 'wbfsys_role_mandant.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

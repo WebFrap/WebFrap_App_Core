@@ -374,6 +374,15 @@ class WbfsysActionLog_Table_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_action_log.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -519,17 +528,15 @@ class WbfsysActionLog_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_action_log.rowid' );
+      $criteria->selectAlso( 'wbfsys_action_log.rowid as "wbfsys_action_log-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -578,22 +585,13 @@ class WbfsysActionLog_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_action_log.rowid' );
       $criteria->selectAlso( 'wbfsys_action_log.rowid as "wbfsys_action_log-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -611,17 +609,7 @@ class WbfsysActionLog_Table_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_action_log.rowid' );
       $criteria->selectAlso( 'wbfsys_action_log.rowid as "wbfsys_action_log-rowid-order"' );
@@ -632,8 +620,6 @@ class WbfsysActionLog_Table_Query_Postgresql
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

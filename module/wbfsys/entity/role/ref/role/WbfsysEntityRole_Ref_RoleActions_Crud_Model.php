@@ -260,7 +260,7 @@ class WbfsysEntityRole_Ref_RoleActions_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysEntityRoleActions) )
+      if( !$orm->insert( $entityWbfsysEntityRoleActions ) )
       {
 
         $entityText = $entityWbfsysEntityRoleActions->text();

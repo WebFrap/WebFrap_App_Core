@@ -480,7 +480,7 @@ class WbfsysDocuTree_Crud_Show_Form
           'name'      => 'wbfsys_docu_tree[template]',
           'id'        => 'wgt-input-wbfsys_docu_tree_template'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip wcm_valid_cname medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Template', 'src' => 'Docu Tree' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'template', 'src' => 'Docu Tree' ) ),
           'maxlength' => $this->entity->maxSize( 'template' ),
         )
       );
@@ -489,7 +489,7 @@ class WbfsysDocuTree_Crud_Show_Form
       $inputTemplate->setReadonly( $this->fieldReadOnly( 'wbfsys_docu_tree', 'template' ) );
       $inputTemplate->setRequired( $this->fieldRequired( 'wbfsys_docu_tree', 'template' ) );
       $inputTemplate->setData( $this->entity->getSecure('template') );
-      $inputTemplate->setLabel( $i18n->l( 'Template', 'wbfsys.docu_tree.label' ) );
+      $inputTemplate->setLabel( $i18n->l( 'template', 'wbfsys.docu_tree.label' ) );
 
       $inputTemplate->refresh           = $this->refresh;
       $inputTemplate->serializeElement  = $this->sendElement;

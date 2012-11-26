@@ -260,7 +260,7 @@ class WbfsysRoleUserMaskEmployee_Ref_UserRoles_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysGroupUsers) )
+      if( !$orm->insert( $entityWbfsysGroupUsers ) )
       {
 
         $entityText = $entityWbfsysGroupUsers->text();

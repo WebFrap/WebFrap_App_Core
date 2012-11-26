@@ -99,7 +99,12 @@ class WbfsysImageFormat_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_image_format'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_image_format'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysImageFormat_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.ImageFormat_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

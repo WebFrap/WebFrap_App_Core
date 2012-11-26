@@ -131,6 +131,7 @@ class WbfsysMenuEntry_Treetable_Ui
       $searchElement->searchKey = 'wbfsys_menu_entry';
       $searchElement->advancedSearch = true;
       $searchElement->focus = true;
+      $searchElement->context = 'treetable';
       
 
     }

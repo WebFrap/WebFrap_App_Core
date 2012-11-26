@@ -99,7 +99,12 @@ class MyMessage_Domain
    * @var string
    */
   public $aclKey = 'mgmt-my_message'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'my_message'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class MyMessage_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'My.Message_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

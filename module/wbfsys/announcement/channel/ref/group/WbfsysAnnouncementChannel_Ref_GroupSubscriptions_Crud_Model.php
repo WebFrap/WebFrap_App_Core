@@ -260,7 +260,7 @@ class WbfsysAnnouncementChannel_Ref_GroupSubscriptions_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysAnnouncementChannelSubscription) )
+      if( !$orm->insert( $entityWbfsysAnnouncementChannelSubscription ) )
       {
 
         $entityText = $entityWbfsysAnnouncementChannelSubscription->text();

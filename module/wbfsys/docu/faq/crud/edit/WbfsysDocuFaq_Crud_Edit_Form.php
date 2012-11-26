@@ -286,7 +286,7 @@ class WbfsysDocuFaq_Crud_Edit_Form
           'name'      => 'wbfsys_docu_faq[question]',
           'id'        => 'wgt-input-wbfsys_docu_faq_question'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip xxlarge'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Question', 'src' => 'Docu Faq' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'question', 'src' => 'Docu Faq' ) ),
           'maxlength' => $this->entity->maxSize( 'question' ),
         )
       );
@@ -295,7 +295,7 @@ class WbfsysDocuFaq_Crud_Edit_Form
       $inputQuestion->setReadonly( $this->fieldReadOnly( 'wbfsys_docu_faq', 'question' ) );
       $inputQuestion->setRequired( $this->fieldRequired( 'wbfsys_docu_faq', 'question' ) );
       $inputQuestion->setData( $this->entity->getSecure('question') );
-      $inputQuestion->setLabel( $i18n->l( 'Question', 'wbfsys.docu_faq.label' ) );
+      $inputQuestion->setLabel( $i18n->l( 'question', 'wbfsys.docu_faq.label' ) );
 
       $inputQuestion->refresh           = $this->refresh;
       $inputQuestion->serializeElement  = $this->sendElement;
@@ -361,7 +361,7 @@ class WbfsysDocuFaq_Crud_Edit_Form
           'name'  => 'wbfsys_docu_faq[answer]',
           'id'    => 'wgt-input-wbfsys_docu_faq_answer'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip full large-height'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title' => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Answer', 'src' => 'Docu Faq' ) ),
+          'title' => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'answer', 'src' => 'Docu Faq' ) ),
         )
       );
       $inputAnswer->setWidth( 'full' );
@@ -371,7 +371,7 @@ class WbfsysDocuFaq_Crud_Edit_Form
       $inputAnswer->setRequired( $this->fieldRequired( 'wbfsys_docu_faq', 'answer' ) );
 
       $inputAnswer->setData( $this->entity->getSecure( 'answer' ) );
-      $inputAnswer->setLabel( $i18n->l( 'Answer', 'wbfsys.docu_faq.label' ) );
+      $inputAnswer->setLabel( $i18n->l( 'answer', 'wbfsys.docu_faq.label' ) );
 
       $inputAnswer->refresh           = $this->refresh;
       $inputAnswer->serializeElement  = $this->sendElement;

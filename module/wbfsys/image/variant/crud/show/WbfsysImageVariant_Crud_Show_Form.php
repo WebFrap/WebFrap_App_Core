@@ -432,7 +432,7 @@ class WbfsysImageVariant_Crud_Show_Form
           'name'      => 'wbfsys_image_variant[id_format]',
           'id'        => 'wgt-input-wbfsys_image_variant_id_format'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Format', 'src' => 'Image Variant' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'format', 'src' => 'Image Variant' ) ),
         )
       );
       $inputIdFormat->setWidth( 'medium' );
@@ -446,7 +446,7 @@ class WbfsysImageVariant_Crud_Show_Form
       $inputIdFormat->setRequired( $this->fieldRequired( 'wbfsys_image_variant', 'id_format' ) );
 
 
-      $inputIdFormat->setLabel( $i18n->l( 'Format', 'wbfsys.image_variant.label' ) );
+      $inputIdFormat->setLabel( $i18n->l( 'format', 'wbfsys.image_variant.label' ) );
 
 
       $acl = $this->getAcl();
@@ -458,7 +458,7 @@ class WbfsysImageVariant_Crud_Show_Form
         $inputIdFormat->editUrl = 'index.php?c=Wbfsys.ImageFormat.listing&amp;target='.$this->namespace.'&amp;field=id_format&amp;publish=selectbox&amp;suffix='.$this->suffix.'&amp;input_id=wgt-input-wbfsys_image_variant_id_format'.$this->suffix;
       }
       // set an empty first entry
-      $inputIdFormat->setFirstFree( 'No Format selected' );
+      $inputIdFormat->setFirstFree( 'No format selected' );
 
       
       $queryIdFormat = null;

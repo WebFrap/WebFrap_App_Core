@@ -71,12 +71,13 @@ class WbfsysAnnouncement_Ref_Status_Table_Modal_View
     $access = $params->accessStatus;
 
     // create the form action
-    if( !$params->searchFormAction )
-      $params->searchFormAction = 'ajax.php?c=Wbfsys.Announcement_Ref_Status.search&amp;objid='.$objid;
+    $params->searchFormAction = 'ajax.php?c=Wbfsys.Announcement_Ref_Status.search&amp;objid='.$objid;
 
     // add the id to the form
-    if( !$params->searchFormId )
-      $params->searchFormId = 'wgt-form-table-wbfsys_announcement-ref-status-search-'.$objid;
+    $params->searchFormId = 'wgt-form-table-wbfsys_announcement-ref-status-search-'.$objid;
+      
+    // fix the target id
+		$params->targetId = 'wgt-table-modal-ref-status-'.$objid;
 
     // fill the relevant data for the search form
     $this->setSearchFormData( $params, 'Status' );

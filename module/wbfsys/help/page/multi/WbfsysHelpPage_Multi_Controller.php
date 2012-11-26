@@ -109,6 +109,16 @@ class WbfsysHelpPage_Multi_Controller
       'method'    => array( 'DELETE' ),
       'views'      => array( 'ajax' )
     ),
+    'deleteselection' => array
+    (
+      'method'    => array( 'DELETE' ),
+      'views'      => array( 'ajax' )
+    ),
+    'deleteall' => array
+    (
+      'method'    => array( 'DELETE' ),
+      'views'      => array( 'ajax' )
+    ),
   );
 
 ////////////////////////////////////////////////////////////////////////////////

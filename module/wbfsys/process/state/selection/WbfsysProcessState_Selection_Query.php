@@ -350,6 +350,15 @@ class WbfsysProcessState_Selection_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_process_state.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -495,17 +504,15 @@ class WbfsysProcessState_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_process_state.rowid' );
+      $criteria->selectAlso( 'wbfsys_process_state.rowid as "wbfsys_process_state-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -554,22 +561,13 @@ class WbfsysProcessState_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_process_state.rowid' );
       $criteria->selectAlso( 'wbfsys_process_state.rowid as "wbfsys_process_state-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -587,17 +585,7 @@ class WbfsysProcessState_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_process_state.rowid' );
       $criteria->selectAlso( 'wbfsys_process_state.rowid as "wbfsys_process_state-rowid-order"' );
@@ -608,8 +596,6 @@ class WbfsysProcessState_Selection_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

@@ -99,7 +99,12 @@ class WbfsysMenuEntry_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_menu_entry'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_menu_entry'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysMenuEntry_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.MenuEntry_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

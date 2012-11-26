@@ -131,6 +131,7 @@ class WbfsysComment_Treetable_Ui
       $searchElement->searchKey = 'wbfsys_comment';
       $searchElement->advancedSearch = true;
       $searchElement->focus = true;
+      $searchElement->context = 'treetable';
       
 
     }

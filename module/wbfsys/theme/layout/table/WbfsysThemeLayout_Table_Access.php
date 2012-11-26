@@ -146,7 +146,7 @@ class WbfsysThemeLayout_Table_Access
 
     $criteria->select( array( 'wbfsys_theme_layout.rowid as rowid' )  );
 
-    if( !$this->defLevel || $this->isPartAssign )
+    if( !$this->defLevel && $this->isPartAssign )
     {
       $greatest = <<<SQL
 

@@ -401,7 +401,7 @@ class WbfsysColorScheme_Crud_Edit_Form
           'name'      => 'wbfsys_color_scheme[display_color]',
           'id'        => 'wgt-input-wbfsys_color_scheme_display_color'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Display color', 'src' => 'Color Scheme' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'display color', 'src' => 'Color Scheme' ) ),
           'maxlength' => $this->entity->maxSize( 'display_color' ),
         )
       );
@@ -410,7 +410,7 @@ class WbfsysColorScheme_Crud_Edit_Form
       $inputDisplayColor->setReadonly( $this->fieldReadOnly( 'wbfsys_color_scheme', 'display_color' ) );
       $inputDisplayColor->setRequired( $this->fieldRequired( 'wbfsys_color_scheme', 'display_color' ) );
       $inputDisplayColor->setData( $this->entity->getSecure( 'display_color' ) );
-      $inputDisplayColor->setLabel( $i18n->l( 'Display color', 'wbfsys.color_scheme.label' ) );
+      $inputDisplayColor->setLabel( $i18n->l( 'display color', 'wbfsys.color_scheme.label' ) );
 
       $inputDisplayColor->refresh           = $this->refresh;
       $inputDisplayColor->serializeElement  = $this->sendElement;
@@ -444,7 +444,7 @@ class WbfsysColorScheme_Crud_Edit_Form
           'name'      => 'wbfsys_color_scheme[bg_default]',
           'id'        => 'wgt-input-wbfsys_color_scheme_bg_default'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Bg default', 'src' => 'Color Scheme' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'bg default', 'src' => 'Color Scheme' ) ),
           'maxlength' => $this->entity->maxSize( 'bg_default' ),
         )
       );
@@ -453,7 +453,7 @@ class WbfsysColorScheme_Crud_Edit_Form
       $inputBgDefault->setReadonly( $this->fieldReadOnly( 'wbfsys_color_scheme', 'bg_default' ) );
       $inputBgDefault->setRequired( $this->fieldRequired( 'wbfsys_color_scheme', 'bg_default' ) );
       $inputBgDefault->setData( $this->entity->getSecure( 'bg_default' ) );
-      $inputBgDefault->setLabel( $i18n->l( 'Bg default', 'wbfsys.color_scheme.label' ) );
+      $inputBgDefault->setLabel( $i18n->l( 'bg default', 'wbfsys.color_scheme.label' ) );
 
       $inputBgDefault->refresh           = $this->refresh;
       $inputBgDefault->serializeElement  = $this->sendElement;
@@ -487,7 +487,7 @@ class WbfsysColorScheme_Crud_Edit_Form
           'name'      => 'wbfsys_color_scheme[font_default]',
           'id'        => 'wgt-input-wbfsys_color_scheme_font_default'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Font default', 'src' => 'Color Scheme' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'font default', 'src' => 'Color Scheme' ) ),
           'maxlength' => $this->entity->maxSize( 'font_default' ),
         )
       );
@@ -496,7 +496,7 @@ class WbfsysColorScheme_Crud_Edit_Form
       $inputFontDefault->setReadonly( $this->fieldReadOnly( 'wbfsys_color_scheme', 'font_default' ) );
       $inputFontDefault->setRequired( $this->fieldRequired( 'wbfsys_color_scheme', 'font_default' ) );
       $inputFontDefault->setData( $this->entity->getSecure( 'font_default' ) );
-      $inputFontDefault->setLabel( $i18n->l( 'Font default', 'wbfsys.color_scheme.label' ) );
+      $inputFontDefault->setLabel( $i18n->l( 'font default', 'wbfsys.color_scheme.label' ) );
 
       $inputFontDefault->refresh           = $this->refresh;
       $inputFontDefault->serializeElement  = $this->sendElement;
@@ -530,7 +530,7 @@ class WbfsysColorScheme_Crud_Edit_Form
           'name'      => 'wbfsys_color_scheme[border_default]',
           'id'        => 'wgt-input-wbfsys_color_scheme_border_default'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Border default', 'src' => 'Color Scheme' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'border default', 'src' => 'Color Scheme' ) ),
           'maxlength' => $this->entity->maxSize( 'border_default' ),
         )
       );
@@ -539,7 +539,7 @@ class WbfsysColorScheme_Crud_Edit_Form
       $inputBorderDefault->setReadonly( $this->fieldReadOnly( 'wbfsys_color_scheme', 'border_default' ) );
       $inputBorderDefault->setRequired( $this->fieldRequired( 'wbfsys_color_scheme', 'border_default' ) );
       $inputBorderDefault->setData( $this->entity->getSecure( 'border_default' ) );
-      $inputBorderDefault->setLabel( $i18n->l( 'Border default', 'wbfsys.color_scheme.label' ) );
+      $inputBorderDefault->setLabel( $i18n->l( 'border default', 'wbfsys.color_scheme.label' ) );
 
       $inputBorderDefault->refresh           = $this->refresh;
       $inputBorderDefault->serializeElement  = $this->sendElement;
@@ -573,7 +573,7 @@ class WbfsysColorScheme_Crud_Edit_Form
           'name'      => 'wbfsys_color_scheme[bg_active]',
           'id'        => 'wgt-input-wbfsys_color_scheme_bg_active'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Bg active', 'src' => 'Color Scheme' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'bg active', 'src' => 'Color Scheme' ) ),
           'maxlength' => $this->entity->maxSize( 'bg_active' ),
         )
       );
@@ -582,7 +582,7 @@ class WbfsysColorScheme_Crud_Edit_Form
       $inputBgActive->setReadonly( $this->fieldReadOnly( 'wbfsys_color_scheme', 'bg_active' ) );
       $inputBgActive->setRequired( $this->fieldRequired( 'wbfsys_color_scheme', 'bg_active' ) );
       $inputBgActive->setData( $this->entity->getSecure( 'bg_active' ) );
-      $inputBgActive->setLabel( $i18n->l( 'Bg active', 'wbfsys.color_scheme.label' ) );
+      $inputBgActive->setLabel( $i18n->l( 'bg active', 'wbfsys.color_scheme.label' ) );
 
       $inputBgActive->refresh           = $this->refresh;
       $inputBgActive->serializeElement  = $this->sendElement;
@@ -616,7 +616,7 @@ class WbfsysColorScheme_Crud_Edit_Form
           'name'      => 'wbfsys_color_scheme[font_active]',
           'id'        => 'wgt-input-wbfsys_color_scheme_font_active'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Font active', 'src' => 'Color Scheme' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'font active', 'src' => 'Color Scheme' ) ),
           'maxlength' => $this->entity->maxSize( 'font_active' ),
         )
       );
@@ -625,7 +625,7 @@ class WbfsysColorScheme_Crud_Edit_Form
       $inputFontActive->setReadonly( $this->fieldReadOnly( 'wbfsys_color_scheme', 'font_active' ) );
       $inputFontActive->setRequired( $this->fieldRequired( 'wbfsys_color_scheme', 'font_active' ) );
       $inputFontActive->setData( $this->entity->getSecure( 'font_active' ) );
-      $inputFontActive->setLabel( $i18n->l( 'Font active', 'wbfsys.color_scheme.label' ) );
+      $inputFontActive->setLabel( $i18n->l( 'font active', 'wbfsys.color_scheme.label' ) );
 
       $inputFontActive->refresh           = $this->refresh;
       $inputFontActive->serializeElement  = $this->sendElement;
@@ -659,7 +659,7 @@ class WbfsysColorScheme_Crud_Edit_Form
           'name'      => 'wbfsys_color_scheme[border_active]',
           'id'        => 'wgt-input-wbfsys_color_scheme_border_active'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Border active', 'src' => 'Color Scheme' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'border active', 'src' => 'Color Scheme' ) ),
           'maxlength' => $this->entity->maxSize( 'border_active' ),
         )
       );
@@ -668,7 +668,7 @@ class WbfsysColorScheme_Crud_Edit_Form
       $inputBorderActive->setReadonly( $this->fieldReadOnly( 'wbfsys_color_scheme', 'border_active' ) );
       $inputBorderActive->setRequired( $this->fieldRequired( 'wbfsys_color_scheme', 'border_active' ) );
       $inputBorderActive->setData( $this->entity->getSecure( 'border_active' ) );
-      $inputBorderActive->setLabel( $i18n->l( 'Border active', 'wbfsys.color_scheme.label' ) );
+      $inputBorderActive->setLabel( $i18n->l( 'border active', 'wbfsys.color_scheme.label' ) );
 
       $inputBorderActive->refresh           = $this->refresh;
       $inputBorderActive->serializeElement  = $this->sendElement;
@@ -702,7 +702,7 @@ class WbfsysColorScheme_Crud_Edit_Form
           'name'      => 'wbfsys_color_scheme[bg_hover]',
           'id'        => 'wgt-input-wbfsys_color_scheme_bg_hover'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Bg hover', 'src' => 'Color Scheme' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'bg hover', 'src' => 'Color Scheme' ) ),
           'maxlength' => $this->entity->maxSize( 'bg_hover' ),
         )
       );
@@ -711,7 +711,7 @@ class WbfsysColorScheme_Crud_Edit_Form
       $inputBgHover->setReadonly( $this->fieldReadOnly( 'wbfsys_color_scheme', 'bg_hover' ) );
       $inputBgHover->setRequired( $this->fieldRequired( 'wbfsys_color_scheme', 'bg_hover' ) );
       $inputBgHover->setData( $this->entity->getSecure( 'bg_hover' ) );
-      $inputBgHover->setLabel( $i18n->l( 'Bg hover', 'wbfsys.color_scheme.label' ) );
+      $inputBgHover->setLabel( $i18n->l( 'bg hover', 'wbfsys.color_scheme.label' ) );
 
       $inputBgHover->refresh           = $this->refresh;
       $inputBgHover->serializeElement  = $this->sendElement;
@@ -745,7 +745,7 @@ class WbfsysColorScheme_Crud_Edit_Form
           'name'      => 'wbfsys_color_scheme[font_hover]',
           'id'        => 'wgt-input-wbfsys_color_scheme_font_hover'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Font hover', 'src' => 'Color Scheme' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'font hover', 'src' => 'Color Scheme' ) ),
           'maxlength' => $this->entity->maxSize( 'font_hover' ),
         )
       );
@@ -754,7 +754,7 @@ class WbfsysColorScheme_Crud_Edit_Form
       $inputFontHover->setReadonly( $this->fieldReadOnly( 'wbfsys_color_scheme', 'font_hover' ) );
       $inputFontHover->setRequired( $this->fieldRequired( 'wbfsys_color_scheme', 'font_hover' ) );
       $inputFontHover->setData( $this->entity->getSecure( 'font_hover' ) );
-      $inputFontHover->setLabel( $i18n->l( 'Font hover', 'wbfsys.color_scheme.label' ) );
+      $inputFontHover->setLabel( $i18n->l( 'font hover', 'wbfsys.color_scheme.label' ) );
 
       $inputFontHover->refresh           = $this->refresh;
       $inputFontHover->serializeElement  = $this->sendElement;
@@ -788,7 +788,7 @@ class WbfsysColorScheme_Crud_Edit_Form
           'name'      => 'wbfsys_color_scheme[border_hover]',
           'id'        => 'wgt-input-wbfsys_color_scheme_border_hover'.($this->suffix?'-'.$this->suffix:''),
           'class'     => 'wcm wcm_ui_tip medium'.($this->assignedForm?' asgd-'.$this->assignedForm:''),
-          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'Border hover', 'src' => 'Color Scheme' ) ),
+          'title'     => $i18n->l( 'Insert value for {@attr@} ({@src@})', 'wbf.label', array( 'attr' => 'border hover', 'src' => 'Color Scheme' ) ),
           'maxlength' => $this->entity->maxSize( 'border_hover' ),
         )
       );
@@ -797,7 +797,7 @@ class WbfsysColorScheme_Crud_Edit_Form
       $inputBorderHover->setReadonly( $this->fieldReadOnly( 'wbfsys_color_scheme', 'border_hover' ) );
       $inputBorderHover->setRequired( $this->fieldRequired( 'wbfsys_color_scheme', 'border_hover' ) );
       $inputBorderHover->setData( $this->entity->getSecure( 'border_hover' ) );
-      $inputBorderHover->setLabel( $i18n->l( 'Border hover', 'wbfsys.color_scheme.label' ) );
+      $inputBorderHover->setLabel( $i18n->l( 'border hover', 'wbfsys.color_scheme.label' ) );
 
       $inputBorderHover->refresh           = $this->refresh;
       $inputBorderHover->serializeElement  = $this->sendElement;

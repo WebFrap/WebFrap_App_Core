@@ -99,7 +99,12 @@ class CorePerson_Domain
    * @var string
    */
   public $aclKey = 'mgmt-core_person'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'core_person'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class CorePerson_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Core.Person_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

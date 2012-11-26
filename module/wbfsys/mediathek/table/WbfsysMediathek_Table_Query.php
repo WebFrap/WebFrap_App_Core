@@ -374,6 +374,15 @@ class WbfsysMediathek_Table_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_mediathek.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -519,17 +528,15 @@ class WbfsysMediathek_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_mediathek.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_mediathek.name' );
+      $criteria->selectAlso( 'wbfsys_mediathek.name as "wbfsys_mediathek-name-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -578,22 +585,13 @@ class WbfsysMediathek_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_mediathek.name' );
       $criteria->selectAlso( 'wbfsys_mediathek.name as "wbfsys_mediathek-name-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -611,17 +609,7 @@ class WbfsysMediathek_Table_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_mediathek.name' );
       $criteria->selectAlso( 'wbfsys_mediathek.name as "wbfsys_mediathek-name-order"' );
@@ -632,8 +620,6 @@ class WbfsysMediathek_Table_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

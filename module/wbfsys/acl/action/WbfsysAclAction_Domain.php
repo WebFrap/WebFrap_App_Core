@@ -99,7 +99,12 @@ class WbfsysAclAction_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_acl_action'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_acl_action'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysAclAction_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.AclAction_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

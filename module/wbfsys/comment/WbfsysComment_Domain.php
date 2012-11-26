@@ -99,7 +99,12 @@ class WbfsysComment_Domain
    * @var string
    */
   public $aclKey = 'mgmt-wbfsys_comment'; 
-   
+  
+  /**
+   * @var string
+   */
+  public $aclDomainKey = 'wbfsys_comment'; 
+  
   /**
    * @var string
    */
@@ -118,7 +123,7 @@ class WbfsysComment_Domain
   /**
    * @var string
    */
-  public $domainAclUrl = 'Wbfsys.Comment_Acl';
+  public $domainAclUrl = 'Acl.Mgmt';
    
   /**
    * @var string

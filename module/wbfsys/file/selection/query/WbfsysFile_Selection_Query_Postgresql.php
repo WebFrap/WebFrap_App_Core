@@ -349,6 +349,15 @@ class WbfsysFile_Selection_Query_Postgresql
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_file.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -418,17 +427,15 @@ class WbfsysFile_Selection_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
-      $criteria->orderBy( 'wbfsys_file.rowid' );
+     // inject the default order
 
-    }
+      $criteria->orderBy( 'wbfsys_file.name' );
+      $criteria->selectAlso( 'wbfsys_file.name as "wbfsys_file-name-order"' );
+
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -477,22 +484,13 @@ class WbfsysFile_Selection_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_file.name' );
       $criteria->selectAlso( 'wbfsys_file.name as "wbfsys_file-name-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -510,17 +508,7 @@ class WbfsysFile_Selection_Query_Postgresql
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_file.name' );
       $criteria->selectAlso( 'wbfsys_file.name as "wbfsys_file-name-order"' );
@@ -531,8 +519,6 @@ class WbfsysFile_Selection_Query_Postgresql
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */

@@ -260,7 +260,7 @@ class WbfsysDashboard_Ref_Widgets_Crud_Model
         );
       }
 
-      if( !$orm->insert($entityWbfsysDashboardWidget) )
+      if( !$orm->insert( $entityWbfsysDashboardWidget ) )
       {
 
         $entityText = $entityWbfsysDashboardWidget->text();

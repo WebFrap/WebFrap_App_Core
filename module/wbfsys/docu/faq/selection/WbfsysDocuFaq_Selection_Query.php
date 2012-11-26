@@ -350,6 +350,15 @@ class WbfsysDocuFaq_Selection_Query
   public function checkConditions( $criteria, array $condition )
   {
 
+    	
+    	// in query wenn ids vorhanden sind
+    	if( isset($condition['ids']) && !empty( $condition['ids'] ) )
+    	{
+				$criteria->where
+        (
+          'wbfsys_docu_faq.rowid = IN( '. implode( ', ', $condition['ids'] ) .' ) ';
+        );
+    	}
 
       if( isset($condition['free']) && trim( $condition['free'] ) != ''  )
       {
@@ -454,17 +463,15 @@ class WbfsysDocuFaq_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
 
-    }
-    else // if not use the default
-    {
+     // inject the default order
+
       $criteria->orderBy( 'wbfsys_docu_faq.rowid' );
+      $criteria->selectAlso( 'wbfsys_docu_faq.rowid as "wbfsys_docu_faq-rowid-order"' );
 
-    }
+
+
+
 
     // Check the offset
     if( $params->start )
@@ -513,22 +520,13 @@ class WbfsysDocuFaq_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_docu_faq.rowid' );
       $criteria->selectAlso( 'wbfsys_docu_faq.rowid as "wbfsys_docu_faq-rowid-order"' );
 
 
 
-
-    }
 
 
   }//end public function injectOrder */
@@ -546,17 +544,7 @@ class WbfsysDocuFaq_Selection_Query
   {
 
 
-    // check if there is a given order
-    if( $params->order )
-    {
-      $criteria->orderBy( $params->order );
-
-
-
-    }
-    else // if not use the default
-    {
-
+     // inject the default order
 
       $criteria->orderBy( 'wbfsys_docu_faq.rowid' );
       $criteria->selectAlso( 'wbfsys_docu_faq.rowid as "wbfsys_docu_faq-rowid-order"' );
@@ -567,8 +555,6 @@ class WbfsysDocuFaq_Selection_Query
 
 
 
-
-    }
 
 
   }//end public function injectAclOrder */
